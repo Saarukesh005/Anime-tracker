@@ -3,15 +3,15 @@
   "placeholderImages": [
     {
       "id": "hero-banner",
-      "description": "A famous and visually stunning anime scene used for the main dashboard banner.",
+      "description": "Cyberpunk anime city at night, futuristic skyscrapers with neon purple and blue lights, flying trains and holograms.",
       "imageUrl": "https://picsum.photos/seed/animehero/1200/600",
-      "imageHint": "anime landscape"
+      "imageHint": "cyberpunk cityscape"
     },
     {
       "id": "auth-background",
-      "description": "An anime-style illustration for the authentication pages background.",
+      "description": "A mysterious anime-style figure in a neon-lit cyberpunk city, with atmospheric mist and vibrant glows.",
       "imageUrl": "https://picsum.photos/seed/authbg/800/1200",
-      "imageHint": "anime character"
+      "imageHint": "cyberpunk character"
     },
     {
       "id": "anime-1",
@@ -255,5 +255,3 @@
     }
   ]
 }
-
-    
