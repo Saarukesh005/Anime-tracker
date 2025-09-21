@@ -1,4 +1,28 @@
-import type { Anime } from './types';
+import type { Anime, Season, Episode } from './types';
+
+// Helper function to generate mock seasons and episodes
+const generateSeasons = (numSeasons: number, totalEpisodes: number): Season[] => {
+  const seasons: Season[] = [];
+  let episodeCount = 0;
+  const episodesPerSeason = Math.ceil(totalEpisodes / numSeasons);
+
+  for (let i = 1; i <= numSeasons; i++) {
+    const episodes: Episode[] = [];
+    const seasonEpisodeCount = (i === numSeasons) ? (totalEpisodes - episodeCount) : episodesPerSeason;
+    
+    for (let j = 1; j <= seasonEpisodeCount; j++) {
+       episodeCount++;
+      episodes.push({
+        id: episodeCount,
+        title: `Episode ${j}: The Adventure Begins`,
+        watched: false,
+      });
+    }
+    seasons.push({ seasonNumber: i, episodes });
+  }
+  return seasons;
+};
+
 
 export const allAnime: Anime[] = [
   {
@@ -6,8 +30,8 @@ export const allAnime: Anime[] = [
     title: "Titan's Wrath",
     description: "In a world where humanity is on the brink of extinction, giant titans roam the land. A young boy vows to exterminate them all after they destroy his hometown.",
     coverImageId: "anime-1",
-    seasons: 4,
-    episodes: 75,
+    seasons: generateSeasons(4, 75),
+    totalEpisodes: 75,
     rating: 9.1,
     genres: ["Action", "Dark Fantasy", "Post-apocalyptic"],
     status: 'Completed'
@@ -17,8 +41,8 @@ export const allAnime: Anime[] = [
     title: "Mystic Academy",
     description: "A seemingly ordinary student discovers he possesses immense magical powers and is enrolled in a prestigious academy for mages.",
     coverImageId: "anime-2",
-    seasons: 2,
-    episodes: 24,
+    seasons: generateSeasons(2, 24),
+    totalEpisodes: 24,
     rating: 8.5,
     genres: ["Fantasy", "School", "Magic"],
     status: 'Watching'
@@ -28,8 +52,8 @@ export const allAnime: Anime[] = [
     title: "CyberRonin",
     description: "In the neon-drenched streets of Neo-Kyoto, a lone cyborg samurai seeks revenge on the corporation that betrayed him.",
     coverImageId: "anime-3",
-    seasons: 1,
-    episodes: 12,
+    seasons: generateSeasons(1, 12),
+    totalEpisodes: 12,
     rating: 8.8,
     genres: ["Cyberpunk", "Action", "Sci-Fi"],
     status: 'Plan to Watch'
@@ -39,8 +63,8 @@ export const allAnime: Anime[] = [
     title: "Galaxy Drifters",
     description: "A ragtag crew of space explorers travels the cosmos in search of ancient alien artifacts, evading galactic empires and rival treasure hunters.",
     coverImageId: "anime-4",
-    seasons: 3,
-    episodes: 50,
+    seasons: generateSeasons(3, 50),
+    totalEpisodes: 50,
     rating: 8.2,
     genres: ["Space Opera", "Adventure", "Sci-Fi"],
     status: 'Watching'
@@ -50,8 +74,8 @@ export const allAnime: Anime[] = [
     title: "Slice of Life Cafe",
     description: "The heartwarming stories of the staff and patrons of a small, cozy cafe in a quiet neighborhood of Tokyo.",
     coverImageId: "anime-5",
-    seasons: 2,
-    episodes: 24,
+    seasons: generateSeasons(2, 24),
+    totalEpisodes: 24,
     rating: 7.9,
     genres: ["Slice of Life", "Comedy"],
     status: 'Completed'
@@ -61,8 +85,8 @@ export const allAnime: Anime[] = [
     title: "The Last Summoner",
     description: "In a land where summoning magic is forbidden, a young girl discovers she is the last of her kind and must master her powers to save the world.",
     coverImageId: "anime-6",
-    seasons: 1,
-    episodes: 13,
+    seasons: generateSeasons(1, 13),
+    totalEpisodes: 13,
     rating: 8.6,
     genres: ["Fantasy", "Magic", "Adventure"],
     status: 'Plan to Watch'
@@ -72,8 +96,8 @@ export const allAnime: Anime[] = [
     title: "Neon Tokyo",
     description: "Exploring the vibrant and often dangerous nightlife of a futuristic Tokyo through the eyes of a disillusioned detective.",
     coverImageId: "anime-7",
-    seasons: 1,
-    episodes: 10,
+    seasons: generateSeasons(1, 10),
+    totalEpisodes: 10,
     rating: 8.1,
     genres: ["Mystery", "Cyberpunk", "Psychological"],
     status: 'On-Hold'
@@ -83,8 +107,8 @@ export const allAnime: Anime[] = [
     title: "Forest Spirit",
     description: "A girl raised by forest spirits must bridge the gap between the encroaching human world and the sacred woods she calls home.",
     coverImageId: "anime-8",
-    seasons: 1,
-    episodes: 12,
+    seasons: generateSeasons(1, 12),
+    totalEpisodes: 12,
     rating: 8.9,
     genres: ["Fantasy", "Slice of Life", "Supernatural"],
     status: 'Completed'
@@ -94,8 +118,8 @@ export const allAnime: Anime[] = [
     title: "Mecha Warriors",
     description: "Teenage pilots must command giant robots to defend Earth from an alien invasion.",
     coverImageId: "anime-9",
-    seasons: 5,
-    episodes: 150,
+    seasons: generateSeasons(5, 150),
+    totalEpisodes: 150,
     rating: 7.8,
     genres: ["Mecha", "Action", "Sci-Fi"],
     status: 'Dropped'
@@ -105,8 +129,8 @@ export const allAnime: Anime[] = [
     title: "Vampire Requiem",
     description: "A tragic love story between a human and a vampire, set against the backdrop of a centuries-old war between their species.",
     coverImageId: "anime-10",
-    seasons: 2,
-    episodes: 24,
+    seasons: generateSeasons(2, 24),
+    totalEpisodes: 24,
     rating: 8.4,
     genres: ["Romance", "Supernatural", "Drama"],
     status: 'Watching'
@@ -116,8 +140,8 @@ export const allAnime: Anime[] = [
     title: "Detective K",
     description: "A brilliant but eccentric high school detective solves impossible cases while juggling school life.",
     coverImageId: "anime-11",
-    seasons: 3,
-    episodes: 36,
+    seasons: generateSeasons(3, 36),
+    totalEpisodes: 36,
     rating: 8.7,
     genres: ["Mystery", "Comedy", "School"],
     status: 'Plan to Watch'
@@ -127,8 +151,8 @@ export const allAnime: Anime[] = [
     title: "Idol Stage",
     description: "A group of aspiring idols work together to achieve their dream of becoming top stars.",
     coverImageId: "anime-12",
-    seasons: 2,
-    episodes: 25,
+    seasons: generateSeasons(2, 25),
+    totalEpisodes: 25,
     rating: 7.5,
     genres: ["Music", "Slice of Life"],
     status: 'Completed'
@@ -138,8 +162,8 @@ export const allAnime: Anime[] = [
     title: "Samurai's Path",
     description: "A wandering ronin in feudal Japan seeks redemption by protecting the innocent.",
     coverImageId: "anime-13",
-    seasons: 1,
-    episodes: 12,
+    seasons: generateSeasons(1, 12),
+    totalEpisodes: 12,
     rating: 8.3,
     genres: ["Historical", "Action", "Samurai"],
     status: 'Watching'
@@ -149,8 +173,8 @@ export const allAnime: Anime[] = [
     title: "Gourmet Journey",
     description: "A young chef travels the world to discover rare ingredients and create the ultimate dish.",
     coverImageId: "anime-14",
-    seasons: 2,
-    episodes: 24,
+    seasons: generateSeasons(2, 24),
+    totalEpisodes: 24,
     rating: 8.0,
     genres: ["Food", "Adventure"],
     status: 'Plan to Watch'
@@ -160,8 +184,8 @@ export const allAnime: Anime[] = [
     title: "Time Traveler's Diary",
     description: "A scientist invents a time machine and must fix the paradoxes he creates while exploring history.",
     coverImageId: "anime-15",
-    seasons: 1,
-    episodes: 13,
+    seasons: generateSeasons(1, 13),
+    totalEpisodes: 13,
     rating: 8.8,
     genres: ["Sci-Fi", "Thriller"],
     status: 'Completed'
@@ -171,8 +195,8 @@ export const allAnime: Anime[] = [
     title: "Cursed Blade",
     description: "A warrior wields a sentient, demonic sword that grants immense power at a terrible cost.",
     coverImageId: "anime-16",
-    seasons: 2,
-    episodes: 24,
+    seasons: generateSeasons(2, 24),
+    totalEpisodes: 24,
     rating: 9.0,
     genres: ["Dark Fantasy", "Action", "Supernatural"],
     status: 'Watching'
@@ -182,8 +206,8 @@ export const allAnime: Anime[] = [
     title: "Sports Dream",
     description: "An underdog high school basketball team aims for the national championship.",
     coverImageId: "anime-17",
-    seasons: 3,
-    episodes: 64,
+    seasons: generateSeasons(3, 64),
+    totalEpisodes: 64,
     rating: 8.5,
     genres: ["Sports", "School", "Drama"],
     status: 'Completed'
@@ -193,8 +217,8 @@ export const allAnime: Anime[] = [
     title: "Kingdom of Ash",
     description: "A princess must reclaim her throne from a usurper with the help of a loyal knight.",
     coverImageId: "anime-18",
-    seasons: 1,
-    episodes: 12,
+    seasons: generateSeasons(1, 12),
+    totalEpisodes: 12,
     rating: 7.9,
     genres: ["Fantasy", "Adventure", "Medieval"],
     status: 'On-Hold'
@@ -204,8 +228,8 @@ export const allAnime: Anime[] = [
     title: "Parallel World",
     description: "A group of friends is transported to a fantasy world and must find a way back home.",
     coverImageId: "anime-19",
-    seasons: 1,
-    episodes: 25,
+    seasons: generateSeasons(1, 25),
+    totalEpisodes: 25,
     rating: 8.1,
     genres: ["Isekai", "Adventure", "Fantasy"],
     status: 'Plan to Watch'
@@ -215,8 +239,8 @@ export const allAnime: Anime[] = [
     title: "Silent Voice",
     description: "A former bully tries to make amends with the deaf girl he tormented in elementary school.",
     coverImageId: "anime-20",
-    seasons: 1,
-    episodes: 1,
+    seasons: generateSeasons(1, 1),
+    totalEpisodes: 1,
     rating: 9.0,
     genres: ["Drama", "School", "Slice of Life"],
     status: 'Completed'
@@ -226,8 +250,8 @@ export const allAnime: Anime[] = [
     title: "Ghost Hunter",
     description: "A cynical college student who can see ghosts partners with a ghost girl to solve supernatural incidents.",
     coverImageId: "anime-21",
-    seasons: 2,
-    episodes: 24,
+    seasons: generateSeasons(2, 24),
+    totalEpisodes: 24,
     rating: 8.4,
     genres: ["Supernatural", "Comedy", "Mystery"],
     status: 'Watching'
@@ -237,8 +261,8 @@ export const allAnime: Anime[] = [
     title: "The Alchemist's Secret",
     description: "Two brothers search for the Philosopher's Stone to restore their bodies after a failed alchemical experiment.",
     coverImageId: "anime-22",
-    seasons: 1,
-    episodes: 51,
+    seasons: generateSeasons(1, 51),
+    totalEpisodes: 51,
     rating: 9.1,
     genres: ["Adventure", "Fantasy", "Action"],
     status: 'Completed'
@@ -248,8 +272,8 @@ export const allAnime: Anime[] = [
     title: "Ocean's Lullaby",
     description: "The story of a friendship between a human girl and a mermaid, exploring the beauty and dangers of the sea.",
     coverImageId: "anime-23",
-    seasons: 1,
-    episodes: 12,
+    seasons: generateSeasons(1, 12),
+    totalEpisodes: 12,
     rating: 8.2,
     genres: ["Fantasy", "Slice of Life"],
     status: 'Plan to Watch'
@@ -259,8 +283,8 @@ export const allAnime: Anime[] = [
     title: "Code Zero",
     description: "A team of hackers fights against a corrupt global surveillance system.",
     coverImageId: "anime-24",
-    seasons: 2,
-    episodes: 22,
+    seasons: generateSeasons(2, 22),
+    totalEpisodes: 22,
     rating: 8.6,
     genres: ["Thriller", "Sci-Fi", "Action"],
     status: 'Watching'
@@ -270,8 +294,8 @@ export const allAnime: Anime[] = [
     title: "Love in Spring",
     description: "A shy high school girl falls in love with the popular boy in her class, leading to a sweet and awkward romance.",
     coverImageId: "anime-25",
-    seasons: 2,
-    episodes: 24,
+    seasons: generateSeasons(2, 24),
+    totalEpisodes: 24,
     rating: 7.8,
     genres: ["Romance", "Comedy", "School"],
     status: 'Completed'
@@ -281,8 +305,8 @@ export const allAnime: Anime[] = [
     title: "War Chronicles",
     description: "A historical epic depicting a brutal war from the perspective of two soldiers on opposing sides.",
     coverImageId: "anime-26",
-    seasons: 1,
-    episodes: 13,
+    seasons: generateSeasons(1, 13),
+    totalEpisodes: 13,
     rating: 8.9,
     genres: ["Military", "Historical", "Drama"],
     status: 'Plan to Watch'
@@ -292,8 +316,8 @@ export const allAnime: Anime[] = [
     title: "Pet Friends",
     description: "A heartwarming comedy about a veterinarian and the quirky pets and owners she encounters.",
     coverImageId: "anime-27",
-    seasons: 3,
-    episodes: 36,
+    seasons: generateSeasons(3, 36),
+    totalEpisodes: 36,
     rating: 7.6,
     genres: ["Comedy", "Slice of Life"],
     status: 'On-Hold'
@@ -303,8 +327,8 @@ export const allAnime: Anime[] = [
     title: "Dragon's Peak",
     description: "A young dragon tamer must prove his worth to his clan by climbing the treacherous Dragon's Peak.",
     coverImageId: "anime-28",
-    seasons: 1,
-    episodes: 12,
+    seasons: generateSeasons(1, 12),
+    totalEpisodes: 12,
     rating: 8.3,
     genres: ["Fantasy", "Adventure"],
     status: 'Watching'
@@ -314,8 +338,8 @@ export const allAnime: Anime[] = [
     title: "Sky Pirates",
     description: "In a world of floating islands and airships, a young girl joins a crew of sky pirates to find her long-lost father.",
     coverImageId: "anime-29",
-    seasons: 2,
-    episodes: 26,
+    seasons: generateSeasons(2, 26),
+    totalEpisodes: 26,
     rating: 8.5,
     genres: ["Steampunk", "Adventure", "Fantasy"],
     status: 'Completed'
@@ -325,8 +349,8 @@ export const allAnime: Anime[] = [
     title: "Ninja Scroll Redux",
     description: "A masterless ninja wanders a war-torn land, battling demons and corrupt lords.",
     coverImageId: "anime-30",
-    seasons: 1,
-    episodes: 13,
+    seasons: generateSeasons(1, 13),
+    totalEpisodes: 13,
     rating: 8.7,
     genres: ["Action", "Adventure", "Historical"],
     status: 'Plan to Watch'
@@ -336,8 +360,8 @@ export const allAnime: Anime[] = [
     title: "Galactic Football",
     description: "In the future, the most popular sport is a high-tech version of football played between planets.",
     coverImageId: "anime-31",
-    seasons: 3,
-    episodes: 78,
+    seasons: generateSeasons(3, 78),
+    totalEpisodes: 78,
     rating: 7.9,
     genres: ["Sports", "Sci-Fi"],
     status: 'Completed'
@@ -347,8 +371,8 @@ export const allAnime: Anime[] = [
     title: "The King's Avatar",
     description: "A top-tier professional player in an online multiplayer game is forced to retire, but he soon starts a new journey with a new character.",
     coverImageId: "anime-32",
-    seasons: 2,
-    episodes: 24,
+    seasons: generateSeasons(2, 24),
+    totalEpisodes: 24,
     rating: 8.2,
     genres: ["Action", "Game", "Adventure"],
     status: 'Watching'
@@ -358,8 +382,8 @@ export const allAnime: Anime[] = [
     title: "Silver Spoon",
     description: "A city boy enrolls in an agricultural high school in the countryside, learning about life, farming, and friendship.",
     coverImageId: "anime-33",
-    seasons: 2,
-    episodes: 22,
+    seasons: generateSeasons(2, 22),
+    totalEpisodes: 22,
     rating: 8.4,
     genres: ["Slice of Life", "Comedy", "School"],
     status: 'Completed'
@@ -369,8 +393,8 @@ export const allAnime: Anime[] = [
     title: "Psycho-Frame",
     description: "In a future where psychic powers are common, a special police unit hunts down rogue espers.",
     coverImageId: "anime-34",
-    seasons: 1,
-    episodes: 12,
+    seasons: generateSeasons(1, 12),
+    totalEpisodes: 12,
     rating: 8.0,
     genres: ["Action", "Sci-Fi", "Police"],
     status: 'Plan to Watch'
@@ -380,8 +404,8 @@ export const allAnime: Anime[] = [
     title: "The Tea House",
     description: "The quiet, contemplative life of a tea master and the various patrons who visit his traditional tea house.",
     coverImageId: "anime-35",
-    seasons: 1,
-    episodes: 10,
+    seasons: generateSeasons(1, 10),
+    totalEpisodes: 10,
     rating: 7.7,
     genres: ["Slice of Life", "Historical"],
     status: 'On-Hold'
@@ -391,8 +415,8 @@ export const allAnime: Anime[] = [
     title: "Monster Hunter's Guild",
     description: "A young adventurer joins a guild of monster hunters to protect villages from terrifying beasts.",
     coverImageId: "anime-36",
-    seasons: 3,
-    episodes: 36,
+    seasons: generateSeasons(3, 36),
+    totalEpisodes: 36,
     rating: 8.5,
     genres: ["Fantasy", "Action", "Adventure"],
     status: 'Watching'
@@ -402,8 +426,8 @@ export const allAnime: Anime[] = [
     title: "Chrono Nexus",
     description: "A secret organization of time agents works to prevent history from being altered by temporal criminals.",
     coverImageId: "anime-37",
-    seasons: 2,
-    episodes: 24,
+    seasons: generateSeasons(2, 24),
+    totalEpisodes: 24,
     rating: 8.6,
     genres: ["Sci-Fi", "Action", "Thriller"],
     status: 'Plan to Watch'
@@ -413,8 +437,8 @@ export const allAnime: Anime[] = [
     title: "The Pianist's Melody",
     description: "A prodigious young pianist struggles with the pressures of fame and competition in the world of classical music.",
     coverImageId: "anime-38",
-    seasons: 1,
-    episodes: 12,
+    seasons: generateSeasons(1, 12),
+    totalEpisodes: 12,
     rating: 8.8,
     genres: ["Music", "Drama", "Slice of Life"],
     status: 'Completed'
@@ -424,8 +448,8 @@ export const allAnime: Anime[] = [
     title: "The Underworld Chef",
     description: "A chef opens a restaurant that caters to creatures of the night, including vampires, werewolves, and ghosts.",
     coverImageId: "anime-39",
-    seasons: 1,
-    episodes: 13,
+    seasons: generateSeasons(1, 13),
+    totalEpisodes: 13,
     rating: 7.9,
     genres: ["Supernatural", "Comedy", "Fantasy"],
     status: 'Dropped'
@@ -435,8 +459,8 @@ export const allAnime: Anime[] = [
     title: "Blade of the Immortal",
     description: "A samurai cursed with immortality must kill one thousand evil men to regain his mortality.",
     coverImageId: "anime-40",
-    seasons: 1,
-    episodes: 24,
+    seasons: generateSeasons(1, 24),
+    totalEpisodes: 24,
     rating: 9.0,
     genres: ["Action", "Historical", "Supernatural"],
     status: 'Watching'
@@ -444,5 +468,3 @@ export const allAnime: Anime[] = [
 ];
 
 export const trendingAnime = allAnime.slice(0, 6);
-
-    

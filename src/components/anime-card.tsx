@@ -29,7 +29,7 @@ export default function AnimeCard({ anime }: Props) {
             <h3 className="font-semibold font-headline truncate group-hover:text-primary transition-colors">
               {anime.title}
             </h3>
-            <p className="text-xs text-muted-foreground">{anime.seasons} Season(s)</p>
+            <p className="text-xs text-muted-foreground">{anime.seasons.length} Season(s)</p>
           </div>
         </CardContent>
       </Card>

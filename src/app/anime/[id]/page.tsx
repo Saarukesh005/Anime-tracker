@@ -7,9 +7,9 @@ import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Progress } from '@/components/ui/progress';
 import { Separator } from '@/components/ui/separator';
-import { Textarea } from '@/components/ui/textarea';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
-import { Clapperboard, Star, Tv } from 'lucide-react';
+import { Clapperboard, Star, Tv, CheckCircle2 } from 'lucide-react';
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 
 type Props = {
   params: { id: string };
@@ -23,7 +23,7 @@ export default function AnimeDetailPage({ params }: Props) {
   }
 
   const coverImage = placeholderImages.find(p => p.id === anime.coverImageId);
-  const progress = (12 / anime.episodes) * 100; // Mocked progress
+  const progress = (12 / anime.totalEpisodes) * 100; // Mocked progress
 
   return (
     <div className="max-w-6xl mx-auto">
@@ -46,7 +46,7 @@ export default function AnimeDetailPage({ params }: Props) {
             <CardContent>
               <div className="space-y-2">
                 <Progress value={progress} />
-                <p className="text-sm text-muted-foreground text-center">12 / {anime.episodes} episodes watched</p>
+                <p className="text-sm text-muted-foreground text-center">12 / {anime.totalEpisodes} episodes watched</p>
                 <Button className="w-full neon-glow-primary mt-2">Mark Next Episode</Button>
               </div>
             </CardContent>
@@ -66,14 +66,41 @@ export default function AnimeDetailPage({ params }: Props) {
           <h1 className="text-4xl md:text-5xl font-bold font-headline">{anime.title}</h1>
           <div className="flex items-center gap-4 mt-2 mb-4 text-muted-foreground">
             <div className="flex items-center gap-1"><Star className="w-4 h-4 text-amber-400" /> <span>{anime.rating}/10</span></div>
-            <div className="flex items-center gap-1"><Tv className="w-4 h-4" /> <span>{anime.seasons} Season(s)</span></div>
-            <div className="flex items-center gap-1"><Clapperboard className="w-4 h-4" /> <span>{anime.episodes} Episodes</span></div>
+            <div className="flex items-center gap-1"><Tv className="w-4 h-4" /> <span>{anime.seasons.length} Season(s)</span></div>
+            <div className="flex items-center gap-1"><Clapperboard className="w-4 h-4" /> <span>{anime.totalEpisodes} Episodes</span></div>
           </div>
           <div className="flex flex-wrap gap-2 my-4">
             {anime.genres.map((genre) => <Badge key={genre} variant="secondary">{genre}</Badge>)}
           </div>
           <p className="text-lg leading-relaxed">{anime.description}</p>
           
+          <Separator className="my-8" />
+
+          <div>
+            <h2 className="text-3xl font-bold font-headline mb-6">Seasons & Episodes</h2>
+             <Accordion type="single" collapsible className="w-full">
+                {anime.seasons.map((season) => (
+                    <AccordionItem value={`season-${season.seasonNumber}`} key={season.seasonNumber}>
+                    <AccordionTrigger>
+                        <h3 className="text-xl font-semibold">Season {season.seasonNumber}</h3>
+                    </AccordionTrigger>
+                    <AccordionContent>
+                        <ul className="space-y-2 pl-4">
+                        {season.episodes.map((episode) => (
+                            <li key={episode.id} className="flex items-center justify-between p-2 rounded-md hover:bg-muted/50">
+                                <span>{episode.title}</span>
+                                <Button variant="ghost" size="sm">
+                                    <CheckCircle2 className="w-5 h-5 text-muted-foreground hover:text-primary" />
+                                </Button>
+                            </li>
+                        ))}
+                        </ul>
+                    </AccordionContent>
+                    </AccordionItem>
+                ))}
+            </Accordion>
+          </div>
+
           <Separator className="my-8" />
 
           <div>
@@ -85,7 +112,7 @@ export default function AnimeDetailPage({ params }: Props) {
               </CardHeader>
               <CardContent>
                 <div className="space-y-4">
-                  <Textarea placeholder={`What are your thoughts on ${anime.title}?`} rows={4} />
+                  <textarea placeholder={`What are your thoughts on ${anime.title}?`} rows={4} className="w-full p-2 border rounded-md bg-input" />
                   <div className="flex justify-end">
                     <Button className="neon-glow">Post Comment</Button>
                   </div>
