@@ -44,6 +44,12 @@
       "imageHint": "demon slayer tanjiro"
     },
     {
+      "id": "hero-banner-8",
+      "description": "Stranger Things poster with characters.",
+      "imageUrl": "https://images.wallpapersden.com/image/download/stranger-things-hd-netflix-experience_bWlla2mUmZqaraWkpJRmbmdlrWZlbWU.jpg",
+      "imageHint": "stranger things poster"
+    },
+    {
       "id": "auth-background",
       "description": "Cyberpunk anime city at night, futuristic skyscrapers glowing with neon purple and blue lights, flying trains and holograms, giant mysterious anime-style figure in the distance, vibrant neon glow, cinematic lighting, high detail, ultra-realistic anime art style.",
       "imageUrl": "https://picsum.photos/seed/authbg/800/1200",
