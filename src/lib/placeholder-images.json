@@ -38,7 +38,7 @@
     { "id": "anime-rezero", "imageUrl": "https://m.media-amazon.com/images/M/MV5BNjE4NjJ0M2ItODViNS00ZGRkLTk4ZTEtNTBkZWRjY2ZlMjYwXkEyXkFqcGdeQXVyNjAwNDY0MDA@._V1_FMjpg_UX1000_.jpg", "imageHint": "rezero cover" },
     { "id": "anime-konosuba", "imageUrl": "https://m.media-amazon.com/images/M/MV5BNzJjZmM0NWYtODZkMC00MTI2LTk0YWEtOTc1YjQxM2U2NjdkXkEyXkFqcGdeQXVyNjAwNDY0MDA@._V1_FMjpg_UX1000_.jpg", "imageHint": "konosuba cover" },
     { "id": "anime-shield-hero", "imageUrl": "https://m.media-amazon.com/images/M/MV5BZDg5ZDg0YmYtYjU4My00YjFjLTk3MWMtMzA0ZDA1MTA4NmViXkEyXkFqcGdeQXVyMTA4NjE0NjEy._V1_FMjpg_UX1000_.jpg", "imageHint": "shield hero cover" },
-    { "id": "anime-vinland-saga", "imageUrl": "https://m.media-amazon.com/images/M/MV5BY2IyNzYxZjEtMTU1MC00MzYyLWEyZjgtYmY2YTA4NWFkMGMxXkEyXkFqcGdeQXVyNjAwNDY0MDA@._V1_FMjpg_UX1000_.jpg", "imageHint": "vinland saga cover" },
+    { "id": "anime-vinland-saga", "imageUrl": "https://m.media-amazon.com/images/M/MV5BZTNiOTk4NTgtNjIxOC00MjFhLTk1MTYtNzcwMGRkYmFjZWY1XkEyXkFqcGdeQXVyNDg1MTQ1NjY@.V1.jpg", "imageHint": "vinland saga cover" },
     { "id": "anime-solo-leveling", "imageUrl": "https://m.media-amazon.com/images/M/MV5BYzZlOTY5OGEtY2Y0Zi00ZTEyLTkzYjItYmY4NWEyNzRjYTEwXkEyXkFqcGdeQXVyMzgxODM4NjM@._V1_FMjpg_UX1000_.jpg", "imageHint": "solo leveling cover" },
     { "id": "anime-chainsaw-man", "imageUrl": "https://m.media-amazon.com/images/M/MV5BMzY3YmU0MGItZTA3Ny00MWVmLWJmMjktYjc3Yjg1NmYxYjc4XkEyXkFqcGdeQXVyMzgxODM4NjM@._V1_FMjpg_UX1000_.jpg", "imageHint": "chainsaw man cover" },
     { "id": "anime-spy-family", "imageUrl": "https://m.media-amazon.com/images/M/MV5BOTE5ZTY0ZDMtYjY4OS00MTQ2LTk5ZTMtY2E5YWFmYTU2MGIyXkEyXkFqcGdeQXVyMzgxODM4NjM@._V1_FMjpg_UX1000_.jpg", "imageHint": "spy x family cover" },
@@ -67,5 +67,3 @@
     { "id": "tv-dark", "imageUrl": "https://m.media-amazon.com/images/M/MV5BOTk2NzUyOTctZDdlMS00MDJlLTgzNTEtNzQzYjFhNjA0YjBjXkEyXkFqcGdeQXVyMjg1NDcyMjY@._V1_FMjpg_UX1000_.jpg", "imageHint": "dark cover" }
   ]
 }
-
-    
