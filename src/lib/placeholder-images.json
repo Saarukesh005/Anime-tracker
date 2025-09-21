@@ -2,10 +2,16 @@
 {
   "placeholderImages": [
     {
-      "id": "hero-banner",
+      "id": "hero-banner-1",
       "description": "Demon Slayer characters in front of the Infinity Castle.",
       "imageUrl": "https://images2.alphacoders.com/139/1398043.jpg",
       "imageHint": "demon slayer castle"
+    },
+    {
+      "id": "hero-banner-2",
+      "description": "A collage of different anime characters.",
+      "imageUrl": "https://images5.alphacoders.com/532/532559.jpg",
+      "imageHint": "anime collage characters"
     },
     {
       "id": "auth-background",

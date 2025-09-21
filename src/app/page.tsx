@@ -5,7 +5,7 @@ import { placeholderImages } from '@/lib/placeholder-images.json';
 import { Card, CardContent } from '@/components/ui/card';
 
 export default function GetStartedPage() {
-  const famousAnimeImage = placeholderImages.find(p => p.id === "hero-banner")!;
+  const famousAnimeImage = placeholderImages.find(p => p.id === "hero-banner-1")!;
 
   return (
      <div className="space-y-12">
