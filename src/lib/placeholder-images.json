@@ -3,255 +3,255 @@
   "placeholderImages": [
     {
       "id": "hero-banner",
-      "description": "Cyberpunk anime city at night, futuristic skyscrapers with neon purple and blue lights, flying trains and holograms.",
+      "description": "Cyberpunk anime city at night, futuristic skyscrapers glowing with neon purple and blue lights, flying trains and holograms, atmospheric mist, giant mysterious anime-style figure in the distance, vibrant neon glow, cinematic lighting, high detail.",
       "imageUrl": "https://picsum.photos/seed/animehero/1200/600",
       "imageHint": "cyberpunk cityscape"
     },
     {
       "id": "auth-background",
-      "description": "A mysterious anime-style figure in a neon-lit cyberpunk city, with atmospheric mist and vibrant glows.",
+      "description": "A mysterious anime-style figure in a neon-lit cyberpunk city at night, with atmospheric mist, vibrant purple and blue glows, and holographic advertisements in the background.",
       "imageUrl": "https://picsum.photos/seed/authbg/800/1200",
       "imageHint": "cyberpunk character"
     },
     {
       "id": "anime-1",
-      "description": "Cover image for Titan's Wrath",
+      "description": "Cover image for Titan's Wrath, a dark fantasy anime.",
       "imageUrl": "https://picsum.photos/seed/titan/400/600",
-      "imageHint": "Titan's Wrath dark fantasy"
+      "imageHint": "dark fantasy"
     },
     {
       "id": "anime-2",
-      "description": "Cover image for Mystic Academy",
+      "description": "Cover image for Mystic Academy, a magic school anime.",
       "imageUrl": "https://picsum.photos/seed/mystic/400/600",
-      "imageHint": "Mystic Academy magic"
+      "imageHint": "magic school"
     },
     {
       "id": "anime-3",
-      "description": "Cover image for CyberRonin",
+      "description": "Cover image for CyberRonin, a cyberpunk samurai anime.",
       "imageUrl": "https://picsum.photos/seed/cyber/400/600",
-      "imageHint": "CyberRonin cyberpunk"
+      "imageHint": "cyberpunk samurai"
     },
     {
       "id": "anime-4",
-      "description": "Cover image for Galaxy Drifters",
+      "description": "Cover image for Galaxy Drifters, a space opera anime.",
       "imageUrl": "https://picsum.photos/seed/galaxy/400/600",
-      "imageHint": "Galaxy Drifters space"
+      "imageHint": "space opera"
     },
     {
       "id": "anime-5",
-      "description": "Cover image for Slice of Life Cafe",
+      "description": "Cover image for Slice of Life Cafe, a cozy cafe anime.",
       "imageUrl": "https://picsum.photos/seed/cafe/400/600",
-      "imageHint": "Slice of Life Cafe"
+      "imageHint": "cozy cafe"
     },
     {
       "id": "anime-6",
-      "description": "Cover image for The Last Summoner",
+      "description": "Cover image for The Last Summoner, a fantasy adventure anime.",
       "imageUrl": "https://picsum.photos/seed/summoner/400/600",
-      "imageHint": "The Last Summoner fantasy"
+      "imageHint": "fantasy adventure"
     },
     {
       "id": "anime-7",
-      "description": "Cover image for Neon Tokyo",
+      "description": "Cover image for Neon Tokyo, a cyberpunk mystery anime.",
       "imageUrl": "https://picsum.photos/seed/neotokyo/400/600",
-      "imageHint": "Neon Tokyo cyberpunk"
+      "imageHint": "cyberpunk mystery"
     },
     {
       "id": "anime-8",
-      "description": "Cover image for Forest Spirit",
+      "description": "Cover image for Forest Spirit, a supernatural fantasy anime.",
       "imageUrl": "https://picsum.photos/seed/forestspirit/400/600",
-      "imageHint": "Forest Spirit supernatural"
+      "imageHint": "supernatural fantasy"
     },
     {
       "id": "anime-9",
-      "description": "Cover image for Mecha Warriors",
+      "description": "Cover image for Mecha Warriors, a mecha sci-fi anime.",
       "imageUrl": "https://picsum.photos/seed/mecha/400/600",
-      "imageHint": "Mecha Warriors sci-fi"
+      "imageHint": "mecha sci-fi"
     },
     {
       "id": "anime-10",
-      "description": "Cover image for Vampire Requiem",
+      "description": "Cover image for Vampire Requiem, a supernatural romance anime.",
       "imageUrl": "https://picsum.photos/seed/vampire/400/600",
-      "imageHint": "Vampire Requiem romance"
+      "imageHint": "supernatural romance"
     },
     {
       "id": "anime-11",
-      "description": "Cover image for Detective K",
+      "description": "Cover image for Detective K, a school mystery anime.",
       "imageUrl": "https://picsum.photos/seed/detective/400/600",
-      "imageHint": "Detective K mystery"
+      "imageHint": "school mystery"
     },
     {
       "id": "anime-12",
-      "description": "Cover image for Idol Stage",
+      "description": "Cover image for Idol Stage, a music slice of life anime.",
       "imageUrl": "https://picsum.photos/seed/idol/400/600",
-      "imageHint": "Idol Stage music"
+      "imageHint": "music slice"
     },
     {
       "id": "anime-13",
-      "description": "Cover image for Samurai's Path",
+      "description": "Cover image for Samurai's Path, a historical action anime.",
       "imageUrl": "https://picsum.photos/seed/samurai/400/600",
-      "imageHint": "Samurai's Path historical"
+      "imageHint": "historical action"
     },
     {
       "id": "anime-14",
-      "description": "Cover image for Gourmet Journey",
+      "description": "Cover image for Gourmet Journey, a food adventure anime.",
       "imageUrl": "https://picsum.photos/seed/gourmet/400/600",
-      "imageHint": "Gourmet Journey food"
+      "imageHint": "food adventure"
     },
     {
       "id": "anime-15",
-      "description": "Cover image for Time Traveler's Diary",
+      "description": "Cover image for Time Traveler's Diary, a sci-fi thriller anime.",
       "imageUrl": "https://picsum.photos/seed/timetravel/400/600",
-      "imageHint": "Time Traveler's Diary sci-fi"
+      "imageHint": "sci-fi thriller"
     },
     {
       "id": "anime-16",
-      "description": "Cover image for Cursed Blade",
+      "description": "Cover image for Cursed Blade, a dark fantasy action anime.",
       "imageUrl": "https://picsum.photos/seed/cursedblade/400/600",
-      "imageHint": "Cursed Blade dark fantasy"
+      "imageHint": "dark fantasy"
     },
     {
       "id": "anime-17",
-      "description": "Cover image for Sports Dream",
+      "description": "Cover image for Sports Dream, a school sports drama anime.",
       "imageUrl": "https://picsum.photos/seed/sports/400/600",
-      "imageHint": "Sports Dream drama"
+      "imageHint": "sports drama"
     },
     {
       "id": "anime-18",
-      "description": "Cover image for Kingdom of Ash",
+      "description": "Cover image for Kingdom of Ash, a medieval fantasy anime.",
       "imageUrl": "https://picsum.photos/seed/kingdomash/400/600",
-      "imageHint": "Kingdom of Ash fantasy"
+      "imageHint": "medieval fantasy"
     },
     {
       "id": "anime-19",
-      "description": "Cover image for Parallel World",
+      "description": "Cover image for Parallel World, an isekai adventure anime.",
       "imageUrl": "https://picsum.photos/seed/parallel/400/600",
-      "imageHint": "Parallel World isekai"
+      "imageHint": "isekai adventure"
     },
     {
       "id": "anime-20",
-      "description": "Cover image for Silent Voice",
+      "description": "Cover image for Silent Voice, a school drama anime.",
       "imageUrl": "https://picsum.photos/seed/silentvoice/400/600",
-      "imageHint": "Silent Voice drama"
+      "imageHint": "school drama"
     },
     {
       "id": "anime-21",
-      "description": "Cover image for Ghost Hunter",
+      "description": "Cover image for Ghost Hunter, a supernatural mystery anime.",
       "imageUrl": "https://picsum.photos/seed/ghosthunter/400/600",
-      "imageHint": "Ghost Hunter supernatural"
+      "imageHint": "supernatural mystery"
     },
     {
       "id": "anime-22",
-      "description": "Cover image for The Alchemist's Secret",
+      "description": "Cover image for The Alchemist's Secret, a fantasy adventure anime.",
       "imageUrl": "https://picsum.photos/seed/alchemist/400/600",
-      "imageHint": "Alchemist's Secret adventure"
+      "imageHint": "fantasy adventure"
     },
     {
       "id": "anime-23",
-      "description": "Cover image for Ocean's Lullaby",
+      "description": "Cover image for Ocean's Lullaby, a fantasy slice of life anime.",
       "imageUrl": "https://picsum.photos/seed/ocean/400/600",
-      "imageHint": "Ocean's Lullaby fantasy"
+      "imageHint": "fantasy slice"
     },
     {
       "id": "anime-24",
-      "description": "Cover image for Code Zero",
+      "description": "Cover image for Code Zero, a sci-fi thriller anime.",
       "imageUrl": "https://picsum.photos/seed/codezero/400/600",
-      "imageHint": "Code Zero thriller"
+      "imageHint": "sci-fi thriller"
     },
     {
       "id": "anime-25",
-      "description": "Cover image for Love in Spring",
+      "description": "Cover image for Love in Spring, a school romance anime.",
       "imageUrl": "https://picsum.photos/seed/lovespring/400/600",
-      "imageHint": "Love in Spring romance"
+      "imageHint": "school romance"
     },
     {
       "id": "anime-26",
-      "description": "Cover image for War Chronicles",
+      "description": "Cover image for War Chronicles, a military historical anime.",
       "imageUrl": "https://picsum.photos/seed/warchronicles/400/600",
-      "imageHint": "War Chronicles military"
+      "imageHint": "military historical"
     },
     {
       "id": "anime-27",
-      "description": "Cover image for Pet Friends",
+      "description": "Cover image for Pet Friends, a comedy slice of life anime.",
       "imageUrl": "https://picsum.photos/seed/petfriends/400/600",
-      "imageHint": "Pet Friends comedy"
+      "imageHint": "comedy slice"
     },
     {
       "id": "anime-28",
-      "description": "Cover image for Dragon's Peak",
+      "description": "Cover image for Dragon's Peak, a fantasy adventure anime.",
       "imageUrl": "https://picsum.photos/seed/dragonpeak/400/600",
-      "imageHint": "Dragon's Peak fantasy"
+      "imageHint": "fantasy adventure"
     },
     {
       "id": "anime-29",
-      "description": "Cover image for Sky Pirates",
+      "description": "Cover image for Sky Pirates, a steampunk adventure anime.",
       "imageUrl": "https://picsum.photos/seed/skypirates/400/600",
-      "imageHint": "Sky Pirates steampunk"
+      "imageHint": "steampunk adventure"
     },
     {
       "id": "anime-30",
-      "description": "Cover image for Ninja Scroll Redux",
+      "description": "Cover image for Ninja Scroll Redux, a historical action anime.",
       "imageUrl": "https://picsum.photos/seed/ninjaredux/400/600",
-      "imageHint": "Ninja Scroll Redux action"
+      "imageHint": "historical action"
     },
     {
       "id": "anime-31",
-      "description": "Cover image for Galactic Football",
+      "description": "Cover image for Galactic Football, a sci-fi sports anime.",
       "imageUrl": "https://picsum.photos/seed/galacticfootball/400/600",
-      "imageHint": "Galactic Football sci-fi"
+      "imageHint": "sci-fi sports"
     },
     {
       "id": "anime-32",
-      "description": "Cover image for The King's Avatar",
+      "description": "Cover image for The King's Avatar, an action game anime.",
       "imageUrl": "https://picsum.photos/seed/kingsavatar/400/600",
-      "imageHint": "The King's Avatar action"
+      "imageHint": "action game"
     },
     {
       "id": "anime-33",
-      "description": "Cover image for Silver Spoon",
+      "description": "Cover image for Silver Spoon, a school slice of life anime.",
       "imageUrl": "https://picsum.photos/seed/silverspoon/400/600",
-      "imageHint": "Silver Spoon slice of life"
+      "imageHint": "school slice"
     },
     {
       "id": "anime-34",
-      "description": "Cover image for Psycho-Frame",
+      "description": "Cover image for Psycho-Frame, a sci-fi police anime.",
       "imageUrl": "https://picsum.photos/seed/psychoframe/400/600",
-      "imageHint": "Psycho-Frame action"
+      "imageHint": "sci-fi police"
     },
     {
       "id": "anime-35",
-      "description": "Cover image for The Tea House",
+      "description": "Cover image for The Tea House, a historical slice of life anime.",
       "imageUrl": "https://picsum.photos/seed/teahouse/400/600",
-      "imageHint": "The Tea House slice of life"
+      "imageHint": "historical slice"
     },
     {
       "id": "anime-36",
-      "description": "Cover image for Monster Hunter's Guild",
+      "description": "Cover image for Monster Hunter's Guild, a fantasy action anime.",
       "imageUrl": "https://picsum.photos/seed/monsterhunter/400/600",
-      "imageHint": "Monster Hunter's Guild fantasy"
+      "imageHint": "fantasy action"
     },
     {
       "id": "anime-37",
-      "description": "Cover image for Chrono Nexus",
+      "description": "Cover image for Chrono Nexus, a sci-fi action anime.",
       "imageUrl": "https://picsum.photos/seed/chrononexus/400/600",
-      "imageHint": "Chrono Nexus sci-fi"
+      "imageHint": "sci-fi action"
     },
     {
       "id": "anime-38",
-      "description": "Cover image for The Pianist's Melody",
+      "description": "Cover image for The Pianist's Melody, a music drama anime.",
       "imageUrl": "https://picsum.photos/seed/pianistmelody/400/600",
-      "imageHint": "The Pianist's Melody music"
+      "imageHint": "music drama"
     },
     {
       "id": "anime-39",
-      "description": "Cover image for The Underworld Chef",
+      "description": "Cover image for The Underworld Chef, a supernatural comedy anime.",
       "imageUrl": "https://picsum.photos/seed/underworldchef/400/600",
-      "imageHint": "The Underworld Chef supernatural"
+      "imageHint": "supernatural comedy"
     },
     {
       "id": "anime-40",
-      "description": "Cover image for Blade of the Immortal",
+      "description": "Cover image for Blade of the Immortal, a supernatural historical anime.",
       "imageUrl": "https://picsum.photos/seed/bladeimmortal/400/600",
-      "imageHint": "Blade of the Immortal supernatural"
+      "imageHint": "supernatural historical"
     }
   ]
 }
