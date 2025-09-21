@@ -31,7 +31,7 @@ export default function ImageGeneratorForm() {
     },
   });
 
-  const onSubmit = async (data: FormData) => {
+  const handleSubmit = async (data: FormData) => {
     setIsLoading(true);
     setGeneratedImage(null);
     try {
@@ -55,7 +55,7 @@ export default function ImageGeneratorForm() {
   return (
     <div>
       <Form {...form}>
-        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+        <form onSubmit={form.handleSubmit(handleSubmit)} className="space-y-6">
           <FormField
             control={form.control}
             name="prompt"
