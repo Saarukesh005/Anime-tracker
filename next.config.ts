@@ -52,6 +52,12 @@ const nextConfig: NextConfig = {
         hostname: 'images.justwatch.com',
         port: '',
         pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'play-lh.googleusercontent.com',
+        port: '',
+        pathname: '/**',
       }
     ],
   },

@@ -15,7 +15,7 @@
     },
     { "id": "anime-naruto", "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQNEHESpG8IwStL4ZajCudpH7lTOzaKVyATgQ&s", "imageHint": "naruto cover" },
     { "id": "anime-naruto-shippuden", "imageUrl": "https://images.justwatch.com/poster/244481506/s718/naruto-shippuden.jpg", "imageHint": "naruto shippuden cover" },
-    { "id": "anime-boruto", "imageUrl": "https://m.media-amazon.com/images/M/MV5BNDgzYzNhOGUtMWI1Mi00YjJkLWI2NGItOWFlNDE4ZjE0NGExXkEyXkFqcGdeQXVyMTI2MzY1MTk0._V1_FMjpg_UX1000_.jpg", "imageHint": "boruto cover" },
+    { "id": "anime-boruto", "imageUrl": "https://play-lh.googleusercontent.com/fpKiLZfp5jl3tKPj7fI_p9cb2rhp-ORUkG9xTH4mbimIQEQMITLGxlYUMgtTJo-31OG9Ocv6kLsH7WjP5i0=w240-h480-rw", "imageHint": "boruto cover" },
     { "id": "anime-dbz", "imageUrl": "https://upload.wikimedia.org/wikipedia/en/e/e8/Dragon_Ball_Z_volume_1.jpg", "imageHint": "dragon ball z cover" },
     { "id": "anime-dbs", "imageUrl": "https://upload.wikimedia.org/wikipedia/en/9/95/Dragon_Ball_Super_manga_volume_1_cover.jpg", "imageHint": "dragon ball super cover" },
     { "id": "anime-one-piece", "imageUrl": "https://upload.wikimedia.org/wikipedia/en/9/90/One_Piece%2C_Volume_1_Cover_%28Japanese%29.jpg", "imageHint": "one piece cover" },
