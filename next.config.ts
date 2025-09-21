@@ -100,6 +100,12 @@ const nextConfig: NextConfig = {
         hostname: 'images5.alphacoders.com',
         port: '',
         pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'wallpapers.com',
+        port: '',
+        pathname: '/**',
       }
     ],
   },
@@ -108,6 +114,8 @@ const nextConfig: NextConfig = {
 export default nextConfig;
 
     
+    
+
     
 
     
