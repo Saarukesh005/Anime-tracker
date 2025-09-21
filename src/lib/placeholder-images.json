@@ -37,7 +37,7 @@
     { "id": "anime-evangelion", "imageUrl": "https://m.media-amazon.com/images/M/MV5BODZkZjM0YWEtYjdmOC00ZGU5LTk4YTctOTU3YjMyY2M5ZDA5XkEyXkFqcGdeQXVyNjAwNDY0MDA@._V1_FMjpg_UX1000_.jpg", "imageHint": "neon genesis evangelion cover" },
     { "id": "anime-rezero", "imageUrl": "https://m.media-amazon.com/images/M/MV5BNjE4NjJ0M2ItODViNS00ZGRkLTk4ZTEtNTBkZWRjY2ZlMjYwXkEyXkFqcGdeQXVyNjAwNDY0MDA@._V1_FMjpg_UX1000_.jpg", "imageHint": "rezero cover" },
     { "id": "anime-konosuba", "imageUrl": "https://m.media-amazon.com/images/M/MV5BNzJjZmM0NWYtODZkMC00MTI2LTk0YWEtOTc1YjQxM2U2NjdkXkEyXkFqcGdeQXVyNjAwNDY0MDA@._V1_FMjpg_UX1000_.jpg", "imageHint": "konosuba cover" },
-    { "id": "anime-shield-hero", "imageUrl": "https://m.media-amazon.com/images/M/MV5BZDg5ZDg0YmYtYjU4My00YjFjLTk3MWMtMzA0ZDA1MTA4NmViXkEyXkFqcGdeQXVyMTA4NjE0NjEy._V1_FMjpg_UX1000_.jpg", "imageHint": "shield hero cover" },
+    { "id": "anime-shield-hero", "imageUrl": "https://m.media-amazon.com/images/M/MV5BZjc4ZGZkNjMtZTRkYS00Mjk4LTgwMzAtMzg1MWZlZjcxNDRhXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg", "imageHint": "shield hero cover" },
     { "id": "anime-vinland-saga", "imageUrl": "https://m.media-amazon.com/images/M/MV5BZTNiOTk4NTgtNjIxOC00MjFhLTk1MTYtNzcwMGRkYmFjZWY1XkEyXkFqcGdeQXVyNDg1MTQ1NjY@.V1.jpg", "imageHint": "vinland saga cover" },
     { "id": "anime-solo-leveling", "imageUrl": "https://m.media-amazon.com/images/M/MV5BYzZlOTY5OGEtY2Y0Zi00ZTEyLTkzYjItYmY4NWEyNzRjYTEwXkEyXkFqcGdeQXVyMzgxODM4NjM@._V1_FMjpg_UX1000_.jpg", "imageHint": "solo leveling cover" },
     { "id": "anime-chainsaw-man", "imageUrl": "https://m.media-amazon.com/images/M/MV5BMzY3YmU0MGItZTA3Ny00MWVmLWJmMjktYjc3Yjg1NmYxYjc4XkEyXkFqcGdeQXVyMzgxODM4NjM@._V1_FMjpg_UX1000_.jpg", "imageHint": "chainsaw man cover" },
