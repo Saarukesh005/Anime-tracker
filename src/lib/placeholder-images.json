@@ -67,7 +67,7 @@
     { "id": "tv-the-boys", "imageUrl": "https://m.media-amazon.com/images/M/MV5BOTEyNDJhMDAtY2U5ZS00OTMzLTkwODItM2Y0NGYxZWMzOWUdXkEyXkFqcGdeQXVyMTEyMjM2NDc2._V1_FMjpg_UX1000_.jpg", "imageHint": "the boys cover" },
     { "id": "tv-umbrella-academy", "imageUrl": "https://m.media-amazon.com/images/M/MV5BOTdlODM0MTAtMzRiZi00YjI3LWFjZWItMmM4YjJjYTM3YjdmXkEyXkFqcGdeQXVyMTEyMjM2NDc2._V1_FMjpg_UX1000_.jpg", "imageHint": "the umbrella academy cover" },
     { "id": "tv-loki", "imageUrl": "https://m.media-amazon.com/images/M/MV5BNTkwOTE1ZDYtODQ3Yy00YTYwLTg0YWItYmY5NDJkNTU1NDA4XkEyXkFqcGdeQXVyMTEyMjM2NDc2._V1_FMjpg_UX1000_.jpg", "imageHint": "loki cover" },
-    { "id": "tv-moon-knight", "imageUrl": "https://m.media-amazon.com/images/M/MV5BYTc5OWNhYjktMThlOS00ODUxLTgwNDQtZDY5YmY4ZjRjY2E4XkEyXkFqcGdeQXVyNTA3MTU2MjE@._V1_FMjpg_UX1000_.jpg", "imageHint": "moon knight cover" },
+    { "id": "tv-moon-knight", "imageUrl": "https://m.media-amazon.com/images/M/MV5BYTc5OWNhYjktMThlOS00ODUxLTgwNDQtZDY5YmY4ZjRjY2E4XkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg", "imageHint": "moon knight cover" },
     { "id": "tv-wandavision", "imageUrl": "https://m.media-amazon.com/images/M/MV5BZGEwYmMwZmMtMTQ3MS00YWNhLWEwMmQtZTU5YTI4DI0NzU2XkEyXkFqcGdeQXVyMTI5MzA5MjA1._V1_FMjpg_UX1000_.jpg", "imageHint": "wandavision cover" },
     { "id": "tv-daredevil", "imageUrl": "https://m.media-amazon.com/images/M/MV5BODcwOTg2MjA0OF5BMl5BanBnXkFtZTgwOTY0NzU3NzM@._V1_FMjpg_UX1000_.jpg", "imageHint": "daredevil cover" },
     { "id": "tv-arrow", "imageUrl": "https://m.media-amazon.com/images/M/MV5BMTI0NTMwMDgtYTMzZC00YmJhLTg4NzMtMTc1NjI4NDQwY2E4XkEyXkFqcGdeQXVyNjk1Njg5NTA@._V1_FMjpg_UX1000_.jpg", "imageHint": "arrow cover" },
@@ -79,8 +79,3 @@
     { "id": "tv-dark", "imageUrl": "https://m.media-amazon.com/images/M/MV5BOTk2NzUyOTctZDdlMS00MDJlLTgzNTEtNzQzYjFhNjA0YjBjXkEyXkFqcGdeQXVyMjg1NDcyMjY@._V1_FMjpg_UX1000_.jpg", "imageHint": "dark cover" }
   ]
 }
-
-    
-    
-
-    
