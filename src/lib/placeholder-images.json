@@ -26,8 +26,14 @@
       "imageHint": "loki timeline"
     },
     {
+      "id": "hero-banner-5",
+      "description": "Loki from Season 2 with timelines.",
+      "imageUrl": "https://images.hdqwalls.com/wallpapers/loki-season-2-2023-2y.jpg",
+      "imageHint": "loki timelines"
+    },
+    {
       "id": "auth-background",
-      "description": "Cyberpunk anime city at night, futuristic skyscrapers glowing with neon purple and blue lights, flying trains and holograms, atmospheric mist, giant mysterious anime-style figure in the distance, vibrant neon glow, cinematic lighting, high detail, ultra-realistic anime art style.",
+      "description": "Cyberpunk anime city at night, futuristic skyscrapers glowing with neon purple and blue lights, flying trains and holograms, giant mysterious anime-style figure in the distance, vibrant neon glow, cinematic lighting, high detail, ultra-realistic anime art style.",
       "imageUrl": "https://picsum.photos/seed/authbg/800/1200",
       "imageHint": "cyberpunk city"
     },
