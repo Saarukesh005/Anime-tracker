@@ -3,6 +3,7 @@ import { Logo } from './logo';
 import { Button } from './ui/button';
 import { cn } from '@/lib/utils';
 import { Flame, ListVideo, Sparkles, Image as ImageIcon } from 'lucide-react';
+import AnimeSearch from './anime-search';
 
 const navItems = [
   { href: '/', label: 'Home', icon: Flame },
@@ -24,7 +25,7 @@ export function Header() {
             <span className="font-bold font-headline">AnimeVerse</span>
           </Link>
         </div>
-        <nav className="flex items-center gap-4 text-sm lg:gap-6">
+        <nav className="hidden md:flex items-center gap-4 text-sm lg:gap-6">
           {navItems.map((item) => (
             <Link
               key={item.href}
@@ -40,6 +41,9 @@ export function Header() {
           ))}
         </nav>
         <div className="flex flex-1 items-center justify-end space-x-2">
+           <div className="w-full flex-1 md:w-auto md:flex-none">
+             <AnimeSearch />
+           </div>
            <Button asChild variant="ghost">
               <Link href="/login">Log In</Link>
             </Button>

@@ -10,6 +10,7 @@ import { SearchIcon } from 'lucide-react';
 export default function AnimeSearch() {
   const [searchTerm, setSearchTerm] = useState('');
   const [results, setResults] = useState<Anime[]>([]);
+  const [isFocused, setIsFocused] = useState(false);
 
   const handleSearch = (event: React.ChangeEvent<HTMLInputElement>) => {
     const term = event.target.value;
@@ -25,29 +26,32 @@ export default function AnimeSearch() {
   };
 
   return (
-    <div>
-      <h2 className="text-3xl font-headline font-semibold mb-6 text-center">Find Your Next Favorite Anime</h2>
-      <div className="relative max-w-2xl mx-auto">
-        <SearchIcon className="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
+    <div className="relative">
+      <div className="relative">
+        <SearchIcon className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
         <Input
           type="search"
           placeholder="Search for an anime..."
           value={searchTerm}
           onChange={handleSearch}
-          className="w-full text-lg pl-12 py-6 rounded-full shadow-lg focus-visible:ring-primary focus-visible:ring-offset-4"
+          onFocus={() => setIsFocused(true)}
+          onBlur={() => setTimeout(() => setIsFocused(false), 200)}
+          className="w-full pl-9"
         />
       </div>
 
-      {searchTerm.length > 2 && (
-        <div className="mt-8">
+      {isFocused && searchTerm.length > 2 && (
+        <div className="absolute top-full mt-2 w-full md:w-[400px] bg-card border rounded-md shadow-lg z-50 max-h-96 overflow-y-auto">
           {results.length > 0 ? (
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6">
+            <div className="p-2">
               {results.map((anime) => (
-                <AnimeCard key={anime.id} anime={anime} />
+                <div key={anime.id} className="p-2">
+                   <AnimeCard anime={anime} />
+                </div>
               ))}
             </div>
           ) : (
-            <p className="text-center text-muted-foreground mt-8">No anime found for &quot;{searchTerm}&quot;.</p>
+            <p className="text-center text-muted-foreground p-4">No anime found for &quot;{searchTerm}&quot;.</p>
           )}
         </div>
       )}

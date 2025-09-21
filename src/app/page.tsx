@@ -4,7 +4,6 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { trendingAnime } from '@/lib/anime';
 import AnimeCard from '@/components/anime-card';
-import AnimeSearch from '@/components/anime-search';
 import { placeholderImages } from '@/lib/placeholder-images.json';
 
 export default function Home() {
@@ -44,9 +43,6 @@ export default function Home() {
         </div>
       </section>
 
-      <section>
-        <AnimeSearch />
-      </section>
     </div>
   );
 }
