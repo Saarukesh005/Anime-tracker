@@ -2,12 +2,13 @@ import Link from 'next/link';
 import { Logo } from './logo';
 import { Button } from './ui/button';
 import { cn } from '@/lib/utils';
-import { Flame, ListVideo, Sparkles } from 'lucide-react';
+import { Flame, ListVideo, Sparkles, Image as ImageIcon } from 'lucide-react';
 
 const navItems = [
   { href: '/', label: 'Home', icon: Flame },
   { href: '/watchlist', label: 'Watchlist', icon: ListVideo },
   { href: '/recommendations', label: 'AI Recs', icon: Sparkles },
+  { href: '/image-generator', label: 'Image Gen', icon: ImageIcon },
 ];
 
 export function Header() {
