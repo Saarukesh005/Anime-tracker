@@ -444,3 +444,5 @@ export const allAnime: Anime[] = [
 ];
 
 export const trendingAnime = allAnime.slice(0, 6);
+
+    

@@ -1,3 +1,4 @@
+
 {
   "placeholderImages": [
     {
@@ -16,241 +17,243 @@
       "id": "anime-1",
       "description": "Cover image for Titan's Wrath",
       "imageUrl": "https://picsum.photos/seed/titan/400/600",
-      "imageHint": "dark fantasy apocalyptic"
+      "imageHint": "Titan's Wrath dark fantasy"
     },
     {
       "id": "anime-2",
       "description": "Cover image for Mystic Academy",
       "imageUrl": "https://picsum.photos/seed/mystic/400/600",
-      "imageHint": "fantasy magic academy"
+      "imageHint": "Mystic Academy magic"
     },
     {
       "id": "anime-3",
       "description": "Cover image for CyberRonin",
       "imageUrl": "https://picsum.photos/seed/cyber/400/600",
-      "imageHint": "cyberpunk sci-fi"
+      "imageHint": "CyberRonin cyberpunk"
     },
     {
       "id": "anime-4",
       "description": "Cover image for Galaxy Drifters",
       "imageUrl": "https://picsum.photos/seed/galaxy/400/600",
-      "imageHint": "space opera adventure"
+      "imageHint": "Galaxy Drifters space"
     },
     {
       "id": "anime-5",
       "description": "Cover image for Slice of Life Cafe",
       "imageUrl": "https://picsum.photos/seed/cafe/400/600",
-      "imageHint": "slice of life"
+      "imageHint": "Slice of Life Cafe"
     },
     {
       "id": "anime-6",
       "description": "Cover image for The Last Summoner",
       "imageUrl": "https://picsum.photos/seed/summoner/400/600",
-      "imageHint": "fantasy magic"
+      "imageHint": "The Last Summoner fantasy"
     },
     {
       "id": "anime-7",
       "description": "Cover image for Neon Tokyo",
       "imageUrl": "https://picsum.photos/seed/neotokyo/400/600",
-      "imageHint": "cyberpunk psychological"
+      "imageHint": "Neon Tokyo cyberpunk"
     },
     {
       "id": "anime-8",
       "description": "Cover image for Forest Spirit",
       "imageUrl": "https://picsum.photos/seed/forestspirit/400/600",
-      "imageHint": "fantasy supernatural"
+      "imageHint": "Forest Spirit supernatural"
     },
     {
       "id": "anime-9",
       "description": "Cover image for Mecha Warriors",
       "imageUrl": "https://picsum.photos/seed/mecha/400/600",
-      "imageHint": "mecha sci-fi"
+      "imageHint": "Mecha Warriors sci-fi"
     },
     {
       "id": "anime-10",
       "description": "Cover image for Vampire Requiem",
       "imageUrl": "https://picsum.photos/seed/vampire/400/600",
-      "imageHint": "romance supernatural"
+      "imageHint": "Vampire Requiem romance"
     },
     {
       "id": "anime-11",
       "description": "Cover image for Detective K",
       "imageUrl": "https://picsum.photos/seed/detective/400/600",
-      "imageHint": "mystery comedy"
+      "imageHint": "Detective K mystery"
     },
     {
       "id": "anime-12",
       "description": "Cover image for Idol Stage",
       "imageUrl": "https://picsum.photos/seed/idol/400/600",
-      "imageHint": "music slice of life"
+      "imageHint": "Idol Stage music"
     },
     {
       "id": "anime-13",
       "description": "Cover image for Samurai's Path",
       "imageUrl": "https://picsum.photos/seed/samurai/400/600",
-      "imageHint": "historical action"
+      "imageHint": "Samurai's Path historical"
     },
     {
       "id": "anime-14",
       "description": "Cover image for Gourmet Journey",
       "imageUrl": "https://picsum.photos/seed/gourmet/400/600",
-      "imageHint": "food adventure"
+      "imageHint": "Gourmet Journey food"
     },
     {
       "id": "anime-15",
       "description": "Cover image for Time Traveler's Diary",
       "imageUrl": "https://picsum.photos/seed/timetravel/400/600",
-      "imageHint": "sci-fi thriller"
+      "imageHint": "Time Traveler's Diary sci-fi"
     },
     {
       "id": "anime-16",
       "description": "Cover image for Cursed Blade",
       "imageUrl": "https://picsum.photos/seed/cursedblade/400/600",
-      "imageHint": "dark fantasy"
+      "imageHint": "Cursed Blade dark fantasy"
     },
     {
       "id": "anime-17",
       "description": "Cover image for Sports Dream",
       "imageUrl": "https://picsum.photos/seed/sports/400/600",
-      "imageHint": "sports drama"
+      "imageHint": "Sports Dream drama"
     },
     {
       "id": "anime-18",
       "description": "Cover image for Kingdom of Ash",
       "imageUrl": "https://picsum.photos/seed/kingdomash/400/600",
-      "imageHint": "fantasy medieval"
+      "imageHint": "Kingdom of Ash fantasy"
     },
     {
       "id": "anime-19",
       "description": "Cover image for Parallel World",
       "imageUrl": "https://picsum.photos/seed/parallel/400/600",
-      "imageHint": "isekai adventure"
+      "imageHint": "Parallel World isekai"
     },
     {
       "id": "anime-20",
       "description": "Cover image for Silent Voice",
       "imageUrl": "https://picsum.photos/seed/silentvoice/400/600",
-      "imageHint": "drama school"
+      "imageHint": "Silent Voice drama"
     },
     {
       "id": "anime-21",
       "description": "Cover image for Ghost Hunter",
       "imageUrl": "https://picsum.photos/seed/ghosthunter/400/600",
-      "imageHint": "supernatural mystery"
+      "imageHint": "Ghost Hunter supernatural"
     },
     {
       "id": "anime-22",
       "description": "Cover image for The Alchemist's Secret",
       "imageUrl": "https://picsum.photos/seed/alchemist/400/600",
-      "imageHint": "adventure fantasy"
+      "imageHint": "Alchemist's Secret adventure"
     },
     {
       "id": "anime-23",
       "description": "Cover image for Ocean's Lullaby",
       "imageUrl": "https://picsum.photos/seed/ocean/400/600",
-      "imageHint": "fantasy slice of life"
+      "imageHint": "Ocean's Lullaby fantasy"
     },
     {
       "id": "anime-24",
       "description": "Cover image for Code Zero",
       "imageUrl": "https://picsum.photos/seed/codezero/400/600",
-      "imageHint": "thriller sci-fi"
+      "imageHint": "Code Zero thriller"
     },
     {
       "id": "anime-25",
       "description": "Cover image for Love in Spring",
       "imageUrl": "https://picsum.photos/seed/lovespring/400/600",
-      "imageHint": "romance comedy"
+      "imageHint": "Love in Spring romance"
     },
     {
       "id": "anime-26",
       "description": "Cover image for War Chronicles",
       "imageUrl": "https://picsum.photos/seed/warchronicles/400/600",
-      "imageHint": "military historical"
+      "imageHint": "War Chronicles military"
     },
     {
       "id": "anime-27",
       "description": "Cover image for Pet Friends",
       "imageUrl": "https://picsum.photos/seed/petfriends/400/600",
-      "imageHint": "comedy slice of life"
+      "imageHint": "Pet Friends comedy"
     },
     {
       "id": "anime-28",
       "description": "Cover image for Dragon's Peak",
       "imageUrl": "https://picsum.photos/seed/dragonpeak/400/600",
-      "imageHint": "fantasy adventure"
+      "imageHint": "Dragon's Peak fantasy"
     },
     {
       "id": "anime-29",
       "description": "Cover image for Sky Pirates",
       "imageUrl": "https://picsum.photos/seed/skypirates/400/600",
-      "imageHint": "steampunk adventure"
+      "imageHint": "Sky Pirates steampunk"
     },
     {
       "id": "anime-30",
       "description": "Cover image for Ninja Scroll Redux",
       "imageUrl": "https://picsum.photos/seed/ninjaredux/400/600",
-      "imageHint": "action historical"
+      "imageHint": "Ninja Scroll Redux action"
     },
     {
       "id": "anime-31",
       "description": "Cover image for Galactic Football",
       "imageUrl": "https://picsum.photos/seed/galacticfootball/400/600",
-      "imageHint": "sports sci-fi"
+      "imageHint": "Galactic Football sci-fi"
     },
     {
       "id": "anime-32",
       "description": "Cover image for The King's Avatar",
       "imageUrl": "https://picsum.photos/seed/kingsavatar/400/600",
-      "imageHint": "action game"
+      "imageHint": "The King's Avatar action"
     },
     {
       "id": "anime-33",
       "description": "Cover image for Silver Spoon",
       "imageUrl": "https://picsum.photos/seed/silverspoon/400/600",
-      "imageHint": "slice of life school"
+      "imageHint": "Silver Spoon slice of life"
     },
     {
       "id": "anime-34",
       "description": "Cover image for Psycho-Frame",
       "imageUrl": "https://picsum.photos/seed/psychoframe/400/600",
-      "imageHint": "action sci-fi"
+      "imageHint": "Psycho-Frame action"
     },
     {
       "id": "anime-35",
       "description": "Cover image for The Tea House",
       "imageUrl": "https://picsum.photos/seed/teahouse/400/600",
-      "imageHint": "slice of life historical"
+      "imageHint": "The Tea House slice of life"
     },
     {
       "id": "anime-36",
       "description": "Cover image for Monster Hunter's Guild",
       "imageUrl": "https://picsum.photos/seed/monsterhunter/400/600",
-      "imageHint": "fantasy action"
+      "imageHint": "Monster Hunter's Guild fantasy"
     },
     {
       "id": "anime-37",
       "description": "Cover image for Chrono Nexus",
       "imageUrl": "https://picsum.photos/seed/chrononexus/400/600",
-      "imageHint": "sci-fi thriller"
+      "imageHint": "Chrono Nexus sci-fi"
     },
     {
       "id": "anime-38",
       "description": "Cover image for The Pianist's Melody",
       "imageUrl": "https://picsum.photos/seed/pianistmelody/400/600",
-      "imageHint": "music drama"
+      "imageHint": "The Pianist's Melody music"
     },
     {
       "id": "anime-39",
       "description": "Cover image for The Underworld Chef",
       "imageUrl": "https://picsum.photos/seed/underworldchef/400/600",
-      "imageHint": "supernatural comedy"
+      "imageHint": "The Underworld Chef supernatural"
     },
     {
       "id": "anime-40",
       "description": "Cover image for Blade of the Immortal",
       "imageUrl": "https://picsum.photos/seed/bladeimmortal/400/600",
-      "imageHint": "action supernatural"
+      "imageHint": "Blade of the Immortal supernatural"
     }
   ]
 }
+
+    
