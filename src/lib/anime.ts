@@ -330,6 +330,116 @@ export const allAnime: Anime[] = [
     rating: 8.7,
     genres: ["Action", "Adventure", "Historical"],
     status: 'Plan to Watch'
+  },
+  {
+    id: 31,
+    title: "Galactic Football",
+    description: "In the future, the most popular sport is a high-tech version of football played between planets.",
+    coverImageId: "anime-31",
+    seasons: 3,
+    episodes: 78,
+    rating: 7.9,
+    genres: ["Sports", "Sci-Fi"],
+    status: 'Completed'
+  },
+  {
+    id: 32,
+    title: "The King's Avatar",
+    description: "A top-tier professional player in an online multiplayer game is forced to retire, but he soon starts a new journey with a new character.",
+    coverImageId: "anime-32",
+    seasons: 2,
+    episodes: 24,
+    rating: 8.2,
+    genres: ["Action", "Game", "Adventure"],
+    status: 'Watching'
+  },
+  {
+    id: 33,
+    title: "Silver Spoon",
+    description: "A city boy enrolls in an agricultural high school in the countryside, learning about life, farming, and friendship.",
+    coverImageId: "anime-33",
+    seasons: 2,
+    episodes: 22,
+    rating: 8.4,
+    genres: ["Slice of Life", "Comedy", "School"],
+    status: 'Completed'
+  },
+  {
+    id: 34,
+    title: "Psycho-Frame",
+    description: "In a future where psychic powers are common, a special police unit hunts down rogue espers.",
+    coverImageId: "anime-34",
+    seasons: 1,
+    episodes: 12,
+    rating: 8.0,
+    genres: ["Action", "Sci-Fi", "Police"],
+    status: 'Plan to Watch'
+  },
+  {
+    id: 35,
+    title: "The Tea House",
+    description: "The quiet, contemplative life of a tea master and the various patrons who visit his traditional tea house.",
+    coverImageId: "anime-35",
+    seasons: 1,
+    episodes: 10,
+    rating: 7.7,
+    genres: ["Slice of Life", "Historical"],
+    status: 'On-Hold'
+  },
+  {
+    id: 36,
+    title: "Monster Hunter's Guild",
+    description: "A young adventurer joins a guild of monster hunters to protect villages from terrifying beasts.",
+    coverImageId: "anime-36",
+    seasons: 3,
+    episodes: 36,
+    rating: 8.5,
+    genres: ["Fantasy", "Action", "Adventure"],
+    status: 'Watching'
+  },
+  {
+    id: 37,
+    title: "Chrono Nexus",
+    description: "A secret organization of time agents works to prevent history from being altered by temporal criminals.",
+    coverImageId: "anime-37",
+    seasons: 2,
+    episodes: 24,
+    rating: 8.6,
+    genres: ["Sci-Fi", "Action", "Thriller"],
+    status: 'Plan to Watch'
+  },
+  {
+    id: 38,
+    title: "The Pianist's Melody",
+    description: "A prodigious young pianist struggles with the pressures of fame and competition in the world of classical music.",
+    coverImageId: "anime-38",
+    seasons: 1,
+    episodes: 12,
+    rating: 8.8,
+    genres: ["Music", "Drama", "Slice of Life"],
+    status: 'Completed'
+  },
+  {
+    id: 39,
+    title: "The Underworld Chef",
+    description: "A chef opens a restaurant that caters to creatures of the night, including vampires, werewolves, and ghosts.",
+    coverImageId: "anime-39",
+    seasons: 1,
+    episodes: 13,
+    rating: 7.9,
+    genres: ["Supernatural", "Comedy", "Fantasy"],
+    status: 'Dropped'
+  },
+  {
+    id: 40,
+    title: "Blade of the Immortal",
+    description: "A samurai cursed with immortality must kill one thousand evil men to regain his mortality.",
+    coverImageId: "anime-40",
+    seasons: 1,
+    episodes: 24,
+    rating: 9.0,
+    genres: ["Action", "Historical", "Supernatural"],
+    status: 'Watching'
   }
 ];
 
