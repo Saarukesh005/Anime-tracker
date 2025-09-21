@@ -3,9 +3,9 @@
   "placeholderImages": [
     {
       "id": "hero-banner",
-      "description": "Cyberpunk anime city at night, futuristic skyscrapers glowing with neon purple and blue lights, flying trains and holograms, atmospheric mist, giant mysterious anime-style figure in the distance, vibrant neon glow, cinematic lighting, high detail, ultra-realistic anime art style.",
-      "imageUrl": "https://picsum.photos/seed/animehero/1200/600",
-      "imageHint": "cyberpunk cityscape"
+      "description": "Demon Slayer characters in front of the Infinity Castle.",
+      "imageUrl": "https://cdn.hobbyconsolas.com/sites/navi.axelspringer.es/public/media/image/2024/07/demon-slayer-kimetsu-no-yaiba-3413550.jpg",
+      "imageHint": "demon slayer castle"
     },
     {
       "id": "auth-background",
@@ -67,3 +67,5 @@
     { "id": "tv-dark", "imageUrl": "https://m.media-amazon.com/images/M/MV5BOTk2NzUyOTctZDdlMS00MDJlLTgzNTEtNzQzYjFhNjA0YjBjXkEyXkFqcGdeQXVyMjg1NDcyMjY@._V1_FMjpg_UX1000_.jpg", "imageHint": "dark cover" }
   ]
 }
+
+    
