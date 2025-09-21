@@ -3,15 +3,15 @@
   "placeholderImages": [
     {
       "id": "hero-banner",
-      "description": "Cyberpunk anime city at night, futuristic skyscrapers glowing with neon purple and blue lights, flying trains and holograms, atmospheric mist, giant mysterious anime-style figure in the distance, vibrant neon glow, cinematic lighting, high detail.",
+      "description": "Cyberpunk anime city at night, futuristic skyscrapers glowing with neon purple and blue lights, flying trains and holograms, atmospheric mist, giant mysterious anime-style figure in the distance, vibrant neon glow, cinematic lighting, high detail, ultra-realistic anime art style.",
       "imageUrl": "https://picsum.photos/seed/animehero/1200/600",
       "imageHint": "cyberpunk cityscape"
     },
     {
       "id": "auth-background",
-      "description": "A mysterious anime-style figure in a neon-lit cyberpunk city at night, with atmospheric mist, vibrant purple and blue glows, and holographic advertisements in the background.",
+      "description": "Cyberpunk anime city at night, futuristic skyscrapers glowing with neon purple and blue lights, flying trains and holograms, atmospheric mist, giant mysterious anime-style figure in the distance, vibrant neon glow, cinematic lighting, high detail, ultra-realistic anime art style.",
       "imageUrl": "https://picsum.photos/seed/authbg/800/1200",
-      "imageHint": "cyberpunk character"
+      "imageHint": "cyberpunk city"
     },
     {
       "id": "anime-1",
