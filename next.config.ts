@@ -106,6 +106,12 @@ const nextConfig: NextConfig = {
         hostname: 'wallpapers.com',
         port: '',
         pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'images.hdqwalls.com',
+        port: '',
+        pathname: '/**',
       }
     ],
   },
