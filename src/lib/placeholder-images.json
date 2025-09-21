@@ -21,7 +21,7 @@
     { "id": "anime-one-piece", "imageUrl": "https://m.media-amazon.com/images/M/MV5BMTNjNGU4NTUtYmVjMy00YjRiLTkxMWUtNzZkMDNiYjZhNmViXkEyXkFqcGc@._V1_.jpg", "imageHint": "one piece cover" },
     { "id": "anime-bleach", "imageUrl": "https://m.media-amazon.com/images/M/MV5BZjE0YjVjODQtZGY3NS00N2Q4LTg4ZWYtZWM0NTAnMDM1OThjNzXkEyXkFqcGdeQXVyNzA4ODc3ODU@._V1_FMjpg_UX1000_.jpg", "imageHint": "bleach cover" },
     { "id": "anime-demon-slayer", "imageUrl": "https://m.media-amazon.com/images/M/MV5BMWU1OGEwNmQtNGM3MS00YTYyLThmYmMtN2FjYzQzNzNmNTE0XkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg", "imageHint": "demon slayer cover" },
-    { "id": "anime-jujutsu-kaisen", "imageUrl": "https://m.media-amazon.com/images/M/MV5BNGY0Y2I0OTAtODIwYS00ZTEyLWIyYjMtODA1MzRhMDM0Mjc5XkEyXkFqcGdeQXVyMTA4NjE0NjEy._V1_FMjpg_UX1000_.jpg", "imageHint": "jujutsu kaisen cover" },
+    { "id": "anime-jujutsu-kaisen", "imageUrl": "https://d28hgpri8am2if.cloudfront.net/book_images/onix/cvr9781974710027/jujutsu-kaisen-vol-1-9781974710027_hr.jpg", "imageHint": "jujutsu kaisen cover" },
     { "id": "anime-aot", "imageUrl": "https://m.media-amazon.com/images/M/MV5BNDFjYTIxMjMtNTQ0Mi00YTc4LWWIwY2ItYmY4MTNlYTQ1OTJmXkEyXkFqcGdeQXVyNzI3NjY3NjQ@._V1_FMjpg_UX1000_.jpg", "imageHint": "attack on titan cover" },
     { "id": "anime-mha", "imageUrl": "https://m.media-amazon.com/images/M/MV5BNmQzYmY2YjEtNzliNS00ZGU1LTk0NjYtY2UwNWMyMWU1NTkyXkEyXkFqcGdeQXVyMTA4NjE0NjEy._V1_FMjpg_UX1000_.jpg", "imageHint": "my hero academia cover" },
     { "id": "anime-fmab", "imageUrl": "https://m.media-amazon.com/images/M/MV5BZmJjM2YwYjYtY2U5My00ZmM5LWJiMDAtODY3YzY4MGI0NDZkXkEyXkFqcGdeQXVyNjc2NjA5MTU@._V1_FMjpg_UX1000_.jpg", "imageHint": "fullmetal alchemist brotherhood cover" },
@@ -67,3 +67,5 @@
     { "id": "tv-dark", "imageUrl": "https://m.media-amazon.com/images/M/MV5BOTk2NzUyOTctZDdlMS00MDJlLTgzNTEtNzQzYjFhNjA0YjBjXkEyXkFqcGdeQXVyMjg1NDcyMjY@._V1_FMjpg_UX1000_.jpg", "imageHint": "dark cover" }
   ]
 }
+
+    
