@@ -38,6 +38,12 @@
       "imageHint": "loki poster"
     },
     {
+      "id": "hero-banner-7",
+      "description": "Tanjiro Kamado from Demon Slayer.",
+      "imageUrl": "https://images8.alphacoders.com/124/1240712.jpg",
+      "imageHint": "demon slayer tanjiro"
+    },
+    {
       "id": "auth-background",
       "description": "Cyberpunk anime city at night, futuristic skyscrapers glowing with neon purple and blue lights, flying trains and holograms, giant mysterious anime-style figure in the distance, vibrant neon glow, cinematic lighting, high detail, ultra-realistic anime art style.",
       "imageUrl": "https://picsum.photos/seed/authbg/800/1200",

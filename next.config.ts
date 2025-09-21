@@ -112,6 +112,12 @@ const nextConfig: NextConfig = {
         hostname: 'images.hdqwalls.com',
         port: '',
         pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'images8.alphacoders.com',
+        port: '',
+        pathname: '/**',
       }
     ],
   },
