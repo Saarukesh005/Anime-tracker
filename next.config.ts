@@ -76,16 +76,17 @@ const nextConfig: NextConfig = {
         hostname: 'd28hgpri8am2if.cloudfront.net',
         port: '',
         pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'prodimage.images-bn.com',
+        port: '',
+        pathname: '/**',
       }
     ],
   },
 };
 
 export default nextConfig;
-
-    
-
-    
-
 
     
