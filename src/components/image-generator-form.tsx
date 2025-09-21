@@ -11,18 +11,13 @@ import { Button } from './ui/button';
 import { Loader2, Image as ImageIcon } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from './ui/card';
 import Image from 'next/image';
+import { generateImageAction } from '@/lib/actions';
 
 const formSchema = z.object({
   prompt: z.string().min(10, "Please provide a more detailed description for the image."),
 });
 
 type FormData = z.infer<typeof formSchema>;
-
-async function generateImageAction(data: FormData) {
-    'use server';
-    const { generateImage } = await import('@/ai/flows/generate-image');
-    return await generateImage(data);
-}
 
 export default function ImageGeneratorForm() {
   const [isLoading, setIsLoading] = useState(false);

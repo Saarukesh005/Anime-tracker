@@ -6,7 +6,7 @@ import { Flame, ListVideo, Sparkles, Image as ImageIcon } from 'lucide-react';
 import AnimeSearch from './anime-search';
 
 const navItems = [
-  { href: '/', label: 'Home', icon: Flame },
+  { href: '/dashboard', label: 'Home', icon: Flame },
   { href: '/watchlist', label: 'Watchlist', icon: ListVideo },
   { href: '/recommendations', label: 'AI Recs', icon: Sparkles },
   { href: '/image-generator', label: 'Image Gen', icon: ImageIcon },
@@ -14,13 +14,13 @@ const navItems = [
 
 export function Header() {
   // In a real app, this would come from a usePathname hook
-  const pathname = '/';
+  const pathname = '/dashboard';
 
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container flex h-16 items-center">
         <div className="mr-4 flex">
-          <Link href="/" className="mr-6 flex items-center space-x-2">
+          <Link href="/dashboard" className="mr-6 flex items-center space-x-2">
             <Logo />
             <span className="font-bold font-headline">AnimeVerse</span>
           </Link>
