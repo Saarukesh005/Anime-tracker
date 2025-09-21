@@ -64,6 +64,12 @@ const nextConfig: NextConfig = {
         hostname: 'i.pinimg.com',
         port: '',
         pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'demonslayer-hinokami.sega.com',
+        port: '',
+        pathname: '/**',
       }
     ],
   },
