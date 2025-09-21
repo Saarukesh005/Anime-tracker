@@ -88,6 +88,12 @@ const nextConfig: NextConfig = {
         hostname: 'cdn.hobbyconsolas.com',
         port: '',
         pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'images2.alphacoders.com',
+        port: '',
+        pathname: '/**',
       }
     ],
   },
@@ -96,4 +102,6 @@ const nextConfig: NextConfig = {
 export default nextConfig;
 
     
+    
+
     
