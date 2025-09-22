@@ -7,14 +7,13 @@ import { getPlaceholderImage } from '@/lib/placeholder-images';
 import Link from 'next/link';
 import { redirect } from 'next/navigation';
 
-export default function LoginPage() {
-
+export default async function LoginPage() {
   const handleSubmit = async () => {
     'use server';
     redirect('/dashboard');
   };
 
-  const authImage = getPlaceholderImage('auth-background');
+  const authImage = await getPlaceholderImage('auth-background');
 
   return (
     <AuthForm authImage={authImage}>

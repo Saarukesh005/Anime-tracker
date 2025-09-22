@@ -6,8 +6,8 @@ import { Label } from '@/components/ui/label';
 import { getPlaceholderImage } from '@/lib/placeholder-images';
 import Link from 'next/link';
 
-export default function ForgotPasswordPage() {
-  const authImage = getPlaceholderImage('auth-background');
+export default async function ForgotPasswordPage() {
+  const authImage = await getPlaceholderImage('auth-background');
   return (
     <AuthForm authImage={authImage}>
       <CardHeader className="text-center">
