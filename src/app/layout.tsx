@@ -22,7 +22,7 @@ export default function RootLayout({
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=PT+Sans:wght@400;700&display=swap" rel="stylesheet" />
       </head>
       <body className="font-body antialiased min-h-screen flex flex-col">
-        <div className="bg-background/90 backdrop-blur-sm flex-grow flex flex-col">
+        <div className="flex-grow flex flex-col">
           <Header />
           <main className="flex-grow container mx-auto px-4 py-8">
             {children}
