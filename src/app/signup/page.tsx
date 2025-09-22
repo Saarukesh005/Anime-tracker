@@ -1,25 +1,23 @@
-
-'use client';
-
-import { useRouter } from 'next/navigation';
 import AuthForm from '@/components/auth-form';
 import { Button } from '@/components/ui/button';
 import { CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
+import { getPlaceholderImage } from '@/lib/placeholder-images';
 import Link from 'next/link';
+import { redirect } from 'next/navigation';
 
 export default function SignupPage() {
-  const router = useRouter();
-
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    router.push('/dashboard');
+  const handleSubmit = async () => {
+    'use server';
+    redirect('/dashboard');
   };
 
+  const authImage = getPlaceholderImage('auth-background');
+
   return (
-    <AuthForm>
-      <form onSubmit={handleSubmit}>
+    <AuthForm authImage={authImage}>
+      <form action={handleSubmit}>
         <CardHeader className="text-center">
           <CardTitle className="text-3xl font-headline">Join the Anime World!</CardTitle>
           <CardDescription>Create an account to start tracking your favorite series.</CardDescription>

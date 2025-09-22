@@ -1,9 +1,8 @@
 import Image from 'next/image';
 import { Card } from './ui/card';
-import { placeholderImages } from '@/lib/placeholder-images';
+import type { ImagePlaceholder } from '@/lib/placeholder-images';
 
-export default function AuthForm({ children }: { children: React.ReactNode }) {
-  const authImage = placeholderImages.find(p => p.id === 'auth-background');
+export default function AuthForm({ children, authImage }: { children: React.ReactNode, authImage: ImagePlaceholder | undefined }) {
   
   return (
     <div className="w-full lg:grid lg:min-h-[calc(100vh-8rem)] lg:grid-cols-2 xl:min-h-[calc(100vh-8rem)]">

@@ -3,11 +3,13 @@ import { Button } from '@/components/ui/button';
 import { CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
+import { getPlaceholderImage } from '@/lib/placeholder-images';
 import Link from 'next/link';
 
 export default function ForgotPasswordPage() {
+  const authImage = getPlaceholderImage('auth-background');
   return (
-    <AuthForm>
+    <AuthForm authImage={authImage}>
       <CardHeader className="text-center">
         <CardTitle className="text-3xl font-headline">Forgot Password?</CardTitle>
         <CardDescription>Enter your email and we&apos;ll send you a reset link.</CardDescription>
