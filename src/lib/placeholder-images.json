@@ -51,9 +51,9 @@
     },
     {
       "id": "auth-background",
-      "description": "An anime character with a sword in a forest.",
-      "imageUrl": "https://i.pinimg.com/originals/b1/31/53/b1315302a245366a7b1b3152c28b6d3a.jpg",
-      "imageHint": "anime warrior forest"
+      "description": "An anime character with white hair in a dynamic pose.",
+      "imageUrl": "https://i.pinimg.com/originals/a1/38/a3/a138a35988e02d8d3f1a0715aa1b1a7d.jpg",
+      "imageHint": "anime character white hair"
     },
     { "id": "anime-naruto", "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQNEHESpG8IwStL4ZajCudpH7lTOzaKVyATgQ&s", "imageHint": "naruto cover" },
     { "id": "anime-naruto-shippuden", "imageUrl": "https://images.justwatch.com/poster/244481506/s718/naruto-shippuden.jpg", "imageHint": "naruto shippuden cover" },
@@ -80,7 +80,7 @@
     { "id": "anime-rezero", "imageUrl": "https://m.media-amazon.com/images/M/MV5BNjE4NjJ0M2ItODViNS00ZGRkLTk4ZTEtNTBkZWRjY2ZlMjYwXkEyXkFqcGdeQXVyNjAwNDY0MDA@._V1_FMjpg_UX1000_.jpg", "imageHint": "rezero cover" },
     { "id": "anime-konosuba", "imageUrl": "https://m.media-amazon.com/images/M/MV5BNzJjZmM0NWYtODZkMC00MTI2LTk0YWEtOTc1YjQxM2U2NjdkXkEyXkFqcGdeQXVyNjAwNDY0MDA@._V1_FMjpg_UX1000_.jpg", "imageHint": "konosuba cover" },
     { "id": "anime-shield-hero", "imageUrl": "https://m.media-amazon.com/images/M/MV5BZjc4ZGZkNjMtZTRkYS00Mjk4LTgwMzAtMzg1MWZlZjcxNDRhXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg", "imageHint": "shield hero cover" },
-    { "id": "anime-vinland-saga", "imageUrl": "https://m.media-amazon.com/images/M/MV5BZTNiOTk4NTgtNjIxOC00MjFhLTk1MTYtNzcwMGRkYmFjZWY1XkEyXkFqcGdeQXVyNDg1MTQ1NjY@.V1.jpg", "imageHint": "vinland saga cover" },
+    { "id": "anime-vinland-saga", "imageUrl": "https://i.pinimg.com/736x/29/18/84/291884b80b2d27453c2a472a4332309e.jpg", "imageHint": "vinland saga cover" },
     { "id": "anime-solo-leveling", "imageUrl": "https://m.media-amazon.com/images/M/MV5BYzZlOTY5OGEtY2Y0Zi00ZTEyLTkzYjItYmY4NWEyNzRjYTEwXkEyXkFqcGdeQXVyMzgxODM4NjM@._V1_FMjpg_UX1000_.jpg", "imageHint": "solo leveling cover" },
     { "id": "anime-chainsaw-man", "imageUrl": "https://m.media-amazon.com/images/M/MV5BMzY3YmU0MGItZTA3Ny00MWVmLWJmMjktYjc3Yjg1NmYxYjc4XkEyXkFqcGdeQXVyMzgxODM4NjM@._V1_FMjpg_UX1000_.jpg", "imageHint": "chainsaw man cover" },
     { "id": "anime-spy-family", "imageUrl": "https://m.media-amazon.com/images/M/MV5BOTE5ZTY0ZDMtYjY4OS00MTQ2LTk5ZTMtY2E5YWFmYTU2MGIyXkEyXkFqcGdeQXVyMzgxODM4NjM@._V1_FMjpg_UX1000_.jpg", "imageHint": "spy x family cover" },
@@ -109,5 +109,3 @@
     { "id": "tv-dark", "imageUrl": "https://m.media-amazon.com/images/M/MV5BOTk2NzUyOTctZDdlMS00MDJlLTgzNTEtNzQzYjFhNjA0YjBjXkEyXkFqcGdeQXVyMjg1NDcyMjY@._V1_FMjpg_UX1000_.jpg", "imageHint": "dark cover" }
   ]
 }
-
-    
