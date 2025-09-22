@@ -51,9 +51,9 @@
     },
     {
       "id": "auth-background",
-      "description": "A lone warrior standing in a futuristic city with glowing neon lights.",
-      "imageUrl": "https://i.pinimg.com/736x/28/85/36/28853647205684eaa9cb634b0e2785fa.jpg",
-      "imageHint": "anime warrior city"
+      "description": "A warrior with a sword standing in a serene forest.",
+      "imageUrl": "https://i.pinimg.com/736x/38/09/76/38097644c8468137c6764b5df63743b8.jpg",
+      "imageHint": "anime warrior forest"
     },
     { "id": "anime-naruto", "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQNEHESpG8IwStL4ZajCudpH7lTOzaKVyATgQ&s", "imageHint": "naruto cover" },
     { "id": "anime-naruto-shippuden", "imageUrl": "https://images.justwatch.com/poster/244481506/s718/naruto-shippuden.jpg", "imageHint": "naruto shippuden cover" },
