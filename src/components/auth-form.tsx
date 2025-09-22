@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import { Card } from './ui/card';
-import { placeholderImages } from '@/lib/placeholder-images.json';
+import { placeholderImages } from '@/lib/placeholder-images';
 
 export default function AuthForm({ children }: { children: React.ReactNode }) {
   const authImage = placeholderImages.find(p => p.id === 'auth-background');
