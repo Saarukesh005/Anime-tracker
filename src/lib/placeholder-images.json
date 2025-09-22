@@ -51,9 +51,9 @@
     },
     {
       "id": "auth-background",
-      "description": "An anime character with white hair in a dynamic pose.",
-      "imageUrl": "https://i.pinimg.com/originals/a1/38/a3/a138a35988f343a99252329e06184581.jpg",
-      "imageHint": "anime character white hair"
+      "description": "An anime character with a sword in a forest.",
+      "imageUrl": "https://i.pinimg.com/originals/b1/31/53/b1315302a245366a7b1b3152c28b6d3a.jpg",
+      "imageHint": "anime warrior forest"
     },
     { "id": "anime-naruto", "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQNEHESpG8IwStL4ZajCudpH7lTOzaKVyATgQ&s", "imageHint": "naruto cover" },
     { "id": "anime-naruto-shippuden", "imageUrl": "https://images.justwatch.com/poster/244481506/s718/naruto-shippuden.jpg", "imageHint": "naruto shippuden cover" },
@@ -109,3 +109,5 @@
     { "id": "tv-dark", "imageUrl": "https://m.media-amazon.com/images/M/MV5BOTk2NzUyOTctZDdlMS00MDJlLTgzNTEtNzQzYjFhNjA0YjBjXkEyXkFqcGdeQXVyMjg1NDcyMjY@._V1_FMjpg_UX1000_.jpg", "imageHint": "dark cover" }
   ]
 }
+
+    
