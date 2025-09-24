@@ -124,6 +124,12 @@ const nextConfig: NextConfig = {
         hostname: 'images.wallpapersden.com',
         port: '',
         pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'mfiles.alphacoders.com',
+        port: '',
+        pathname: '/**',
       }
     ],
   },
