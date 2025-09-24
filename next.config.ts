@@ -154,6 +154,18 @@ const nextConfig: NextConfig = {
         hostname: 'images4.alphacoders.com',
         port: '',
         pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'images.alphacoders.com',
+        port: '',
+        pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'images3.alphacoders.com',
+        port: '',
+        pathname: '/**',
       }
     ],
   },
