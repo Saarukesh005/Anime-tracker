@@ -84,7 +84,7 @@ export default function AnimeDetailPage({ params }: Props) {
                     <AccordionTrigger>
                         <h3 className="text-xl font-semibold">Season {season.seasonNumber}</h3>
                     </AccordionTrigger>
-                    <AccordionContent>
+                    <AccordionContent className="data-[state=open]:text-blue-500">
                         <ul className="space-y-2 pl-4">
                         {season.episodes.map((episode) => (
                             <li key={episode.id} className="flex items-center justify-between p-2 rounded-md hover:bg-muted/50">
