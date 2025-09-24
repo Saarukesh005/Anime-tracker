@@ -16,10 +16,10 @@ export function Logo() {
         strokeLinecap="round"
         strokeLinejoin="round"
       />
-       <path d="M5 12.0001L3 12.0001" stroke="hsl(var(--accent))" strokeWidth="2" strokeLinecap="round"/>
-       <path d="M19 12.0001L21 12.0001" stroke="hsl(var(--accent))" strokeWidth="2" strokeLinecap="round"/>
-       <path d="M12 5.00006L12 3.00006" stroke="hsl(var(--accent))" strokeWidth="2" strokeLinecap="round"/>
-       <path d="M12 21.0001L12 19.0001" stroke="hsl(var(--accent))" strokeWidth="2" strokeLinecap="round"/>
+       <path d="M5 12L3 12" stroke="hsl(var(--accent))" strokeWidth="2" strokeLinecap="round"/>
+       <path d="M19 12L21 12" stroke="hsl(var(--accent))" strokeWidth="2" strokeLinecap="round"/>
+       <path d="M12 5L12 3" stroke="hsl(var(--accent))" strokeWidth="2" strokeLinecap="round"/>
+       <path d="M12 21L12 19" stroke="hsl(var(--accent))" strokeWidth="2" strokeLinecap="round"/>
     </svg>
   );
 }
