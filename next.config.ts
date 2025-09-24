@@ -142,6 +142,12 @@ const nextConfig: NextConfig = {
         hostname: 'avatarfiles.alphacoders.com',
         port: '',
         pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'images7.alphacoders.com',
+        port: '',
+        pathname: '/**',
       }
     ],
   },
@@ -158,4 +164,6 @@ export default nextConfig;
 
 
     
+    
+
     
