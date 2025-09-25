@@ -4,6 +4,8 @@ import { Button } from './ui/button';
 import { cn } from '@/lib/utils';
 import { Flame, ListVideo, Sparkles, Image as ImageIcon } from 'lucide-react';
 import AnimeSearch from './anime-search';
+import { UserNav } from './user-nav';
+import { getAuth } from '@/lib/auth';
 
 const navItems = [
   { href: '/dashboard', label: 'Home', icon: Flame },
@@ -12,7 +14,8 @@ const navItems = [
   { href: '/image-generator', label: 'Image Gen', icon: ImageIcon },
 ];
 
-export function Header() {
+export async function Header() {
+  const user = await getAuth();
   // In a real app, this would come from a usePathname hook
   const pathname = '/dashboard';
 
@@ -44,12 +47,18 @@ export function Header() {
            <div className="w-full flex-1 md:w-auto md:flex-none">
              <AnimeSearch />
            </div>
-           <Button asChild variant="ghost">
-              <Link href="/login">Log In</Link>
-            </Button>
-            <Button asChild className="neon-glow-primary">
-              <Link href="/signup">Sign Up</Link>
-            </Button>
+           {user ? (
+            <UserNav user={user} />
+           ) : (
+            <>
+              <Button asChild variant="ghost">
+                <Link href="/login">Log In</Link>
+              </Button>
+              <Button asChild className="neon-glow-primary">
+                <Link href="/signup">Sign Up</Link>
+              </Button>
+            </>
+           )}
         </div>
       </div>
     </header>
