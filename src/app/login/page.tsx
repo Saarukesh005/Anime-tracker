@@ -24,7 +24,8 @@ export default function LoginPage() {
   const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
     await login();
-    router.push('/dashboard');
+    // A full refresh is needed to re-render server components like the header
+    window.location.href = '/dashboard';
   };
 
   return (

@@ -24,7 +24,8 @@ export function UserNav({ user }: { user: User }) {
 
   const handleLogout = async () => {
     await logout();
-    router.push('/login');
+    // A full refresh is needed to re-render server components like the header
+    window.location.href = '/login';
   };
 
   return (
