@@ -34,7 +34,7 @@ export async function Header() {
               key={item.href}
               href={item.href}
               className={cn(
-                'transition-colors hover:text-foreground/80 flex items-center gap-2 text-white font-bold',
+                'transition-colors hover:text-white flex items-center gap-2 font-bold',
                 pathname === item.href ? 'text-white' : 'text-gray-400'
               )}
             >
@@ -43,7 +43,7 @@ export async function Header() {
             </Link>
           ))}
         </nav>
-        <div className="flex flex-1 items-center justify-end space-x-2">
+        <div className="flex flex-1 items-center justify-end space-x-4">
            <div className="w-full flex-1 md:w-auto md:flex-none">
              <AnimeSearch />
            </div>
