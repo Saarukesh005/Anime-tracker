@@ -16,48 +16,52 @@ const navItems = [
 
 export async function Header() {
   const user = await getAuth();
-  // In a real app, this would come from a usePathname hook
+  // In a real app, this would come from a usePathname hook on the client
   const pathname = '/dashboard';
 
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container flex h-16 items-center">
         <div className="mr-4 flex">
-          <Link href="/dashboard" className="mr-6 flex items-center space-x-2">
+          <Link href={user ? "/dashboard" : "/"} className="mr-6 flex items-center space-x-2">
             <Logo />
             <span className="font-bold font-headline text-white">AnimeVerse</span>
           </Link>
         </div>
-        <nav className="hidden md:flex items-center gap-4 text-sm lg:gap-6">
-          {navItems.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              className={cn(
-                'transition-colors hover:text-white flex items-center gap-2 font-bold',
-                pathname === item.href ? 'text-white' : 'text-gray-400'
-              )}
-            >
-              <item.icon className="h-4 w-4" />
-              {item.label}
-            </Link>
-          ))}
-        </nav>
+        {user && (
+          <nav className="hidden md:flex items-center gap-4 text-sm lg:gap-6">
+            {navItems.map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                className={cn(
+                  'transition-colors hover:text-white flex items-center gap-2 font-bold',
+                  pathname === item.href ? 'text-white' : 'text-gray-400'
+                )}
+              >
+                <item.icon className="h-4 w-4" />
+                {item.label}
+              </Link>
+            ))}
+          </nav>
+        )}
         <div className="flex flex-1 items-center justify-end space-x-4">
-           <div className="w-full flex-1 md:w-auto md:flex-none">
-             <AnimeSearch />
-           </div>
+          {user && (
+            <div className="w-full flex-1 md:w-auto md:flex-none">
+              <AnimeSearch />
+            </div>
+          )}
            {user ? (
             <UserNav user={user} />
            ) : (
-            <>
+            <div className='flex items-center gap-4'>
               <Button asChild variant="ghost">
                 <Link href="/login" className="text-white font-bold">Log In</Link>
               </Button>
               <Button asChild className="neon-glow-primary">
                 <Link href="/signup" className="font-bold">Sign Up</Link>
               </Button>
-            </>
+            </div>
            )}
         </div>
       </div>
