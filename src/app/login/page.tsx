@@ -17,7 +17,8 @@ export default function LoginPage() {
   const [authImage, setAuthImage] = useState<ImagePlaceholder | undefined>(undefined);
 
   useEffect(() => {
-    getPlaceholderImage('auth-background').then(setAuthImage);
+    const image = getPlaceholderImage('auth-background');
+    setAuthImage(image);
   }, []);
 
   const handleSubmit = async (event: React.FormEvent) => {
