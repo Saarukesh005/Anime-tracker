@@ -6,6 +6,7 @@ import { Flame, ListVideo, Sparkles, Image as ImageIcon } from 'lucide-react';
 import AnimeSearch from './anime-search';
 import { UserNav } from './user-nav';
 import { getAuth } from '@/lib/auth';
+import { ModeToggle } from './mode-toggle';
 
 const navItems = [
   { href: '/dashboard', label: 'Home', icon: Flame },
@@ -25,7 +26,7 @@ export async function Header() {
         <div className="mr-4 flex">
           <Link href={user ? "/dashboard" : "/"} className="mr-6 flex items-center space-x-2">
             <Logo />
-            <span className="font-bold font-headline text-white">AnimeVerse</span>
+            <span className="font-bold font-headline">AnimeVerse</span>
           </Link>
         </div>
         {user && (
@@ -35,8 +36,8 @@ export async function Header() {
                 key={item.href}
                 href={item.href}
                 className={cn(
-                  'transition-colors hover:text-white flex items-center gap-2 font-bold',
-                  pathname === item.href ? 'text-white' : 'text-gray-400'
+                  'transition-colors hover:text-foreground/80 flex items-center gap-2 font-medium',
+                  pathname === item.href ? 'text-foreground' : 'text-foreground/60'
                 )}
               >
                 <item.icon className="h-4 w-4" />
@@ -46,17 +47,16 @@ export async function Header() {
           </nav>
         )}
         <div className="flex flex-1 items-center justify-end space-x-4">
-          {user && (
-            <div className="w-full flex-1 md:w-auto md:flex-none">
-              <AnimeSearch />
+           <div className="w-full flex-1 md:w-auto md:flex-none">
+              {user && <AnimeSearch />}
             </div>
-          )}
+            <ModeToggle />
            {user ? (
             <UserNav user={user} />
            ) : (
             <div className='flex items-center gap-4'>
               <Button asChild variant="ghost">
-                <Link href="/login" className="text-white font-bold">Log In</Link>
+                <Link href="/login" className="font-bold">Log In</Link>
               </Button>
               <Button asChild className="neon-glow-primary">
                 <Link href="/signup" className="font-bold">Sign Up</Link>
