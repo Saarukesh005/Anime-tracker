@@ -1,3 +1,5 @@
+'use client';
+
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -14,9 +16,17 @@ import {
 } from '@/components/ui/avatar';
 import { Button } from './ui/button';
 import Link from 'next/link';
-import type { User } from '@/lib/auth';
+import { logout, type User } from '@/lib/auth';
+import { useRouter } from 'next/navigation';
 
 export function UserNav({ user }: { user: User }) {
+  const router = useRouter();
+
+  const handleLogout = async () => {
+    await logout();
+    router.push('/login');
+  };
+
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
@@ -50,7 +60,7 @@ export function UserNav({ user }: { user: User }) {
           </Link>
         </DropdownMenuGroup>
         <DropdownMenuSeparator />
-        <DropdownMenuItem>
+        <DropdownMenuItem onClick={handleLogout}>
           Log out
         </DropdownMenuItem>
       </DropdownMenuContent>

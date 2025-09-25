@@ -24,7 +24,6 @@ export default function LoginPage() {
     event.preventDefault();
     await login();
     router.push('/dashboard');
-    router.refresh(); // This will re-fetch the header state
   };
 
   return (
