@@ -1,5 +1,8 @@
 // This is a mock authentication library.
 // In a real application, this would be replaced with a robust authentication system.
+'use server';
+
+import { cookies } from 'next/headers';
 
 export type User = {
   id: string;
@@ -16,24 +19,25 @@ const MOCK_USER: User = {
   avatarUrl: 'https://picsum.photos/seed/user1/40/40',
 };
 
-// In a real app, this would read from a secure session cookie or token.
-// For this prototype, we'll just simulate a logged-in user.
-let isAuthenticated = true;
+const AUTH_COOKIE_NAME = 'mock_auth_session';
 
 export async function getAuth(): Promise<User | null> {
-  // Simulate an async call to an auth service
-  await new Promise(resolve => setTimeout(resolve, 100));
-  
-  if (isAuthenticated) {
+  const cookieStore = cookies();
+  const session = cookieStore.get(AUTH_COOKIE_NAME);
+
+  if (session?.value === 'true') {
     return MOCK_USER;
   }
+
   return null;
 }
 
 export async function login() {
-  isAuthenticated = true;
+  const cookieStore = cookies();
+  cookieStore.set(AUTH_COOKIE_NAME, 'true', { path: '/' });
 }
 
 export async function logout() {
-  isAuthenticated = false;
+  const cookieStore = cookies();
+  cookieStore.set(AUTH_COOKIE_NAME, 'false', { path: '/' });
 }

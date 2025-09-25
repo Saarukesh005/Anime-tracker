@@ -1,3 +1,5 @@
+'use client';
+
 import AuthForm from '@/components/auth-form';
 import { Button } from '@/components/ui/button';
 import { CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
@@ -5,19 +7,29 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { getPlaceholderImage } from '@/lib/placeholder-images';
 import Link from 'next/link';
-import { redirect } from 'next/navigation';
+import { useRouter } from 'next/navigation';
+import { login } from '@/lib/auth';
+import type { ImagePlaceholder } from '@/lib/placeholder-images';
+import { useEffect, useState } from 'react';
 
-export default async function LoginPage() {
-  const handleSubmit = async () => {
-    'use server';
-    redirect('/dashboard');
+export default function LoginPage() {
+  const router = useRouter();
+  const [authImage, setAuthImage] = useState<ImagePlaceholder | undefined>(undefined);
+
+  useEffect(() => {
+    getPlaceholderImage('auth-background').then(setAuthImage);
+  }, []);
+
+  const handleSubmit = async (event: React.FormEvent) => {
+    event.preventDefault();
+    await login();
+    router.push('/dashboard');
+    router.refresh(); // This will re-fetch the header state
   };
-
-  const authImage = await getPlaceholderImage('auth-background');
 
   return (
     <AuthForm authImage={authImage}>
-      <form action={handleSubmit}>
+      <form onSubmit={handleSubmit}>
         <CardHeader className="text-center">
           <CardTitle className="text-3xl font-headline">Welcome Back!</CardTitle>
           <CardDescription>Enter your credentials to access your watchlist.</CardDescription>

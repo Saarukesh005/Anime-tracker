@@ -1,17 +1,37 @@
+'use client';
+
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { getAuth } from "@/lib/auth";
+import { getAuth, logout, type User } from "@/lib/auth";
 import { LogOut } from "lucide-react";
-import { redirect } from "next/navigation";
+import { useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
 
-export default async function ProfilePage() {
-    const user = await getAuth();
+export default function ProfilePage() {
+    const router = useRouter();
+    const [user, setUser] = useState<User | null>(null);
+
+    useEffect(() => {
+        getAuth().then(currentUser => {
+            if (!currentUser) {
+                router.push('/login');
+            } else {
+                setUser(currentUser);
+            }
+        });
+    }, [router]);
+
+    const handleLogout = async () => {
+        await logout();
+        router.push('/login');
+        router.refresh();
+    };
 
     if (!user) {
-        redirect('/login');
+        return null; // or a loading spinner
     }
 
     return (
@@ -41,7 +61,7 @@ export default async function ProfilePage() {
                     </div>
 
                     <div className="flex justify-between items-center pt-4">
-                        <Button variant="destructive" className="neon-glow">
+                        <Button variant="destructive" className="neon-glow" onClick={handleLogout}>
                            <LogOut className="mr-2" />
                             Log Out
                         </Button>
