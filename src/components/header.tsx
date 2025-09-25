@@ -7,6 +7,7 @@ import AnimeSearch from './anime-search';
 import { UserNav } from './user-nav';
 import { getAuth } from '@/lib/auth';
 import { ModeToggle } from './mode-toggle';
+import { cookies } from 'next/headers';
 
 const navItems = [
   { href: '/dashboard', label: 'Home', icon: Flame },
