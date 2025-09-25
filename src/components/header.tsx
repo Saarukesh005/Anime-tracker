@@ -25,7 +25,7 @@ export async function Header() {
         <div className="mr-4 flex">
           <Link href="/dashboard" className="mr-6 flex items-center space-x-2">
             <Logo />
-            <span className="font-bold font-headline">AnimeVerse</span>
+            <span className="font-bold font-headline text-white">AnimeVerse</span>
           </Link>
         </div>
         <nav className="hidden md:flex items-center gap-4 text-sm lg:gap-6">
@@ -34,8 +34,8 @@ export async function Header() {
               key={item.href}
               href={item.href}
               className={cn(
-                'transition-colors hover:text-foreground/80 flex items-center gap-2',
-                pathname === item.href ? 'text-foreground' : 'text-foreground/60'
+                'transition-colors hover:text-foreground/80 flex items-center gap-2 text-white font-bold',
+                pathname === item.href ? 'text-white' : 'text-gray-400'
               )}
             >
               <item.icon className="h-4 w-4" />
@@ -52,10 +52,10 @@ export async function Header() {
            ) : (
             <>
               <Button asChild variant="ghost">
-                <Link href="/login">Log In</Link>
+                <Link href="/login" className="text-white font-bold">Log In</Link>
               </Button>
               <Button asChild className="neon-glow-primary">
-                <Link href="/signup">Sign Up</Link>
+                <Link href="/signup" className="font-bold">Sign Up</Link>
               </Button>
             </>
            )}
