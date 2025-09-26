@@ -1,19 +1,20 @@
+
 import Link from 'next/link';
 import { Logo } from './logo';
 import { Button } from './ui/button';
 import { cn } from '@/lib/utils';
-import { Flame, ListVideo, Sparkles, Image as ImageIcon } from 'lucide-react';
+import { Flame, ListVideo, Sparkles, Image as ImageIcon, LineChart } from 'lucide-react';
 import AnimeSearch from './anime-search';
 import { UserNav } from './user-nav';
 import { getAuth } from '@/lib/auth';
 import { ModeToggle } from './mode-toggle';
-import { cookies } from 'next/headers';
 
 const navItems = [
   { href: '/dashboard', label: 'Home', icon: Flame },
   { href: '/watchlist', label: 'Watchlist', icon: ListVideo },
   { href: '/recommendations', label: 'AI Recs', icon: Sparkles },
   { href: '/image-generator', label: 'Image Gen', icon: ImageIcon },
+  { href: '/analytics', label: 'Analytics', icon: LineChart },
 ];
 
 export async function Header() {
