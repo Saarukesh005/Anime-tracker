@@ -11,6 +11,7 @@ export type User = {
   username: string;
   email: string;
   avatarUrl: string;
+  role: 'Admin' | 'User';
 };
 
 // Mock user data
@@ -19,6 +20,7 @@ const MOCK_USER: User = {
   username: 'AnimeFan_22',
   email: 'user@example.com',
   avatarUrl: 'https://picsum.photos/seed/user1/40/40',
+  role: 'Admin',
 };
 
 const AUTH_COOKIE_NAME = 'mock_auth_session';

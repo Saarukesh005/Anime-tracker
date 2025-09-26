@@ -15,7 +15,7 @@ const navItems = [
   { href: '/recommendations', label: 'AI Recs', icon: Sparkles },
   { href: '/image-generator', label: 'Image Gen', icon: ImageIcon },
   { href: '/analytics', label: 'Analytics', icon: LineChart },
-  { href: '/admin', label: 'Admin', icon: ShieldCheck },
+  { href: '/admin', label: 'Admin', icon: ShieldCheck, adminOnly: true },
 ];
 
 export async function Header() {
@@ -33,19 +33,24 @@ export async function Header() {
           </Link>
           {user && (
             <nav className="hidden md:flex items-center gap-4 text-sm lg:gap-6">
-              {navItems.map((item) => (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  className={cn(
-                    'transition-colors hover:text-foreground/80 flex items-center gap-2 font-medium',
-                    pathname === item.href ? 'text-foreground' : 'text-foreground/60'
-                  )}
-                >
-                  <item.icon className="h-4 w-4" />
-                  {item.label}
-                </Link>
-              ))}
+              {navItems.map((item) => {
+                if (item.adminOnly && user.role !== 'Admin') {
+                  return null;
+                }
+                return (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    className={cn(
+                      'transition-colors hover:text-foreground/80 flex items-center gap-2 font-medium',
+                      pathname === item.href ? 'text-foreground' : 'text-foreground/60'
+                    )}
+                  >
+                    <item.icon className="h-4 w-4" />
+                    {item.label}
+                  </Link>
+                );
+              })}
             </nav>
           )}
         </div>
