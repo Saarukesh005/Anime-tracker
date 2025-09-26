@@ -37,7 +37,8 @@ export const allAnime: Anime[] = [
     totalEpisodes: 220,
     rating: 8.4,
     genres: ["Action", "Adventure", "Fantasy"],
-    status: 'Completed'
+    status: 'Completed',
+    type: 'Anime'
   },
   {
     id: 2,
@@ -48,7 +49,8 @@ export const allAnime: Anime[] = [
     totalEpisodes: 500,
     rating: 8.7,
     genres: ["Action", "Adventure", "Fantasy"],
-    status: 'Completed'
+    status: 'Completed',
+    type: 'Anime'
   },
   {
     id: 3,
@@ -59,7 +61,8 @@ export const allAnime: Anime[] = [
     totalEpisodes: 293,
     rating: 6.8,
     genres: ["Action", "Adventure", "Fantasy"],
-    status: 'Watching'
+    status: 'Watching',
+    type: 'Anime'
   },
   {
     id: 4,
@@ -70,7 +73,8 @@ export const allAnime: Anime[] = [
     totalEpisodes: 291,
     rating: 8.8,
     genres: ["Action", "Adventure", "Fantasy"],
-    status: 'Completed'
+    status: 'Completed',
+    type: 'Anime'
   },
   {
     id: 5,
@@ -81,7 +85,8 @@ export const allAnime: Anime[] = [
     totalEpisodes: 131,
     rating: 8.4,
     genres: ["Action", "Adventure", "Fantasy"],
-    status: 'Watching'
+    status: 'Watching',
+    type: 'Anime'
   },
   {
     id: 6,
@@ -92,7 +97,8 @@ export const allAnime: Anime[] = [
     totalEpisodes: 1076,
     rating: 8.9,
     genres: ["Action", "Adventure", "Fantasy"],
-    status: 'Watching'
+    status: 'Watching',
+    type: 'Anime'
   },
   {
     id: 7,
@@ -103,7 +109,8 @@ export const allAnime: Anime[] = [
     totalEpisodes: 366,
     rating: 8.2,
     genres: ["Action", "Supernatural", "Adventure"],
-    status: 'Completed'
+    status: 'Completed',
+    type: 'Anime'
   },
   {
     id: 8,
@@ -114,7 +121,8 @@ export const allAnime: Anime[] = [
     totalEpisodes: 44,
     rating: 8.7,
     genres: ["Action", "Dark Fantasy", "Supernatural"],
-    status: 'Watching'
+    status: 'Watching',
+    type: 'Anime'
   },
   {
     id: 9,
@@ -125,7 +133,8 @@ export const allAnime: Anime[] = [
     totalEpisodes: 47,
     rating: 8.7,
     genres: ["Action", "Dark Fantasy", "Supernatural"],
-    status: 'Watching'
+    status: 'Watching',
+    type: 'Anime'
   },
   {
     id: 10,
@@ -136,7 +145,8 @@ export const allAnime: Anime[] = [
     totalEpisodes: 88,
     rating: 9.1,
     genres: ["Action", "Dark Fantasy", "Post-apocalyptic"],
-    status: 'Completed'
+    status: 'Completed',
+    type: 'Anime'
   },
   {
     id: 11,
@@ -147,7 +157,8 @@ export const allAnime: Anime[] = [
     totalEpisodes: 138,
     rating: 8.4,
     genres: ["Action", "Superhero", "Comedy"],
-    status: 'Watching'
+    status: 'Watching',
+    type: 'Anime'
   },
   {
     id: 12,
@@ -158,7 +169,8 @@ export const allAnime: Anime[] = [
     totalEpisodes: 64,
     rating: 9.1,
     genres: ["Action", "Adventure", "Steampunk"],
-    status: 'Completed'
+    status: 'Completed',
+    type: 'Anime'
   },
   {
     id: 13,
@@ -169,7 +181,8 @@ export const allAnime: Anime[] = [
     totalEpisodes: 37,
     rating: 8.6,
     genres: ["Mystery", "Psychological", "Thriller"],
-    status: 'Completed'
+    status: 'Completed',
+    type: 'Anime'
   },
   {
     id: 14,
@@ -180,7 +193,8 @@ export const allAnime: Anime[] = [
     totalEpisodes: 148,
     rating: 9.0,
     genres: ["Action", "Adventure", "Fantasy"],
-    status: 'Completed'
+    status: 'Completed',
+    type: 'Anime'
   },
   {
     id: 15,
@@ -191,7 +205,8 @@ export const allAnime: Anime[] = [
     totalEpisodes: 96,
     rating: 7.2,
     genres: ["Action", "Adventure", "Romance"],
-    status: 'Plan to Watch'
+    status: 'Plan to Watch',
+    type: 'Anime'
   },
   {
     id: 16,
@@ -202,7 +217,8 @@ export const allAnime: Anime[] = [
     totalEpisodes: 328,
     rating: 7.6,
     genres: ["Action", "Adventure", "Fantasy"],
-    status: 'Plan to Watch'
+    status: 'Plan to Watch',
+    type: 'Anime'
   },
   {
     id: 17,
@@ -213,7 +229,8 @@ export const allAnime: Anime[] = [
     totalEpisodes: 48,
     rating: 7.8,
     genres: ["Action", "Dark Fantasy", "Horror"],
-    status: 'Dropped'
+    status: 'Dropped',
+    type: 'Anime'
   },
   {
     id: 18,
@@ -224,7 +241,8 @@ export const allAnime: Anime[] = [
     totalEpisodes: 170,
     rating: 8.1,
     genres: ["Action", "Fantasy", "Comedy"],
-    status: 'On-Hold'
+    status: 'On-Hold',
+    type: 'Anime'
   },
   {
     id: 19,
@@ -235,7 +253,8 @@ export const allAnime: Anime[] = [
     totalEpisodes: 37,
     rating: 7.5,
     genres: ["Action", "Supernatural", "Fantasy"],
-    status: 'Plan to Watch'
+    status: 'Plan to Watch',
+    type: 'Anime'
   },
   {
     id: 20,
@@ -246,7 +265,8 @@ export const allAnime: Anime[] = [
     totalEpisodes: 50,
     rating: 8.7,
     genres: ["Action", "Mecha", "Military"],
-    status: 'Completed'
+    status: 'Completed',
+    type: 'Anime'
   },
   {
     id: 21,
@@ -257,7 +277,8 @@ export const allAnime: Anime[] = [
     totalEpisodes: 24,
     rating: 9.1,
     genres: ["Sci-Fi", "Thriller", "Psychological"],
-    status: 'Completed'
+    status: 'Completed',
+    type: 'Anime'
   },
   {
     id: 22,
@@ -268,7 +289,8 @@ export const allAnime: Anime[] = [
     totalEpisodes: 26,
     rating: 8.5,
     genres: ["Mecha", "Psychological", "Sci-Fi"],
-    status: 'Completed'
+    status: 'Completed',
+    type: 'Anime'
   },
   {
     id: 23,
@@ -279,7 +301,8 @@ export const allAnime: Anime[] = [
     totalEpisodes: 50,
     rating: 8.2,
     genres: ["Isekai", "Fantasy", "Thriller"],
-    status: 'Plan to Watch'
+    status: 'Plan to Watch',
+    type: 'Anime'
   },
   {
     id: 24,
@@ -290,7 +313,8 @@ export const allAnime: Anime[] = [
     totalEpisodes: 20,
     rating: 8.1,
     genres: ["Comedy", "Fantasy", "Isekai"],
-    status: 'Completed'
+    status: 'Completed',
+    type: 'Anime'
   },
   {
     id: 25,
@@ -301,7 +325,8 @@ export const allAnime: Anime[] = [
     totalEpisodes: 38,
     rating: 7.8,
     genres: ["Isekai", "Fantasy", "Action"],
-    status: 'Watching'
+    status: 'Watching',
+    type: 'Anime'
   },
   {
     id: 26,
@@ -312,7 +337,8 @@ export const allAnime: Anime[] = [
     totalEpisodes: 48,
     rating: 8.8,
     genres: ["Historical", "Action", "Adventure"],
-    status: 'Watching'
+    status: 'Watching',
+    type: 'Anime'
   },
   {
     id: 27,
@@ -323,7 +349,8 @@ export const allAnime: Anime[] = [
     totalEpisodes: 12,
     rating: 8.6,
     genres: ["Action", "Fantasy", "Adventure"],
-    status: 'Watching'
+    status: 'Watching',
+    type: 'Anime'
   },
   {
     id: 28,
@@ -334,7 +361,8 @@ export const allAnime: Anime[] = [
     totalEpisodes: 12,
     rating: 8.6,
     genres: ["Action", "Dark Fantasy", "Supernatural"],
-    status: 'Watching'
+    status: 'Watching',
+    type: 'Anime'
   },
   {
     id: 29,
@@ -345,7 +373,8 @@ export const allAnime: Anime[] = [
     totalEpisodes: 37,
     rating: 8.6,
     genres: ["Comedy", "Action", "Slice of Life"],
-    status: 'Completed'
+    status: 'Completed',
+    type: 'Anime'
   },
   {
     id: 30,
@@ -356,7 +385,8 @@ export const allAnime: Anime[] = [
     totalEpisodes: 46,
     rating: 8.3,
     genres: ["Adventure", "Sci-Fi", "Comedy"],
-    status: 'Watching'
+    status: 'Watching',
+    type: 'Anime'
   },
   {
     id: 31,
@@ -367,7 +397,8 @@ export const allAnime: Anime[] = [
     totalEpisodes: 100,
     rating: 7.7,
     genres: ["Action", "Adventure", "Fantasy"],
-    status: 'Plan to Watch'
+    status: 'Plan to Watch',
+    type: 'Anime'
   },
   {
     id: 32,
@@ -378,7 +409,8 @@ export const allAnime: Anime[] = [
     totalEpisodes: 48,
     rating: 7.6,
     genres: ["Action", "Supernatural", "Sci-Fi"],
-    status: 'Plan to Watch'
+    status: 'Plan to Watch',
+    type: 'Anime'
   },
   // TV Series
   {
@@ -390,7 +422,8 @@ export const allAnime: Anime[] = [
     totalEpisodes: 73,
     rating: 9.2,
     genres: ["Fantasy", "Drama", "Action"],
-    status: 'Completed'
+    status: 'Completed',
+    type: 'TV Series'
   },
   {
     id: 34,
@@ -401,7 +434,8 @@ export const allAnime: Anime[] = [
     totalEpisodes: 10,
     rating: 8.5,
     genres: ["Fantasy", "Drama", "Action"],
-    status: 'Watching'
+    status: 'Watching',
+    type: 'TV Series'
   },
   {
     id: 35,
@@ -412,7 +446,8 @@ export const allAnime: Anime[] = [
     totalEpisodes: 34,
     rating: 8.7,
     genres: ["Sci-Fi", "Horror", "Drama"],
-    status: 'Watching'
+    status: 'Watching',
+    type: 'TV Series'
   },
   {
     id: 36,
@@ -423,7 +458,8 @@ export const allAnime: Anime[] = [
     totalEpisodes: 16,
     rating: 8.2,
     genres: ["Fantasy", "Action", "Adventure"],
-    status: 'Plan to Watch'
+    status: 'Plan to Watch',
+    type: 'TV Series'
   },
   {
     id: 37,
@@ -434,7 +470,8 @@ export const allAnime: Anime[] = [
     totalEpisodes: 41,
     rating: 8.2,
     genres: ["Crime", "Thriller", "Drama"],
-    status: 'Completed'
+    status: 'Completed',
+    type: 'TV Series'
   },
   {
     id: 38,
@@ -445,7 +482,8 @@ export const allAnime: Anime[] = [
     totalEpisodes: 62,
     rating: 9.5,
     genres: ["Crime", "Drama", "Thriller"],
-    status: 'Completed'
+    status: 'Completed',
+    type: 'TV Series'
   },
   {
     id: 39,
@@ -456,7 +494,8 @@ export const allAnime: Anime[] = [
     totalEpisodes: 63,
     rating: 8.9,
     genres: ["Crime", "Drama"],
-    status: 'Completed'
+    status: 'Completed',
+    type: 'TV Series'
   },
   {
     id: 40,
@@ -467,7 +506,8 @@ export const allAnime: Anime[] = [
     totalEpisodes: 24,
     rating: 8.7,
     genres: ["Action", "Comedy", "Crime"],
-    status: 'Watching'
+    status: 'Watching',
+    type: 'TV Series'
   },
   {
     id: 41,
@@ -478,7 +518,8 @@ export const allAnime: Anime[] = [
     totalEpisodes: 30,
     rating: 7.9,
     genres: ["Action", "Adventure", "Comedy"],
-    status: 'Watching'
+    status: 'Watching',
+    type: 'TV Series'
   },
   {
     id: 42,
@@ -489,7 +530,8 @@ export const allAnime: Anime[] = [
     totalEpisodes: 12,
     rating: 8.2,
     genres: ["Action", "Adventure", "Fantasy"],
-    status: 'Watching'
+    status: 'Watching',
+    type: 'TV Series'
   },
   {
     id: 43,
@@ -500,7 +542,8 @@ export const allAnime: Anime[] = [
     totalEpisodes: 6,
     rating: 7.3,
     genres: ["Action", "Adventure", "Drama"],
-    status: 'Completed'
+    status: 'Completed',
+    type: 'TV Series'
   },
   {
     id: 44,
@@ -511,7 +554,8 @@ export const allAnime: Anime[] = [
     totalEpisodes: 9,
     rating: 7.9,
     genres: ["Drama", "Fantasy", "Sci-Fi"],
-    status: 'Completed'
+    status: 'Completed',
+    type: 'TV Series'
   },
   {
     id: 45,
@@ -522,7 +566,8 @@ export const allAnime: Anime[] = [
     totalEpisodes: 39,
     rating: 8.6,
     genres: ["Action", "Crime", "Drama"],
-    status: 'Completed'
+    status: 'Completed',
+    type: 'TV Series'
   },
   {
     id: 46,
@@ -533,7 +578,8 @@ export const allAnime: Anime[] = [
     totalEpisodes: 170,
     rating: 7.5,
     genres: ["Action", "Adventure", "Crime"],
-    status: 'Completed'
+    status: 'Completed',
+    type: 'TV Series'
   },
   {
     id: 47,
@@ -544,7 +590,8 @@ export const allAnime: Anime[] = [
     totalEpisodes: 184,
     rating: 7.6,
     genres: ["Action", "Adventure", "Drama"],
-    status: 'Watching'
+    status: 'Watching',
+    type: 'TV Series'
   },
   {
     id: 48,
@@ -555,7 +602,8 @@ export const allAnime: Anime[] = [
     totalEpisodes: 327,
     rating: 8.4,
     genres: ["Drama", "Fantasy", "Horror"],
-    status: 'Completed'
+    status: 'Completed',
+    type: 'TV Series'
   },
   {
     id: 49,
@@ -566,7 +614,8 @@ export const allAnime: Anime[] = [
     totalEpisodes: 177,
     rating: 8.1,
     genres: ["Drama", "Horror", "Thriller"],
-    status: 'Completed'
+    status: 'Completed',
+    type: 'TV Series'
   },
   {
     id: 50,
@@ -577,7 +626,8 @@ export const allAnime: Anime[] = [
     totalEpisodes: 36,
     rating: 8.8,
     genres: ["Crime", "Drama"],
-    status: 'Completed'
+    status: 'Completed',
+    type: 'TV Series'
   },
   {
     id: 51,
@@ -588,7 +638,8 @@ export const allAnime: Anime[] = [
     totalEpisodes: 90,
     rating: 8.3,
     genres: ["Action", "Crime", "Drama"],
-    status: 'Completed'
+    status: 'Completed',
+    type: 'TV Series'
   },
   {
     id: 52,
@@ -599,8 +650,9 @@ export const allAnime: Anime[] = [
     totalEpisodes: 26,
     rating: 8.7,
     genres: ["Crime", "Drama", "Mystery"],
-    status: 'Completed'
+    status: 'Completed',
+    type: 'TV Series'
   }
 ];
 
-export const trendingAnime = allAnime.slice(0, 6);
+export const trendingAnime = allAnime.filter(item => item.type === 'Anime').slice(0, 6);

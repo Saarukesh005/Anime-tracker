@@ -19,4 +19,5 @@ export type Anime = {
   rating: number;
   genres: string[];
   status: 'Watching' | 'Completed' | 'On-Hold' | 'Dropped' | 'Plan to Watch';
+  type: 'Anime' | 'TV Series';
 };
