@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { Logo } from './logo';
 import { Button } from './ui/button';
 import { cn } from '@/lib/utils';
-import { Flame, ListVideo, Sparkles, Image as ImageIcon, LineChart } from 'lucide-react';
+import { Flame, ListVideo, Sparkles, Image as ImageIcon, LineChart, ShieldCheck } from 'lucide-react';
 import AnimeSearch from './anime-search';
 import { UserNav } from './user-nav';
 import { getAuth } from '@/lib/auth';
@@ -15,6 +15,7 @@ const navItems = [
   { href: '/recommendations', label: 'AI Recs', icon: Sparkles },
   { href: '/image-generator', label: 'Image Gen', icon: ImageIcon },
   { href: '/analytics', label: 'Analytics', icon: LineChart },
+  { href: '/admin', label: 'Admin', icon: ShieldCheck },
 ];
 
 export async function Header() {
