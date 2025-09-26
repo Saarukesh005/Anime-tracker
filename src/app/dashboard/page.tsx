@@ -1,3 +1,6 @@
+
+'use client';
+
 import Image from 'next/image';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
@@ -5,18 +8,27 @@ import { trendingAnime } from '@/lib/anime';
 import AnimeCard from '@/components/anime-card';
 import { placeholderImages } from '@/lib/placeholder-images.json';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
+import Autoplay from "embla-carousel-autoplay";
+import React from 'react';
 
 export default function DashboardPage() {
   const heroImages = placeholderImages.filter(p => p.id.startsWith("hero-banner"));
+
+  const plugin = React.useRef(
+    Autoplay({ delay: 10000, stopOnInteraction: true })
+  )
 
   return (
     <div className="space-y-12">
       <section className="relative w-full shadow-2xl">
         <Carousel
+            plugins={[plugin.current]}
             opts={{
                 loop: true,
             }}
             className="w-full"
+            onMouseEnter={plugin.current.stop}
+            onMouseLeave={plugin.current.reset}
         >
           <CarouselContent>
             {heroImages.map((image) => (
