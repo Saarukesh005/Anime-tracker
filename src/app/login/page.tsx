@@ -1,4 +1,3 @@
-'use client';
 
 import AuthForm from '@/components/auth-form';
 import { Button } from '@/components/ui/button';
@@ -8,27 +7,20 @@ import { Label } from '@/components/ui/label';
 import { getPlaceholderImage } from '@/lib/placeholder-images';
 import Link from 'next/link';
 import { login } from '@/lib/auth';
-import type { ImagePlaceholder } from '@/lib/placeholder-images';
-import { useEffect, useState } from 'react';
+import { redirect } from 'next/navigation';
 
-export default function LoginPage() {
-  const [authImage, setAuthImage] = useState<ImagePlaceholder | undefined>(undefined);
+export default async function LoginPage() {
+  const authImage = await getPlaceholderImage('auth-background');
 
-  useEffect(() => {
-    const image = getPlaceholderImage('auth-background');
-    setAuthImage(image);
-  }, []);
-
-  const handleSubmit = async (event: React.FormEvent) => {
-    event.preventDefault();
+  const handleSubmit = async () => {
+    'use server';
     await login();
-    // A full refresh is needed to re-render server components like the header
-    window.location.href = '/dashboard';
+    redirect('/dashboard');
   };
 
   return (
     <AuthForm authImage={authImage}>
-      <form onSubmit={handleSubmit}>
+      <form action={handleSubmit}>
         <CardHeader className="text-center">
           <CardTitle className="text-3xl font-headline">Welcome Back!</CardTitle>
           <CardDescription>Enter your credentials to access your watchlist.</CardDescription>
