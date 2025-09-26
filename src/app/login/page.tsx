@@ -12,15 +12,13 @@ import { redirect } from 'next/navigation';
 export default async function LoginPage() {
   const authImage = await getPlaceholderImage('auth-background');
 
-  const handleSubmit = async () => {
-    'use server';
-    await login();
-    redirect('/dashboard');
-  };
-
   return (
     <AuthForm authImage={authImage}>
-      <form action={handleSubmit}>
+      <form action={async () => {
+        'use server';
+        await login();
+        redirect('/dashboard');
+      }}>
         <CardHeader className="text-center">
           <CardTitle className="text-3xl font-headline">Welcome Back!</CardTitle>
           <CardDescription>Enter your credentials to access your watchlist.</CardDescription>
