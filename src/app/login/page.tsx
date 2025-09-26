@@ -7,13 +7,11 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { getPlaceholderImage } from '@/lib/placeholder-images';
 import Link from 'next/link';
-import { useRouter } from 'next/navigation';
 import { login } from '@/lib/auth';
 import type { ImagePlaceholder } from '@/lib/placeholder-images';
 import { useEffect, useState } from 'react';
 
 export default function LoginPage() {
-  const router = useRouter();
   const [authImage, setAuthImage] = useState<ImagePlaceholder | undefined>(undefined);
 
   useEffect(() => {
