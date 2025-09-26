@@ -16,7 +16,7 @@ export default function DashboardPage() {
 
   const plugin = React.useRef(
     Autoplay({ delay: 10000, stopOnInteraction: true })
-  )
+  );
 
   return (
     <div className="space-y-12">
@@ -28,7 +28,7 @@ export default function DashboardPage() {
             }}
             className="w-full"
             onMouseEnter={plugin.current.stop}
-            onMouseLeave={plugin.current.reset}
+            onMouseLeave={plugin.current.play}
         >
           <CarouselContent>
             {heroImages.map((image) => (
@@ -49,8 +49,7 @@ export default function DashboardPage() {
                         </h1>
                         <p className="mt-2 text-lg max-w-2xl drop-shadow-md">
                             Dive into a universe of stories. Track your progress, discover new series, and connect with fellow fans.
-                        </p
->
+                        </p>
                         <Button asChild className="mt-4 neon-glow-primary" size="lg">
                             <Link href="/watchlist">My Watchlist</Link>
                         </Button>
