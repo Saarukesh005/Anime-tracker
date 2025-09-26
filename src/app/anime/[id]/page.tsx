@@ -1,5 +1,4 @@
 
-'use client';
 
 import { allAnime } from '@/lib/anime';
 import { placeholderImages } from '@/lib/placeholder-images.json';
@@ -10,51 +9,20 @@ import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Progress } from '@/components/ui/progress';
 import { Separator } from '@/components/ui/separator';
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
-import { Clapperboard, Star, Tv, CheckCircle2 } from 'lucide-react';
+import { Clapperboard, Star, Tv } from 'lucide-react';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
-import { useState } from 'react';
+import CommentSection from '@/components/comment-section';
 
 type Props = {
   params: { id: string };
 };
 
-type Comment = {
-  id: number;
-  user: string;
-  avatarSeed: string;
-  timestamp: string;
-  text: string;
-};
-
-const initialComments: Comment[] = [
-  { id: 1, user: "AnimeFan_22", avatarSeed: "user1", timestamp: "2 hours ago", text: "That last episode was insane! I can't believe <Button variant=\"link\" className=\"p-0 h-auto\">(show spoiler)</Button>" },
-  { id: 2, user: "SakuraChan", avatarSeed: "user2", timestamp: "5 hours ago", text: "The animation in this series is top-tier. Every frame is a work of art." },
-];
-
 export default function AnimeDetailPage({ params }: Props) {
   const anime = allAnime.find((a) => a.id.toString() === params.id);
-  const [comments, setComments] = useState<Comment[]>(initialComments);
-  const [newComment, setNewComment] = useState("");
 
   if (!anime) {
     notFound();
   }
-
-  const handlePostComment = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (newComment.trim()) {
-      const newCommentObj: Comment = {
-        id: Date.now(),
-        user: "CurrentUser", // This would be the logged-in user
-        avatarSeed: "user3",
-        timestamp: "Just now",
-        text: newComment,
-      };
-      setComments([newCommentObj, ...comments]);
-      setNewComment("");
-    }
-  };
 
   const coverImage = placeholderImages.find(p => p.id === anime.coverImageId);
   const progress = (12 / anime.totalEpisodes) * 100; // Mocked progress
@@ -119,15 +87,12 @@ export default function AnimeDetailPage({ params }: Props) {
                         <h3 className="text-xl font-semibold">Season {season.seasonNumber}</h3>
                     </AccordionTrigger>
                     <AccordionContent>
-                        <ul className="space-y-2 pl-4 text-foreground">
-                        {season.episodes.map((episode) => (
-                            <li key={episode.id} className="flex items-center justify-between p-2 rounded-md hover:bg-muted/50">
-                                <span>{episode.title}</span>
-                                <Button variant="ghost" size="sm">
-                                    <CheckCircle2 className="w-5 h-5 text-muted-foreground hover:text-primary" />
-                                </Button>
-                            </li>
-                        ))}
+                       <ul className="space-y-2 pl-4 text-foreground">
+                          {season.episodes.map((episode) => (
+                              <li key={episode.id} className="flex items-center justify-between p-2 rounded-md hover:bg-muted/50">
+                                  <span>{episode.title}</span>
+                              </li>
+                          ))}
                         </ul>
                     </AccordionContent>
                     </AccordionItem>
@@ -137,47 +102,8 @@ export default function AnimeDetailPage({ params }: Props) {
 
           <Separator className="my-8" />
 
-          <div>
-            <h2 className="text-3xl font-bold font-headline mb-6">Community Discussions</h2>
-            <Card>
-              <CardHeader>
-                <CardTitle>Join the Conversation</CardTitle>
-                <CardDescription>Share your thoughts, but please tag spoilers!</CardDescription>
-              </CardHeader>
-              <CardContent>
-                <form onSubmit={handlePostComment}>
-                  <div className="space-y-4">
-                    <textarea 
-                      placeholder={`What are your thoughts on ${anime.title}?`} 
-                      rows={4} 
-                      className="w-full p-2 border rounded-md bg-input"
-                      value={newComment}
-                      onChange={(e) => setNewComment(e.target.value)}
-                    />
-                    <div className="flex justify-end">
-                      <Button type="submit" className="neon-glow" disabled={!newComment.trim()}>Post Comment</Button>
-                    </div>
-                  </div>
-                </form>
+          <CommentSection animeTitle={anime.title} />
 
-                <div className="mt-8 space-y-6">
-                  {comments.map(comment => (
-                    <div className="flex items-start gap-4" key={comment.id}>
-                      <Avatar>
-                        <AvatarImage src={`https://picsum.photos/seed/${comment.avatarSeed}/40/40`} />
-                        <AvatarFallback>{comment.user.charAt(0)}</AvatarFallback>
-                      </Avatar>
-                      <div className="flex-1">
-                        <p className="font-semibold">{comment.user}</p>
-                        <p className="text-sm text-muted-foreground">{comment.timestamp}</p>
-                        <p className="mt-2">{comment.text}</p>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </CardContent>
-            </Card>
-          </div>
         </div>
       </div>
     </div>
