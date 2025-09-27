@@ -1,13 +1,13 @@
 
+import AuthForm from '@/components/auth-form';
 import { Button } from '@/components/ui/button';
 import { CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
+import { getPlaceholderImage } from '@/lib/placeholder-images';
 import Link from 'next/link';
 import { login } from '@/lib/auth';
 import { redirect } from 'next/navigation';
-import AuthForm from '@/components/auth-form';
-import { getPlaceholderImage } from '@/lib/placeholder-images';
 
 export async function loginAction(formData: FormData) {
   'use server';
