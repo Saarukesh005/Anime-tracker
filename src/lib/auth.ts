@@ -1,123 +1,62 @@
-
+// This is a mock authentication library.
+// In a real application, this would be replaced with a robust authentication system.
 'use server';
 
 import { cookies } from 'next/headers';
 import { unstable_noStore as noStore } from 'next/cache';
+
 
 export type User = {
   id: string;
   username: string;
   email: string;
   avatarUrl: string;
-  role: 'Admin' | 'User';
 };
 
-// Mock user data - Use `let` to allow for in-memory modification
-let MOCK_USERS: User[] = [
-  {
-    id: '1',
-    username: 'AdminUser',
-    email: 'admin@example.com',
-    avatarUrl: 'https://picsum.photos/seed/admin/40/40',
-    role: 'Admin',
-  },
-  {
-    id: '2',
-    username: 'SakuraChan',
-    email: 'sakura@example.com',
-    avatarUrl: 'https://picsum.photos/seed/sakura/40/40',
-    role: 'User',
-  },
-  {
-    id: '3',
-    username: 'GokuFan99',
-    email: 'goku@example.com',
-    avatarUrl: 'https://picsum.photos/seed/goku/40/40',
-    role: 'User',
-  }
-];
+// Mock user data
+const MOCK_USER: User = {
+  id: '1',
+  username: 'AnimeFan_22',
+  email: 'user@example.com',
+  avatarUrl: 'https://picsum.photos/seed/user1/40/40',
+};
 
 const AUTH_COOKIE_NAME = 'mock_auth_session';
 
-/**
- * Get the currently logged-in user
- */
 export async function getAuth(): Promise<User | null> {
-  noStore(); // Prevent caching auth state
+  // This is the crucial change: it prevents the server from caching the auth state.
+  noStore();
+  
   const cookieStore = cookies();
   const session = cookieStore.get(AUTH_COOKIE_NAME);
 
-  if (session?.value) {
-    const user = MOCK_USERS.find(u => u.id === session.value);
-    return user || null;
+  if (session?.value === 'true') {
+    return MOCK_USER;
   }
 
   return null;
 }
 
-/**
- * Login a user by setting a cookie
- */
-export async function login(username: string): Promise<{ success: boolean }> {
+export async function login(email?: string) {
+  // For the purpose of this mock, any login is successful.
+  // In a real app, you'd find the user by email and verify the password.
   const cookieStore = cookies();
-  // In a real app, you'd also validate the password. Here, we just check if the user exists.
-  const user = MOCK_USERS.find(u => u.username === username || u.email === username);
-  
-  if (user) {
-    cookieStore.set(AUTH_COOKIE_NAME, user.id, { path: '/' });
-    return { success: true };
-  } else {
-    return { success: false };
-  }
+  cookieStore.set(AUTH_COOKIE_NAME, 'true', { path: '/' });
 }
 
-/**
- * Logout the current user
- */
 export async function logout() {
   const cookieStore = cookies();
-  cookieStore.delete(AUTH_COOKIE_NAME);
+  cookieStore.set(AUTH_COOKIE_NAME, 'false', { path: '/' });
 }
 
-/**
- * Update the logged-in user's profile (username/avatar)
- */
-export async function updateUserProfile(data: {
-  username?: string;
-  avatarUrl?: string;
-}): Promise<User> {
-  const cookieStore = cookies();
-  const session = cookieStore.get(AUTH_COOKIE_NAME);
-
-  if (!session?.value) {
-    throw new Error('No user logged in');
-  }
-
-  const userIndex = MOCK_USERS.findIndex(u => u.id === session.value);
-  if (userIndex === -1) throw new Error('User not found');
-
-  const updatedUser = {
-    ...MOCK_USERS[userIndex],
-    username: data.username ?? MOCK_USERS[userIndex].username,
-    avatarUrl: data.avatarUrl ?? MOCK_USERS[userIndex].avatarUrl,
-  };
-
-  MOCK_USERS[userIndex] = updatedUser;
-  return updatedUser;
-}
-
-/**
- * Creates a new mock user and adds them to the list.
- */
-export async function createUser(data: { email: string; username: string }): Promise<User> {
+export async function createUser(data: { email: string, username: string }): Promise<User> {
+  // In a real app, this would create a user in a database.
+  // Here, we just return a new mock user object.
   const newUser: User = {
-    id: (MOCK_USERS.length + 1).toString(),
+    id: Date.now().toString(),
     email: data.email,
     username: data.username,
     avatarUrl: `https://picsum.photos/seed/${data.username}/40/40`,
-    role: 'User',
   };
-
-  MOCK_USERS.push(newUser);
   return newUser;
 }

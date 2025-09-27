@@ -7,76 +7,39 @@ import { getPlaceholderImage } from '@/lib/placeholder-images';
 import Link from 'next/link';
 import { login } from '@/lib/auth';
 import { redirect } from 'next/navigation';
-import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
-import { AlertCircle } from 'lucide-react';
 
-async function loginAction(formData: FormData) {
-  'use server';
-  const username = formData.get('username') as string;
-  const result = await login(username);
-  
-  if (result.success) {
-    redirect('/dashboard');
-  } else {
-    redirect('/login?error=InvalidCredentials');
-  }
-}
-
-export default async function LoginPage({ searchParams }: { searchParams: { error?: string } }) {
+export default async function LoginPage() {
   const authImage = await getPlaceholderImage('auth-background');
 
   return (
     <AuthForm authImage={authImage}>
-      <form action={loginAction}>
+      <form action={async () => {
+        'use server';
+        await login();
+        redirect('/dashboard');
+      }}>
         <CardHeader className="text-center">
           <CardTitle className="text-3xl font-headline">Welcome Back!</CardTitle>
-          <CardDescription>Enter your credentials to log in.</CardDescription>
+          <CardDescription>Enter your credentials to access your watchlist.</CardDescription>
         </CardHeader>
-
         <CardContent className="space-y-4">
-          {searchParams.error && (
-            <Alert variant="destructive">
-              <AlertCircle className="h-4 w-4" />
-              <AlertTitle>Login Failed</AlertTitle>
-              <AlertDescription>
-                Invalid username or password. Please try again.
-              </AlertDescription>
-            </Alert>
-          )}
           <div className="space-y-2">
             <Label htmlFor="username">Username</Label>
-            <Input 
-              id="username" 
-              name="username" 
-              placeholder="Your username" 
-              required 
-            />
+            <Input id="username" placeholder="your_username" />
           </div>
-
           <div className="space-y-2">
             <Label htmlFor="password">Password</Label>
-            <Input
-              id="password"
-              name="password"
-              type="password"
-              placeholder="********"
-              defaultValue="password"
-              required
-            />
-             <p className="text-xs text-muted-foreground">Hint: Any password will work for this demo.</p>
+            <Input id="password" type="password" placeholder="********" />
           </div>
         </CardContent>
-
         <CardFooter className="flex flex-col gap-4">
-          <Button type="submit" className="w-full neon-glow-primary">
-            Log In
-          </Button>
+          <Button type="submit" className="w-full neon-glow-primary">Log In</Button>
           <div className="text-sm text-center text-muted-foreground">
-            <Link href="/forgot-password">
+            <Link href="/forgot-password" passHref>
               <span className="underline hover:text-primary">Forgot password?</span>
             </Link>
             {' | '}
-            <Link href="/signup">
+            <Link href="/signup" passHref>
               <span className="underline hover:text-primary">Don&apos;t have an account?</span>
             </Link>
           </div>

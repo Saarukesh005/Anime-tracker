@@ -34,7 +34,8 @@ export async function Header() {
           {user && (
             <nav className="hidden md:flex items-center gap-4 text-sm lg:gap-6">
               {navItems.map((item) => {
-                if (item.adminOnly && user.role !== 'Admin') {
+                // Simplified admin check since role is removed
+                if (item.adminOnly) {
                   return null;
                 }
                 return (
