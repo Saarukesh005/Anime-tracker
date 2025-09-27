@@ -66,7 +66,6 @@ export async function login(username: string): Promise<{ success: boolean }> {
     cookieStore.set(AUTH_COOKIE_NAME, user.id, { path: '/' });
     return { success: true };
   } else {
-    cookieStore.delete(AUTH_COOKIE_NAME);
     return { success: false };
   }
 }
@@ -104,13 +103,6 @@ export async function updateUserProfile(data: {
 
   MOCK_USERS[userIndex] = updatedUser;
   return updatedUser;
-}
-
-/**
- * Get all mock users (for login dropdown/testing)
- */
-export async function getMockUsersForLogin() {
-  return MOCK_USERS;
 }
 
 /**
