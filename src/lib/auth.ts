@@ -58,10 +58,10 @@ export async function getAuth(): Promise<User | null> {
 /**
  * Login a user by setting a cookie
  */
-export async function login(email: string): Promise<{ success: boolean }> {
+export async function login(username: string): Promise<{ success: boolean }> {
   const cookieStore = cookies();
   // In a real app, you would also validate the password
-  const user = MOCK_USERS.find(u => u.email === email);
+  const user = MOCK_USERS.find(u => u.username === username);
   
   if (user) {
     cookieStore.set(AUTH_COOKIE_NAME, user.id, { path: '/' });

@@ -11,15 +11,15 @@ import { getPlaceholderImage } from '@/lib/placeholder-images';
 
 export async function loginAction(formData: FormData) {
   'use server';
-  const email = formData.get('email') as string;
+  const username = formData.get('username') as string;
   // In a real app, you'd also get and validate the password.
   
-  if (!email) {
+  if (!username) {
     // Handle error appropriately
     return;
   }
 
-  const result = await login(email);
+  const result = await login(username);
   if (result.success) {
     redirect('/dashboard');
   } else {
@@ -42,8 +42,8 @@ export default async function LoginPage() {
 
         <CardContent className="space-y-4">
           <div className="space-y-2">
-            <Label htmlFor="email">Email</Label>
-            <Input id="email" name="email" placeholder="you@example.com" type="email" required />
+            <Label htmlFor="username">Username</Label>
+            <Input id="username" name="username" placeholder="your_username" required />
           </div>
 
           <div className="space-y-2">
