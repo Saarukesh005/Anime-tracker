@@ -14,55 +14,68 @@ import {
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@/components/ui/select"
+} from "@/components/ui/select";
+
+export async function loginAction(formData: FormData) {
+  'use server';
+  const userId = formData.get('userId') as string;
+  if (!userId) throw new Error("User ID is required");
+
+  await login(userId);
+  redirect('/dashboard');
+}
 
 export default async function LoginPage() {
   const authImage = await getPlaceholderImage('auth-background');
   const mockUsers = await getMockUsersForLogin();
 
-  const handleLogin = async (formData: FormData) => {
-    'use server';
-    const userId = formData.get('userId') as string;
-    await login(userId);
-    redirect('/dashboard');
-  }
-
   return (
     <AuthForm authImage={authImage}>
-      <form action={handleLogin}>
+      <form action={loginAction}>
         <CardHeader className="text-center">
           <CardTitle className="text-3xl font-headline">Welcome Back!</CardTitle>
           <CardDescription>Select a user to log in.</CardDescription>
         </CardHeader>
+
         <CardContent className="space-y-4">
-           <div className="space-y-2">
+          <div className="space-y-2">
             <Label htmlFor="user-select">Select User</Label>
             <Select name="userId" required defaultValue={mockUsers[0].id}>
-                <SelectTrigger id="user-select">
-                    <SelectValue placeholder="Select a user to log in" />
-                </SelectTrigger>
-                <SelectContent>
-                    {mockUsers.map((user) => (
-                        <SelectItem key={user.id} value={user.id}>
-                            {user.username} ({user.role})
-                        </SelectItem>
-                    ))}
-                </SelectContent>
+              <SelectTrigger id="user-select">
+                <SelectValue placeholder="Select a user to log in" />
+              </SelectTrigger>
+              <SelectContent>
+                {mockUsers.map((user) => (
+                  <SelectItem key={user.id} value={user.id}>
+                    {user.username} ({user.role})
+                  </SelectItem>
+                ))}
+              </SelectContent>
             </Select>
           </div>
+
           <div className="space-y-2">
             <Label htmlFor="password">Password</Label>
-            <Input id="password" type="password" placeholder="********" defaultValue="password" />
+            <Input
+              id="password"
+              type="password"
+              placeholder="********"
+              defaultValue="password"
+              disabled
+            />
           </div>
         </CardContent>
+
         <CardFooter className="flex flex-col gap-4">
-          <Button type="submit" className="w-full neon-glow-primary">Log In</Button>
+          <Button type="submit" className="w-full neon-glow-primary">
+            Log In
+          </Button>
           <div className="text-sm text-center text-muted-foreground">
-            <Link href="/forgot-password" passHref>
+            <Link href="/forgot-password">
               <span className="underline hover:text-primary">Forgot password?</span>
             </Link>
             {' | '}
-            <Link href="/signup" passHref>
+            <Link href="/signup">
               <span className="underline hover:text-primary">Don&apos;t have an account?</span>
             </Link>
           </div>
