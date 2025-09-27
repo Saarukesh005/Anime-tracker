@@ -22,13 +22,14 @@ type Props = {
 };
 
 export default function AnimeDetailPage({ params }: Props) {
-  const initialAnime = allAnime.find((a) => a.id.toString() === params.id);
-  const [anime, setAnime] = useState<Anime | undefined>(initialAnime);
+  const [anime, setAnime] = useState<Anime | undefined>(() => allAnime.find((a) => a.id.toString() === params.id));
 
   useEffect(() => {
-    // This could be used to fetch fresh data in a real app
-    setAnime(initialAnime);
-  }, [initialAnime]);
+    // If the params.id changes, we need to find the new anime.
+    // This is useful for client-side navigations between dynamic route segments.
+    const currentAnime = allAnime.find((a) => a.id.toString() === params.id);
+    setAnime(currentAnime);
+  }, [params.id]);
 
   const watchedEpisodesCount = useMemo(() => {
     if (!anime) return 0;
@@ -59,8 +60,7 @@ export default function AnimeDetailPage({ params }: Props) {
   };
 
   if (!anime) {
-    // initialAnime is found sync, so this should ideally not be hit
-    // unless the component state logic changes.
+    // This can happen if the ID is invalid and no anime is found.
     notFound();
   }
 
