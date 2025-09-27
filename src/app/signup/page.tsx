@@ -6,18 +6,32 @@ import { Label } from '@/components/ui/label';
 import { getPlaceholderImage } from '@/lib/placeholder-images';
 import Link from 'next/link';
 import { redirect } from 'next/navigation';
+import { createUser, login } from '@/lib/auth';
+
+async function signupAction(formData: FormData) {
+  'use server';
+
+  const email = formData.get('email') as string;
+  const username = formData.get('username') as string;
+  // In a real app, you would hash the password
+  // const password = formData.get('password') as string;
+
+  if (!email || !username) {
+    // Handle error appropriately
+    return;
+  }
+  
+  const newUser = await createUser({ email, username });
+  await login(newUser.id);
+  redirect('/dashboard');
+}
 
 export default async function SignupPage() {
-  const handleSubmit = async () => {
-    'use server';
-    redirect('/dashboard');
-  };
-
   const authImage = await getPlaceholderImage('auth-background');
 
   return (
     <AuthForm authImage={authImage}>
-      <form action={handleSubmit}>
+      <form action={signupAction}>
         <CardHeader className="text-center">
           <CardTitle className="text-3xl font-headline">Join the Anime World!</CardTitle>
           <CardDescription>Create an account to start tracking your favorite series.</CardDescription>
@@ -25,15 +39,15 @@ export default async function SignupPage() {
         <CardContent className="space-y-4">
           <div className="space-y-2">
             <Label htmlFor="email">Email</Label>
-            <Input id="email" placeholder="you@example.com" type="email" />
+            <Input id="email" name="email" placeholder="you@example.com" type="email" required />
           </div>
           <div className="space-y-2">
             <Label htmlFor="username">Username</Label>
-            <Input id="username" placeholder="your_username" />
+            <Input id="username" name="username" placeholder="your_username" required />
           </div>
           <div className="space-y-2">
             <Label htmlFor="password">Password</Label>
-            <Input id="password" type="password" placeholder="********" />
+            <Input id="password" name="password" type="password" placeholder="********" required />
           </div>
         </CardContent>
         <CardFooter className="flex flex-col gap-4">

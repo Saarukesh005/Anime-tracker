@@ -109,3 +109,19 @@ export async function updateUserProfile(data: {
 export async function getMockUsersForLogin() {
   return MOCK_USERS;
 }
+
+/**
+ * Creates a new mock user and adds them to the list.
+ */
+export async function createUser(data: { email: string; username: string }): Promise<User> {
+  const newUser: User = {
+    id: (MOCK_USERS.length + 1).toString(),
+    email: data.email,
+    username: data.username,
+    avatarUrl: `https://picsum.photos/seed/${data.username}/40/40`,
+    role: 'User',
+  };
+
+  MOCK_USERS.push(newUser);
+  return newUser;
+}
