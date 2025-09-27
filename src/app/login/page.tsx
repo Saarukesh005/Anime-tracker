@@ -24,8 +24,8 @@ export async function loginAction(formData: FormData) {
     redirect('/dashboard');
   } else {
     // In a real app, you would redirect to the login page with an error message.
-    // For this mock app, we'll just redirect back.
-    redirect('/login');
+    // For this mock app, we'll just return to show the error state (or lack thereof).
+    return;
   }
 }
 
