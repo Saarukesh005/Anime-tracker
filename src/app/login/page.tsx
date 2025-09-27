@@ -6,63 +6,61 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { getPlaceholderImage } from '@/lib/placeholder-images';
 import Link from 'next/link';
-import { login, getMockUsersForLogin } from '@/lib/auth';
+import { login } from '@/lib/auth';
 import { redirect } from 'next/navigation';
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
 
 export async function loginAction(formData: FormData) {
   'use server';
-  const userId = formData.get('userId') as string;
-  if (!userId) throw new Error("User ID is required");
+  const username = formData.get('username') as string;
+  if (!username) {
+      // In a real app, you would handle this error more gracefully
+      return;
+  }
 
-  await login(userId);
-  redirect('/dashboard');
+  const result = await login(username);
+  
+  if (result.success) {
+    redirect('/dashboard');
+  } else {
+    // In a real app, you would return an error message to the user
+    // For now, we'll just prevent the redirect
+    console.error("Login failed");
+  }
 }
 
 export default async function LoginPage() {
   const authImage = await getPlaceholderImage('auth-background');
-  const mockUsers = await getMockUsersForLogin();
 
   return (
     <AuthForm authImage={authImage}>
       <form action={loginAction}>
         <CardHeader className="text-center">
           <CardTitle className="text-3xl font-headline">Welcome Back!</CardTitle>
-          <CardDescription>Select a user to log in.</CardDescription>
+          <CardDescription>Enter your credentials to log in.</CardDescription>
         </CardHeader>
 
         <CardContent className="space-y-4">
           <div className="space-y-2">
-            <Label htmlFor="user-select">Select User</Label>
-            <Select name="userId" required defaultValue={mockUsers[0].id}>
-              <SelectTrigger id="user-select">
-                <SelectValue placeholder="Select a user to log in" />
-              </SelectTrigger>
-              <SelectContent>
-                {mockUsers.map((user) => (
-                  <SelectItem key={user.id} value={user.id}>
-                    {user.username} ({user.role})
-                  </SelectItem>
-                ))}
-              </SelectContent>
-            </Select>
+            <Label htmlFor="username">Username</Label>
+            <Input 
+              id="username" 
+              name="username" 
+              placeholder="Your username" 
+              required 
+            />
           </div>
 
           <div className="space-y-2">
             <Label htmlFor="password">Password</Label>
             <Input
               id="password"
+              name="password"
               type="password"
               placeholder="********"
               defaultValue="password"
-              disabled
+              required
             />
+             <p className="text-xs text-muted-foreground">Hint: Any password will work for this demo.</p>
           </div>
         </CardContent>
 
