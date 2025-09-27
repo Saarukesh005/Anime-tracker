@@ -6,6 +6,8 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { allAnime } from '@/lib/anime';
 import { useMemo } from 'react';
 import { TrendingUp, CheckCircle, Clock } from 'lucide-react';
+import Image from 'next/image';
+import { getPlaceholderImage } from '@/lib/placeholder-images';
 
 const COLORS = ['hsl(var(--chart-1))', 'hsl(var(--chart-2))', 'hsl(var(--chart-3))', 'hsl(var(--chart-4))', 'hsl(var(--chart-5))'];
 
@@ -51,6 +53,8 @@ export default function AnalyticsPage() {
             statusDistribution,
         };
     }, []);
+
+    const analyticsImage = getPlaceholderImage('hero-banner-2');
 
     return (
         <div className="space-y-8">
@@ -102,7 +106,18 @@ export default function AnalyticsPage() {
                             Number of completed series by genre.
                         </CardDescription>
                     </CardHeader>
-                    <CardContent>
+                    <CardContent className="grid md:grid-cols-2 gap-4 items-center">
+                         <div className="relative h-64 md:h-full w-full rounded-md overflow-hidden">
+                            {analyticsImage && (
+                                <Image
+                                    src={analyticsImage.imageUrl}
+                                    alt={analyticsImage.description}
+                                    fill
+                                    className="object-cover"
+                                    data-ai-hint={analyticsImage.imageHint}
+                                />
+                            )}
+                         </div>
                          <ResponsiveContainer width="100%" height={300}>
                             <BarChart data={analyticsData.genreChartData} margin={{ top: 5, right: 20, left: -10, bottom: 5 }}>
                                 <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" />
