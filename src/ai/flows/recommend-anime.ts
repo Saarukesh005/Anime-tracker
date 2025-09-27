@@ -34,15 +34,18 @@ const RecommendAnimeOutputSchema = z.object({
 });
 export type RecommendAnimeOutput = z.infer<typeof RecommendAnimeOutputSchema>;
 
-export async function recommendAnime(input: RecommendAnimeInput): Promise<RecommendAnimeOutput> {
-  return recommendAnimeFlow(input);
-}
-
-const prompt = ai.definePrompt({
-  name: 'recommendAnimePrompt',
-  input: {schema: RecommendAnimeInputSchema},
-  output: {schema: RecommendAnimeOutputSchema},
-  prompt: `You are an AI anime recommendation engine. Given a user's viewing history and preferences,
+const recommendAnimeFlow = ai.defineFlow(
+  {
+    name: 'recommendAnimeFlow',
+    inputSchema: RecommendAnimeInputSchema,
+    outputSchema: RecommendAnimeOutputSchema,
+  },
+  async (input) => {
+    const prompt = ai.definePrompt({
+      name: 'recommendAnimePrompt',
+      input: {schema: RecommendAnimeInputSchema},
+      output: {schema: RecommendAnimeOutputSchema},
+      prompt: `You are an AI anime recommendation engine. Given a user's viewing history and preferences,
 you will provide a list of anime recommendations tailored to their taste.
 
 Consider the following viewing history and preferences when making your recommendations:
@@ -52,16 +55,11 @@ Preferences: {{{preferences}}}
 
 Based on this information, provide a list of anime recommendations with brief descriptions:
 `,
-});
-
-const recommendAnimeFlow = ai.defineFlow(
-  {
-    name: 'recommendAnimeFlow',
-    inputSchema: RecommendAnimeInputSchema,
-    outputSchema: RecommendAnimeOutputSchema,
-  },
-  async input => {
+    });
+    
     const {output} = await prompt(input);
     return output!;
   }
 );
+
+export const recommendAnime = recommendAnimeFlow;

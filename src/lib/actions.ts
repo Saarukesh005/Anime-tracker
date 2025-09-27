@@ -1,7 +1,9 @@
 "use server";
 
-import { recommendAnime, type RecommendAnimeInput, type RecommendAnimeOutput } from "@/ai/flows/recommend-anime";
+import { recommendAnime } from "@/ai/flows/recommend-anime";
 import { generateImage, type GenerateImageInput, type GenerateImageOutput } from "@/ai/flows/generate-image";
+import type { RecommendAnimeInput, RecommendAnimeOutput } from "@/ai/flows/recommend-anime";
+
 
 export async function recommendAnimeAction(input: RecommendAnimeInput): Promise<RecommendAnimeOutput | null> {
   try {
