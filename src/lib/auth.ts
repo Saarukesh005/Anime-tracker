@@ -1,10 +1,8 @@
-// This is a mock authentication library.
-// In a real application, this would be replaced with a robust authentication system.
+
 'use server';
 
 import { cookies } from 'next/headers';
 import { unstable_noStore as noStore } from 'next/cache';
-
 
 export type User = {
   id: string;
@@ -14,37 +12,38 @@ export type User = {
   role: 'Admin' | 'User';
 };
 
-// Mock user data - NOT exported anymore
-const MOCK_USERS: User[] = [
-    {
-      id: '1',
-      username: 'AdminUser',
-      email: 'admin@example.com',
-      avatarUrl: 'https://picsum.photos/seed/admin/40/40',
-      role: 'Admin',
-    },
-    {
-      id: '2',
-      username: 'SakuraChan',
-      email: 'sakura@example.com',
-      avatarUrl: 'https://picsum.photos/seed/sakura/40/40',
-      role: 'User',
-    },
-    {
-        id: '3',
-        username: 'GokuFan99',
-        email: 'goku@example.com',
-        avatarUrl: 'https://picsum.photos/seed/goku/40/40',
-        role: 'User',
-    }
+// Mock user data - Use `let` to allow for in-memory modification
+let MOCK_USERS: User[] = [
+  {
+    id: '1',
+    username: 'AdminUser',
+    email: 'admin@example.com',
+    avatarUrl: 'https://picsum.photos/seed/admin/40/40',
+    role: 'Admin',
+  },
+  {
+    id: '2',
+    username: 'SakuraChan',
+    email: 'sakura@example.com',
+    avatarUrl: 'https://picsum.photos/seed/sakura/40/40',
+    role: 'User',
+  },
+  {
+    id: '3',
+    username: 'GokuFan99',
+    email: 'goku@example.com',
+    avatarUrl: 'https://picsum.photos/seed/goku/40/40',
+    role: 'User',
+  }
 ];
 
 const AUTH_COOKIE_NAME = 'mock_auth_session';
 
+/**
+ * Get the currently logged-in user
+ */
 export async function getAuth(): Promise<User | null> {
-  // This is the crucial change: it prevents the server from caching the auth state.
-  noStore();
-  
+  noStore(); // Prevent caching auth state
   const cookieStore = cookies();
   const session = cookieStore.get(AUTH_COOKIE_NAME);
 
@@ -56,23 +55,57 @@ export async function getAuth(): Promise<User | null> {
   return null;
 }
 
+/**
+ * Login a user by setting a cookie
+ */
 export async function login(userId: string) {
   const cookieStore = cookies();
   const user = MOCK_USERS.find(u => u.id === userId);
   if (user) {
     cookieStore.set(AUTH_COOKIE_NAME, user.id, { path: '/' });
   } else {
-    // Handle case where user is not found, maybe clear cookie
     cookieStore.delete(AUTH_COOKIE_NAME);
   }
 }
 
+/**
+ * Logout the current user
+ */
 export async function logout() {
   const cookieStore = cookies();
   cookieStore.delete(AUTH_COOKIE_NAME);
 }
 
-// Function to get users for the login page, since the constant cannot be exported
+/**
+ * Update the logged-in user's profile (username/avatar)
+ */
+export async function updateUserProfile(data: {
+  username?: string;
+  avatarUrl?: string;
+}): Promise<User> {
+  const cookieStore = cookies();
+  const session = cookieStore.get(AUTH_COOKIE_NAME);
+
+  if (!session?.value) {
+    throw new Error('No user logged in');
+  }
+
+  const userIndex = MOCK_USERS.findIndex(u => u.id === session.value);
+  if (userIndex === -1) throw new Error('User not found');
+
+  const updatedUser = {
+    ...MOCK_USERS[userIndex],
+    username: data.username ?? MOCK_USERS[userIndex].username,
+    avatarUrl: data.avatarUrl ?? MOCK_USERS[userIndex].avatarUrl,
+  };
+
+  MOCK_USERS[userIndex] = updatedUser;
+  return updatedUser;
+}
+
+/**
+ * Get all mock users (for login dropdown/testing)
+ */
 export async function getMockUsersForLogin() {
-    return MOCK_USERS;
+  return MOCK_USERS;
 }
