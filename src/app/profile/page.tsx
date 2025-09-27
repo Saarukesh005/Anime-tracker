@@ -6,13 +6,16 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { getAuth, logout, type User } from "@/lib/auth";
+import { useToast } from "@/hooks/use-toast";
 import { LogOut } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 
 export default function ProfilePage() {
     const router = useRouter();
+    const { toast } = useToast();
     const [user, setUser] = useState<User | null>(null);
+    const [username, setUsername] = useState('');
 
     useEffect(() => {
         getAuth().then(currentUser => {
@@ -20,6 +23,7 @@ export default function ProfilePage() {
                 router.push('/login');
             } else {
                 setUser(currentUser);
+                setUsername(currentUser.username);
             }
         });
     }, [router]);
@@ -28,6 +32,19 @@ export default function ProfilePage() {
         await logout();
         router.push('/login');
         router.refresh();
+    };
+
+    const handleSaveChanges = () => {
+        // In a real app, you would send this data to your backend to save it.
+        // For this mock app, we'll just show a success message.
+        if (user) {
+            toast({
+              title: "Profile Updated!",
+              description: `Your username has been changed to "${username}".`,
+            });
+            // Update the local user state to reflect the change
+            setUser({ ...user, username: username });
+        }
     };
 
     if (!user) {
@@ -53,7 +70,11 @@ export default function ProfilePage() {
                 <CardContent className="space-y-6">
                     <div className="space-y-2">
                         <Label htmlFor="username">Username</Label>
-                        <Input id="username" defaultValue={user.username} />
+                        <Input 
+                            id="username" 
+                            value={username} 
+                            onChange={(e) => setUsername(e.target.value)}
+                        />
                     </div>
                     <div className="space-y-2">
                         <Label htmlFor="email">Email</Label>
@@ -65,7 +86,7 @@ export default function ProfilePage() {
                            <LogOut className="mr-2" />
                             Log Out
                         </Button>
-                        <Button className="neon-glow-primary">Save Changes</Button>
+                        <Button className="neon-glow-primary" onClick={handleSaveChanges}>Save Changes</Button>
                     </div>
                 </CardContent>
             </Card>
