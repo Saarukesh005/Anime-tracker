@@ -14,14 +14,30 @@ export type User = {
   role: 'Admin' | 'User';
 };
 
-// Mock user data
-const MOCK_USER: User = {
-  id: '1',
-  username: 'AnimeFan_22',
-  email: 'user@example.com',
-  avatarUrl: 'https://picsum.photos/seed/user1/40/40',
-  role: 'Admin',
-};
+// Mock user data - NOT exported anymore
+const MOCK_USERS: User[] = [
+    {
+      id: '1',
+      username: 'AdminUser',
+      email: 'admin@example.com',
+      avatarUrl: 'https://picsum.photos/seed/admin/40/40',
+      role: 'Admin',
+    },
+    {
+      id: '2',
+      username: 'SakuraChan',
+      email: 'sakura@example.com',
+      avatarUrl: 'https://picsum.photos/seed/sakura/40/40',
+      role: 'User',
+    },
+    {
+        id: '3',
+        username: 'GokuFan99',
+        email: 'goku@example.com',
+        avatarUrl: 'https://picsum.photos/seed/goku/40/40',
+        role: 'User',
+    }
+];
 
 const AUTH_COOKIE_NAME = 'mock_auth_session';
 
@@ -32,19 +48,31 @@ export async function getAuth(): Promise<User | null> {
   const cookieStore = cookies();
   const session = cookieStore.get(AUTH_COOKIE_NAME);
 
-  if (session?.value === 'true') {
-    return MOCK_USER;
+  if (session?.value) {
+    const user = MOCK_USERS.find(u => u.id === session.value);
+    return user || null;
   }
 
   return null;
 }
 
-export async function login() {
+export async function login(userId: string) {
   const cookieStore = cookies();
-  cookieStore.set(AUTH_COOKIE_NAME, 'true', { path: '/' });
+  const user = MOCK_USERS.find(u => u.id === userId);
+  if (user) {
+    cookieStore.set(AUTH_COOKIE_NAME, user.id, { path: '/' });
+  } else {
+    // Handle case where user is not found, maybe clear cookie
+    cookieStore.delete(AUTH_COOKIE_NAME);
+  }
 }
 
 export async function logout() {
   const cookieStore = cookies();
-  cookieStore.set(AUTH_COOKIE_NAME, 'false', { path: '/' });
+  cookieStore.delete(AUTH_COOKIE_NAME);
+}
+
+// Function to get users for the login page, since the constant cannot be exported
+export async function getMockUsersForLogin() {
+    return MOCK_USERS;
 }
