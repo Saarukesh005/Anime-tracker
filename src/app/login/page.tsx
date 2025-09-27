@@ -5,86 +5,65 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { getPlaceholderImage } from '@/lib/placeholder-images';
 import Link from 'next/link';
+import { login } from '@/lib/auth';
 import { redirect } from 'next/navigation';
-// Assuming you have a login function in '@/lib/auth'
-import { login } from '@/lib/auth'; 
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 import { AlertCircle } from 'lucide-react';
 
-/**
- * Server Action to handle the login form submission.
- */
 async function loginAction(formData: FormData) {
   'use server';
-
   const username = formData.get('username') as string;
-  const password = formData.get('password') as string;
-
-  // 1. Attempt to log in using the external function
-  // Assume 'login' returns a truthy value (e.g., user object) on success, and a falsy value (e.g., null) on failure.
-  const result = await login(username, password);
+  const result = await login(username);
   
-  // 2. Handle the result
-  if (result) {
-    // Success: Redirect to the dashboard
+  if (result.success) {
     redirect('/dashboard');
   } else {
-    // Failure: Redirect back to login with an error query parameter
     redirect('/login?error=InvalidCredentials');
   }
 }
 
-// ---
-
 export default async function LoginPage({ searchParams }: { searchParams: { error?: string } }) {
   const authImage = await getPlaceholderImage('auth-background');
-  const isError = searchParams.error === 'InvalidCredentials';
 
   return (
     <AuthForm authImage={authImage}>
-      {/* The form action links directly to the server action */}
       <form action={loginAction}>
         <CardHeader className="text-center">
           <CardTitle className="text-3xl font-headline">Welcome Back!</CardTitle>
-          <CardDescription>Enter your credentials to continue tracking your anime.</CardDescription>
+          <CardDescription>Enter your credentials to log in.</CardDescription>
         </CardHeader>
-        
+
         <CardContent className="space-y-4">
-          {/* Conditional Error Alert based on URL parameter */}
-          {isError && (
+          {searchParams.error && (
             <Alert variant="destructive">
               <AlertCircle className="h-4 w-4" />
               <AlertTitle>Login Failed</AlertTitle>
               <AlertDescription>
-                Invalid username or password. Please check your credentials and try again.
+                Invalid username or password. Please try again.
               </AlertDescription>
             </Alert>
           )}
-
-          {/* Username Field */}
           <div className="space-y-2">
-            <Label htmlFor="username">Username / Email</Label>
+            <Label htmlFor="username">Username</Label>
             <Input 
               id="username" 
-              name="username" // Important for formData
-              placeholder="your_username_or_email" 
+              name="username" 
+              placeholder="Your username" 
               required 
             />
           </div>
 
-          {/* Password Field */}
           <div className="space-y-2">
             <Label htmlFor="password">Password</Label>
             <Input
               id="password"
-              name="password" // Important for formData
+              name="password"
               type="password"
               placeholder="********"
+              defaultValue="password"
               required
             />
-             <p className="text-xs text-muted-foreground pt-1">
-                Hint: Any password will work for this demo.
-             </p>
+             <p className="text-xs text-muted-foreground">Hint: Any password will work for this demo.</p>
           </div>
         </CardContent>
 
@@ -92,14 +71,13 @@ export default async function LoginPage({ searchParams }: { searchParams: { erro
           <Button type="submit" className="w-full neon-glow-primary">
             Log In
           </Button>
-
           <div className="text-sm text-center text-muted-foreground">
-            <Link href="/forgot-password" passHref>
+            <Link href="/forgot-password">
               <span className="underline hover:text-primary">Forgot password?</span>
             </Link>
             {' | '}
-            <Link href="/signup" passHref>
-              <span className="underline hover:text-primary">Don't have an account? Sign Up</span>
+            <Link href="/signup">
+              <span className="underline hover:text-primary">Don&apos;t have an account?</span>
             </Link>
           </div>
         </CardFooter>

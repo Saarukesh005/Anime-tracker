@@ -58,7 +58,7 @@ export async function getAuth(): Promise<User | null> {
 /**
  * Login a user by setting a cookie
  */
-export async function login(username: string, password?: string): Promise<{ success: boolean }> {
+export async function login(username: string): Promise<{ success: boolean }> {
   const cookieStore = cookies();
   // In a real app, you'd also validate the password. Here, we just check if the user exists.
   const user = MOCK_USERS.find(u => u.username === username || u.email === username);
