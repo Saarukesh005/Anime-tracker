@@ -9,16 +9,13 @@ import Link from 'next/link';
 import { login } from '@/lib/auth';
 import { redirect } from 'next/navigation';
 
-export async function loginAction(formData: FormData) {
+async function loginAction(formData: FormData) {
   'use server';
   const username = formData.get('username') as string;
   const result = await login(username);
   
   if (result.success) {
     redirect('/dashboard');
-  } else {
-    // In a real app, we would handle the error message here.
-    // For now, we simply don't redirect, and the user can try again.
   }
 }
 
