@@ -12,19 +12,13 @@ import { redirect } from 'next/navigation';
 export async function loginAction(formData: FormData) {
   'use server';
   const username = formData.get('username') as string;
-  if (!username) {
-      // In a real app, you would handle this error more gracefully
-      return;
-  }
-
   const result = await login(username);
   
   if (result.success) {
     redirect('/dashboard');
   } else {
-    // In a real app, you would return an error message to the user
-    // For now, we'll just prevent the redirect
-    console.error("Login failed");
+    // In a real app, we would handle the error message here.
+    // For now, we simply don't redirect, and the user can try again.
   }
 }
 
