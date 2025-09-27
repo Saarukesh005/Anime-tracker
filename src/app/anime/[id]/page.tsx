@@ -16,17 +16,18 @@ import CommentSection from '@/components/comment-section';
 import { useEffect, useMemo, useState } from 'react';
 import type { Anime } from '@/lib/types';
 import { Checkbox } from '@/components/ui/checkbox';
+import { Skeleton } from '@/components/ui/skeleton';
 
 type Props = {
   params: { id: string };
 };
 
 export default function AnimeDetailPage({ params }: Props) {
-  const [anime, setAnime] = useState<Anime | undefined>(() => allAnime.find((a) => a.id.toString() === params.id));
+  const [anime, setAnime] = useState<Anime | undefined>(undefined);
 
   useEffect(() => {
-    // If the params.id changes, we need to find the new anime.
-    // This is useful for client-side navigations between dynamic route segments.
+    // Find the anime on the client side after the component has mounted.
+    // This avoids the server-side rendering issue with accessing params directly.
     const currentAnime = allAnime.find((a) => a.id.toString() === params.id);
     setAnime(currentAnime);
   }, [params.id]);
@@ -59,8 +60,38 @@ export default function AnimeDetailPage({ params }: Props) {
     });
   };
 
+  if (anime === undefined) {
+    // Still loading the anime data
+    return (
+      <div className="max-w-6xl mx-auto">
+        <div className="grid md:grid-cols-3 gap-8">
+            <div className="md:col-span-1 space-y-6">
+                <Skeleton className="rounded-xl w-full h-[600px]" />
+                <Skeleton className="w-full h-[150px]" />
+                <Skeleton className="w-full h-[100px]" />
+            </div>
+            <div className="md:col-span-2 space-y-8">
+                <Skeleton className="w-3/4 h-12" />
+                <Skeleton className="w-1/2 h-6" />
+                <div className="flex flex-wrap gap-2">
+                    <Skeleton className="w-20 h-8" />
+                    <Skeleton className="w-24 h-8" />
+                    <Skeleton className="w-16 h-8" />
+                </div>
+                <div className="space-y-2">
+                    <Skeleton className="w-full h-5" />
+                    <Skeleton className="w-full h-5" />
+                    <Skeleton className="w-3/4 h-5" />
+                </div>
+                 <Skeleton className="w-full h-[400px]" />
+            </div>
+        </div>
+      </div>
+    );
+  }
+
   if (!anime) {
-    // This can happen if the ID is invalid and no anime is found.
+    // Anime not found after trying to load
     notFound();
   }
 
