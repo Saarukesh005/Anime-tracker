@@ -9,28 +9,26 @@ import Link from 'next/link';
 import { login } from '@/lib/auth';
 import { redirect } from 'next/navigation';
 
-export async function loginAction(formData: FormData) {
-  'use server';
-  const username = formData.get('username') as string;
-  // In a real app, you'd also get and validate the password.
-  
-  if (!username) {
-    // Handle error appropriately
-    return;
-  }
-
-  const result = await login(username);
-  if (result.success) {
-    redirect('/dashboard');
-  } else {
-    // In a real app, you would redirect to the login page with an error message.
-    // For this mock app, we'll just return to show the error state (or lack thereof).
-    return;
-  }
-}
-
 export default async function LoginPage() {
   const authImage = await getPlaceholderImage('auth-background');
+
+  async function loginAction(formData: FormData) {
+    'use server';
+    const username = formData.get('username') as string;
+    
+    if (!username) {
+      return;
+    }
+  
+    const result = await login(username);
+    if (result.success) {
+      redirect('/dashboard');
+    } else {
+      // In a real app, you would show an error message.
+      // For now, we redirect back to login.
+      redirect('/login');
+    }
+  }
 
   return (
     <AuthForm authImage={authImage}>
