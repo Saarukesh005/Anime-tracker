@@ -22,7 +22,7 @@ type Props = {
 };
 
 export default function AnimeDetailPage({ params }: Props) {
-  const initialAnime = useMemo(() => allAnime.find((a) => a.id.toString() === params.id), [params.id]);
+  const initialAnime = allAnime.find((a) => a.id.toString() === params.id);
   const [anime, setAnime] = useState<Anime | undefined>(initialAnime);
 
   useEffect(() => {
