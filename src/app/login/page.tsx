@@ -8,6 +8,8 @@ import { getPlaceholderImage } from '@/lib/placeholder-images';
 import Link from 'next/link';
 import { login } from '@/lib/auth';
 import { redirect } from 'next/navigation';
+import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
+import { AlertCircle } from 'lucide-react';
 
 async function loginAction(formData: FormData) {
   'use server';
@@ -16,10 +18,12 @@ async function loginAction(formData: FormData) {
   
   if (result.success) {
     redirect('/dashboard');
+  } else {
+    redirect('/login?error=InvalidCredentials');
   }
 }
 
-export default async function LoginPage() {
+export default async function LoginPage({ searchParams }: { searchParams: { error?: string } }) {
   const authImage = await getPlaceholderImage('auth-background');
 
   return (
@@ -31,6 +35,15 @@ export default async function LoginPage() {
         </CardHeader>
 
         <CardContent className="space-y-4">
+          {searchParams.error && (
+            <Alert variant="destructive">
+              <AlertCircle className="h-4 w-4" />
+              <AlertTitle>Login Failed</AlertTitle>
+              <AlertDescription>
+                Invalid username or password. Please try again.
+              </AlertDescription>
+            </Alert>
+          )}
           <div className="space-y-2">
             <Label htmlFor="username">Username</Label>
             <Input 
