@@ -1,10 +1,11 @@
 
+'use client';
 
 import { allAnime } from '@/lib/anime';
 import { placeholderImages } from '@/lib/placeholder-images.json';
 import Image from 'next/image';
 import { notFound } from 'next/navigation';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Progress } from '@/components/ui/progress';
@@ -12,20 +13,59 @@ import { Separator } from '@/components/ui/separator';
 import { Clapperboard, Star, Tv } from 'lucide-react';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import CommentSection from '@/components/comment-section';
+import { useEffect, useMemo, useState } from 'react';
+import type { Anime } from '@/lib/types';
+import { Checkbox } from '@/components/ui/checkbox';
 
 type Props = {
   params: { id: string };
 };
 
 export default function AnimeDetailPage({ params }: Props) {
-  const anime = allAnime.find((a) => a.id.toString() === params.id);
+  const initialAnime = useMemo(() => allAnime.find((a) => a.id.toString() === params.id), [params.id]);
+  const [anime, setAnime] = useState<Anime | undefined>(initialAnime);
+
+  useEffect(() => {
+    // This could be used to fetch fresh data in a real app
+    setAnime(initialAnime);
+  }, [initialAnime]);
+
+  const watchedEpisodesCount = useMemo(() => {
+    if (!anime) return 0;
+    return anime.seasons.reduce((count, season) => {
+      return count + season.episodes.filter(ep => ep.watched).length;
+    }, 0);
+  }, [anime]);
+
+  const handleWatchToggle = (seasonNumber: number, episodeId: number) => {
+    setAnime(prevAnime => {
+      if (!prevAnime) return prevAnime;
+
+      const newSeasons = prevAnime.seasons.map(season => {
+        if (season.seasonNumber === seasonNumber) {
+          const newEpisodes = season.episodes.map(episode => {
+            if (episode.id === episodeId) {
+              return { ...episode, watched: !episode.watched };
+            }
+            return episode;
+          });
+          return { ...season, episodes: newEpisodes };
+        }
+        return season;
+      });
+
+      return { ...prevAnime, seasons: newSeasons };
+    });
+  };
 
   if (!anime) {
+    // initialAnime is found sync, so this should ideally not be hit
+    // unless the component state logic changes.
     notFound();
   }
 
   const coverImage = placeholderImages.find(p => p.id === anime.coverImageId);
-  const progress = (12 / anime.totalEpisodes) * 100; // Mocked progress
+  const progress = (watchedEpisodesCount / anime.totalEpisodes) * 100;
 
   return (
     <div className="max-w-6xl mx-auto">
@@ -48,7 +88,7 @@ export default function AnimeDetailPage({ params }: Props) {
             <CardContent>
               <div className="space-y-2">
                 <Progress value={progress} />
-                <p className="text-sm text-muted-foreground text-center">12 / {anime.totalEpisodes} episodes watched</p>
+                <p className="text-sm text-muted-foreground text-center">{watchedEpisodesCount} / {anime.totalEpisodes} episodes watched</p>
                 <Button className="w-full neon-glow-primary mt-2">Mark Next Episode</Button>
               </div>
             </CardContent>
@@ -90,7 +130,12 @@ export default function AnimeDetailPage({ params }: Props) {
                        <ul className="space-y-2 pl-4 text-foreground">
                           {season.episodes.map((episode) => (
                               <li key={episode.id} className="flex items-center justify-between p-2 rounded-md hover:bg-muted/50">
-                                  <span>{episode.title}</span>
+                                  <label htmlFor={`ep-${episode.id}`} className="flex-grow cursor-pointer">{episode.title}</label>
+                                  <Checkbox 
+                                    id={`ep-${episode.id}`} 
+                                    checked={episode.watched}
+                                    onCheckedChange={() => handleWatchToggle(season.seasonNumber, episode.id)}
+                                  />
                               </li>
                           ))}
                         </ul>
