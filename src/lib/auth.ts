@@ -3,8 +3,6 @@
 'use server';
 
 import { cookies } from 'next/headers';
-import { unstable_noStore as noStore } from 'next/cache';
-
 
 export type User = {
   id: string;
@@ -24,9 +22,6 @@ const MOCK_USER: User = {
 const AUTH_COOKIE_NAME = 'mock_auth_session';
 
 export async function getAuth(): Promise<User | null> {
-  // This is the crucial change: it prevents the server from caching the auth state.
-  noStore();
-  
   const cookieStore = cookies();
   const session = cookieStore.get(AUTH_COOKIE_NAME);
 
@@ -37,9 +32,7 @@ export async function getAuth(): Promise<User | null> {
   return null;
 }
 
-export async function login(email?: string) {
-  // For the purpose of this mock, any login is successful.
-  // In a real app, you'd find the user by email and verify the password.
+export async function login() {
   const cookieStore = cookies();
   cookieStore.set(AUTH_COOKIE_NAME, 'true', { path: '/' });
 }
