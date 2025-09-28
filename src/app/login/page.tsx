@@ -36,7 +36,7 @@ export default async function LoginPage() {
     <AuthForm authImage={authImage}>
       <form action={loginAction}>
         <CardHeader className="text-center">
-          <CardTitle className="text-3xl font-headline">Welcome Back!</CardTitle>
+          <CardTitle>Welcome Back!</CardTitle>
           <CardDescription>Enter your credentials to access your watchlist.</CardDescription>
         </CardHeader>
         <CardContent className="space-y-4">

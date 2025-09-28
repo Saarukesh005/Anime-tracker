@@ -13,6 +13,8 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from './ui/
 import Image from 'next/image';
 import { cn } from '@/lib/utils';
 import Link from 'next/link';
+import { generateImageAction } from '@/lib/actions';
+import { Loader2 } from 'lucide-react';
 
 const formSchema = z.object({
   prompt: z.string().min(10, "Please provide a more detailed description for the image."),
@@ -23,6 +25,8 @@ type FormData = z.infer<typeof formSchema>;
 export default function ImageGeneratorForm() {
   const [generatedImages, setGeneratedImages] = useState<string[]>([]);
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
+  const [isLoading, setIsLoading] = useState(false);
+  const { toast } = useToast();
 
   const form = useForm<FormData>({
     resolver: zodResolver(formSchema),
@@ -31,10 +35,32 @@ export default function ImageGeneratorForm() {
     },
   });
 
+  const onSubmit = async (data: FormData) => {
+    setIsLoading(true);
+    try {
+      const result = await generateImageAction({
+        prompt: data.prompt,
+        baseImageUrl: selectedImage || undefined,
+      });
+      setGeneratedImages(prev => [result.imageUrl, ...prev]);
+      setSelectedImage(result.imageUrl); // Select the new image
+    } catch (error) {
+        console.error(error);
+      toast({
+        title: "Error Generating Image",
+        description: "Could not generate the image. Please try again.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+
   return (
     <div>
       <Form {...form}>
-        <form className="space-y-6">
+        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
           <FormField
             control={form.control}
             name="prompt"
@@ -52,11 +78,15 @@ export default function ImageGeneratorForm() {
               </FormItem>
             )}
           />
-          <Button asChild className="w-full neon-glow-primary">
-            <Link href="https://aistudio.google.com/models/gemini-2-5-flash-image?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer">
-                {selectedImage ? <Sparkles className="mr-2 h-4 w-4" /> : <ImageIcon className="mr-2 h-4 w-4" />}
-                {selectedImage ? 'Generate Variation' : 'Generate Image'}
-            </Link>
+          <Button type="submit" disabled={isLoading} className="w-full neon-glow-primary">
+            {isLoading ? (
+              <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+            ) : selectedImage ? (
+              <Sparkles className="mr-2 h-4 w-4" />
+            ) : (
+              <ImageIcon className="mr-2 h-4 w-4" />
+            )}
+            {isLoading ? 'Generating...' : selectedImage ? 'Generate Variation' : 'Generate Image'}
           </Button>
         </form>
       </Form>
@@ -78,6 +108,7 @@ export default function ImageGeneratorForm() {
                             src={img}
                             alt={`Generated image ${index + 1}`}
                             fill
+                            sizes="(max-width: 768px) 50vw, 25vw"
                             className={cn(
                                 "rounded-md object-cover transition-all",
                                 selectedImage === img ? 'ring-4 ring-primary ring-offset-2' : 'ring-0'
