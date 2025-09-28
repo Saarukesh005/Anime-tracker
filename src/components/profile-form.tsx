@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import { useRouter } from "next/navigation";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -12,14 +11,13 @@ import { useToast } from "@/hooks/use-toast";
 import { LogOut } from "lucide-react";
 
 export default function ProfileForm({ user }: { user: User }) {
-    const router = useRouter();
     const { toast } = useToast();
     const [username, setUsername] = useState(user.username);
 
     const handleLogout = async () => {
         await logout();
-        router.push('/login');
-        router.refresh();
+        // A full refresh is needed to re-render server components like the header
+        window.location.href = '/login';
     };
 
     const handleSaveChanges = () => {
