@@ -13,10 +13,11 @@ export default async function LoginPage() {
 
   return (
     <AuthForm authImage={authImage}>
-      <form action={async () => {
+      <form action={async (formData: FormData) => {
         'use server';
-        // In a real app, you'd get the username from the form data
-        await login('AnimeFan_22');
+        const username = formData.get('username') as string;
+        // In a real app, you'd also get and check the password
+        await login(username);
         redirect('/dashboard');
       }}>
         <CardHeader className="text-center">
