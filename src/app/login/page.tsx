@@ -15,7 +15,8 @@ export default async function LoginPage() {
     <AuthForm authImage={authImage}>
       <form action={async () => {
         'use server';
-        await login();
+        // In a real app, you'd get the username from the form data
+        await login('AnimeFan_22');
         redirect('/dashboard');
       }}>
         <CardHeader className="text-center">
@@ -25,11 +26,11 @@ export default async function LoginPage() {
         <CardContent className="space-y-4">
           <div className="space-y-2">
             <Label htmlFor="username">Username</Label>
-            <Input id="username" placeholder="your_username" />
+            <Input id="username" name="username" placeholder="your_username" defaultValue="AnimeFan_22" />
           </div>
           <div className="space-y-2">
             <Label htmlFor="password">Password</Label>
-            <Input id="password" type="password" placeholder="********" />
+            <Input id="password" name="password" type="password" placeholder="********" />
           </div>
         </CardContent>
         <CardFooter className="flex flex-col gap-4">

@@ -21,8 +21,8 @@ async function signupAction(formData: FormData) {
     return;
   }
   
-  const newUser = await createUser({ email, username });
-  await login(newUser.username);
+  await createUser({ email, username });
+  await login(username);
   redirect('/dashboard');
 }
 

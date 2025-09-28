@@ -3,8 +3,6 @@
 'use server';
 
 import { cookies } from 'next/headers';
-import { unstable_noStore as noStore } from 'next/cache';
-
 
 export type User = {
   id: string;
@@ -14,52 +12,57 @@ export type User = {
 };
 
 // Mock user data - This is the single source of truth.
-const MOCK_USER: User = {
+const MOCK_USERS: User[] = [{
   id: '1',
   username: 'AnimeFan_22',
   email: 'user@example.com',
   avatarUrl: 'https://picsum.photos/seed/user1/40/40',
-};
+}];
 
 const AUTH_COOKIE_NAME = 'mock_auth_session';
 
 export async function getAuth(): Promise<User | null> {
-  // This prevents the server from caching the user's authentication state,
-  // ensuring it's checked on every request.
-  noStore();
-  
   const cookieStore = cookies();
   const session = cookieStore.get(AUTH_COOKIE_NAME);
 
-  // This logic now correctly checks for the simple 'true' value set by login().
-  if (session?.value === 'true') {
-    return MOCK_USER;
+  if (!session?.value) {
+    return null;
   }
+  
+  const user = MOCK_USERS.find(u => u.username === session.value);
 
-  return null;
+  return user || null;
 }
 
-export async function login() {
+export async function login(username?: string) {
   const cookieStore = cookies();
-  // This correctly sets a simple session cookie that getAuth() can verify.
-  cookieStore.set(AUTH_COOKIE_NAME, 'true', { path: '/' });
+  const userToLogin = username 
+    ? MOCK_USERS.find(u => u.username === username)
+    : MOCK_USERS[0];
+
+  if (userToLogin) {
+    cookieStore.set(AUTH_COOKIE_NAME, userToLogin.username, { path: '/' });
+  }
 }
 
 export async function logout() {
   const cookieStore = cookies();
-  cookieStore.set(AUTH_COOKIE_NAME, 'false', { path: '/' });
+  cookieStore.delete(AUTH_COOKIE_NAME);
 }
 
 export async function createUser(data: { email: string, username: string }): Promise<User> {
-  // This is a mock function, it doesn't actually save the user but
-  // returns a consistent user object for the session.
+  const existingUser = MOCK_USERS.find(u => u.username === data.username);
+  if (existingUser) {
+    throw new Error('User already exists');
+  }
+
   const newUser: User = {
-    id: '2', 
+    id: (MOCK_USERS.length + 1).toString(), 
     email: data.email,
     username: data.username,
     avatarUrl: `https://picsum.photos/seed/${data.username}/40/40`,
   };
-  // In a real app, you would save newUser to a database.
-  // For this mock setup, we'll just log them in directly.
+  
+  MOCK_USERS.push(newUser);
   return newUser;
 }
