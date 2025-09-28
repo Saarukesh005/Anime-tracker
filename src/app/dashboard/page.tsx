@@ -6,7 +6,7 @@ import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { trendingAnime } from '@/lib/anime';
 import AnimeCard from '@/components/anime-card';
-import { placeholderImages } from '@/lib/placeholder-images.json';
+import { placeholderImages } from '@/lib/placeholder-images';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
 import Autoplay from "embla-carousel-autoplay";
 import React from 'react';
