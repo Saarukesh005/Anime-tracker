@@ -8,18 +8,33 @@ import Link from 'next/link';
 import { login } from '@/lib/auth';
 import { redirect } from 'next/navigation';
 
+async function loginAction(formData: FormData) {
+  'use server';
+  const username = formData.get('username') as string;
+  
+  if (!username) {
+    // In a real app, you'd handle this more gracefully
+    console.error('Username is required');
+    return;
+  }
+  
+  const success = await login(username);
+  
+  if (success) {
+    redirect('/dashboard');
+  } else {
+    // Redirect back to login with an error query param
+    // In a real app, you would show a toast or error message
+    redirect('/login?error=InvalidCredentials');
+  }
+}
+
 export default async function LoginPage() {
   const authImage = await getPlaceholderImage('auth-background');
 
   return (
     <AuthForm authImage={authImage}>
-      <form action={async (formData: FormData) => {
-        'use server';
-        const username = formData.get('username') as string;
-        // In a real app, you'd also get and check the password
-        await login(username);
-        redirect('/dashboard');
-      }}>
+      <form action={loginAction}>
         <CardHeader className="text-center">
           <CardTitle className="text-3xl font-headline">Welcome Back!</CardTitle>
           <CardDescription>Enter your credentials to access your watchlist.</CardDescription>
@@ -27,7 +42,7 @@ export default async function LoginPage() {
         <CardContent className="space-y-4">
           <div className="space-y-2">
             <Label htmlFor="username">Username</Label>
-            <Input id="username" name="username" placeholder="your_username" defaultValue="AnimeFan_22" />
+            <Input id="username" name="username" placeholder="your_username" defaultValue="AnimeFan_22" required />
           </div>
           <div className="space-y-2">
             <Label htmlFor="password">Password</Label>

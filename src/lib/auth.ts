@@ -34,15 +34,16 @@ export async function getAuth(): Promise<User | null> {
   return user || null;
 }
 
-export async function login(username?: string) {
+export async function login(username: string): Promise<boolean> {
   const cookieStore = cookies();
-  const userToLogin = username 
-    ? MOCK_USERS.find(u => u.username === username)
-    : MOCK_USERS[0];
+  const userToLogin = MOCK_USERS.find(u => u.username === username);
 
   if (userToLogin) {
     cookieStore.set(AUTH_COOKIE_NAME, userToLogin.username, { path: '/' });
+    return true;
   }
+  
+  return false;
 }
 
 export async function logout() {
@@ -50,10 +51,11 @@ export async function logout() {
   cookieStore.delete(AUTH_COOKIE_NAME);
 }
 
-export async function createUser(data: { email: string, username: string }): Promise<User> {
-  const existingUser = MOCK_USERS.find(u => u.username === data.username);
+export async function createUser(data: { email: string, username: string }): Promise<User | null> {
+  const existingUser = MOCK_USERS.find(u => u.username === data.username || u.email === data.email);
   if (existingUser) {
-    throw new Error('User already exists');
+    console.error('User with this username or email already exists');
+    return null;
   }
 
   const newUser: User = {
