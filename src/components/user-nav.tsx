@@ -18,9 +18,11 @@ import {
 import { Button } from './ui/button';
 import Link from 'next/link';
 import { logout, type User } from '@/lib/auth';
+import { useRouter } from 'next/navigation';
+
 
 export function UserNav({ user }: { user: User }) {
-
+  const router = useRouter();
   const handleLogout = async () => {
     await logout();
     // A full refresh is needed to re-render server components like the header

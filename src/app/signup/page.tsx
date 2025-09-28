@@ -22,7 +22,7 @@ async function signupAction(formData: FormData) {
   }
   
   const newUser = await createUser({ email, username });
-  await login(newUser.email);
+  await login(newUser.username);
   redirect('/dashboard');
 }
 
