@@ -1,6 +1,3 @@
-
-'use server';
-
 import { cookies } from 'next/headers';
 
 export type User = {
@@ -33,32 +30,24 @@ export async function getAuth(): Promise<User | null> {
 }
 
 // Login user by username
-export async function login(username: string): Promise<User | null> {
-  const cookieStore = cookies();
+export async function login(username: string): Promise<boolean> {
   const user = MOCK_USERS.find(u => u.username === username);
 
   if (user) {
-    cookieStore.set(AUTH_COOKIE_NAME, user.username, { path: '/' });
-    return user;
+    cookies().set(AUTH_COOKIE_NAME, user.username, { path: '/' });
+    return true;
   }
 
-  return null;
-}
-
-// Logout user
-export async function logout() {
-  const cookieStore = cookies();
-  cookieStore.delete(AUTH_COOKIE_NAME);
+  return false;
 }
 
 // Create a new user
-export async function createUser(data: { email: string; username: string }): Promise<User | null> {
+export async function createUser(data: { email: string; username: string }): Promise<User> {
   const existingUser = MOCK_USERS.find(
     u => u.username === data.username || u.email === data.email
   );
   if (existingUser) {
-    console.error('User with this username or email already exists');
-    return null;
+    throw new Error('User with this username or email already exists');
   }
 
   const newUser: User = {
