@@ -5,29 +5,8 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { getPlaceholderImage } from '@/lib/placeholder-images';
 import Link from 'next/link';
-import { login } from '@/lib/auth';
-import { redirect } from 'next/navigation';
+import { loginAction } from '@/lib/actions';
 
-async function loginAction(formData: FormData) {
-  'use server';
-  const username = formData.get('username') as string;
-  
-  if (!username) {
-    // In a real app, you'd handle this more gracefully
-    console.error('Username is required');
-    return;
-  }
-  
-  const success = await login(username);
-  
-  if (success) {
-    redirect('/dashboard');
-  } else {
-    // Redirect back to login with an error query param
-    // In a real app, you would show a toast or error message
-    redirect('/login?error=InvalidCredentials');
-  }
-}
 
 export default async function LoginPage() {
   const authImage = await getPlaceholderImage('auth-background');

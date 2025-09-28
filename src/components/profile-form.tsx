@@ -12,7 +12,7 @@ import { useToast } from "@/hooks/use-toast";
 import { LogOut, CheckCircle, Clock, Heart, Settings, Shield } from "lucide-react";
 import { allAnime } from "@/lib/anime";
 import { Separator } from "./ui/separator";
-import { logout } from "@/lib/actions";
+import { logoutAction } from "@/lib/actions";
 
 export default function ProfileForm({ user }: { user: User }) {
     const { toast } = useToast();
@@ -39,9 +39,7 @@ export default function ProfileForm({ user }: { user: User }) {
     }, []);
 
     const handleLogout = async () => {
-        await logout();
-        // A full refresh is needed to re-render server components like the header
-        window.location.href = '/login';
+        await logoutAction();
     };
 
     const handleSaveChanges = () => {

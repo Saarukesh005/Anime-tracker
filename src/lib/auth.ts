@@ -1,3 +1,5 @@
+'use server';
+
 import { cookies } from 'next/headers';
 
 export type User = {
@@ -59,4 +61,8 @@ export async function createUser(data: { email: string; username: string }): Pro
 
   MOCK_USERS.push(newUser);
   return newUser;
+}
+
+export async function logout() {
+  cookies().delete(AUTH_COOKIE_NAME);
 }

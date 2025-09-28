@@ -5,26 +5,8 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { getPlaceholderImage } from '@/lib/placeholder-images';
 import Link from 'next/link';
-import { redirect } from 'next/navigation';
-import { createUser, login } from '@/lib/auth';
+import { signupAction } from '@/lib/actions';
 
-async function signupAction(formData: FormData) {
-  'use server';
-
-  const email = formData.get('email') as string;
-  const username = formData.get('username') as string;
-  // In a real app, you would hash the password
-  // const password = formData.get('password') as string;
-
-  if (!email || !username) {
-    // Handle error appropriately
-    return;
-  }
-  
-  await createUser({ email, username });
-  await login(username);
-  redirect('/dashboard');
-}
 
 export default async function SignupPage() {
   const authImage = await getPlaceholderImage('auth-background');

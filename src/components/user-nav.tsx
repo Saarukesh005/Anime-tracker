@@ -18,14 +18,12 @@ import {
 import { Button } from './ui/button';
 import Link from 'next/link';
 import type { User } from '@/lib/auth';
-import { logout } from '@/lib/actions';
+import { logoutAction } from '@/lib/actions';
 
 
 export function UserNav({ user }: { user: User }) {
   const handleLogout = async () => {
-    await logout();
-    // A full refresh is needed to re-render server components like the header
-    window.location.href = '/login';
+    await logoutAction();
   };
 
   return (
