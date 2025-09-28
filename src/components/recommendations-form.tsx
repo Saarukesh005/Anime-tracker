@@ -1,16 +1,18 @@
+
 "use client";
 
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { recommendAnimeAction } from '@/lib/actions';
+import { recommendAnime } from '@/ai/flows/recommend-anime';
 import { useToast } from '@/hooks/use-toast';
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from './ui/form';
 import { Textarea } from './ui/textarea';
 import { Button } from './ui/button';
 import { Loader2, Sparkles } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from './ui/card';
+import { recommendAnimeAction } from '@/lib/actions';
 
 const formSchema = z.object({
   viewingHistory: z.string().min(10, "Please provide more details about your viewing history."),
