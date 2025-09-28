@@ -8,11 +8,11 @@ import { useToast } from '@/hooks/use-toast';
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from './ui/form';
 import { Textarea } from './ui/textarea';
 import { Button } from './ui/button';
-import { Loader2, Image as ImageIcon, Sparkles } from 'lucide-react';
+import { Image as ImageIcon, Sparkles } from 'lucide-react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from './ui/card';
 import Image from 'next/image';
-import { generateImageAction } from '@/lib/actions';
 import { cn } from '@/lib/utils';
+import Link from 'next/link';
 
 const formSchema = z.object({
   prompt: z.string().min(10, "Please provide a more detailed description for the image."),
@@ -21,11 +21,8 @@ const formSchema = z.object({
 type FormData = z.infer<typeof formSchema>;
 
 export default function ImageGeneratorForm() {
-  const [isLoading, setIsLoading] = useState(false);
-  const [generatedImage, setGeneratedImage] = useState<string | null>(null);
   const [generatedImages, setGeneratedImages] = useState<string[]>([]);
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
-  const { toast } = useToast();
 
   const form = useForm<FormData>({
     resolver: zodResolver(formSchema),
@@ -34,38 +31,10 @@ export default function ImageGeneratorForm() {
     },
   });
 
-  const handleSubmit = async (data: FormData) => {
-    setIsLoading(true);
-    setGeneratedImage(null);
-    try {
-      const result = await generateImageAction({
-        prompt: data.prompt,
-        baseImageUrl: selectedImage || undefined,
-      });
-
-      if (result && result.imageUrl) {
-        setGeneratedImage(result.imageUrl);
-        setGeneratedImages(prev => [result.imageUrl, ...prev]);
-        setSelectedImage(null); // Deselect after use
-        form.reset();
-      } else {
-        throw new Error("Failed to get image.");
-      }
-    } catch (error) {
-      toast({
-        title: "Error",
-        description: "Could not generate image. Please try again.",
-        variant: "destructive",
-      });
-    } finally {
-      setIsLoading(false);
-    }
-  };
-
   return (
     <div>
       <Form {...form}>
-        <form onSubmit={form.handleSubmit(handleSubmit)} className="space-y-6">
+        <form className="space-y-6">
           <FormField
             control={form.control}
             name="prompt"
@@ -83,43 +52,15 @@ export default function ImageGeneratorForm() {
               </FormItem>
             )}
           />
-          <Button type="submit" disabled={isLoading} className="w-full neon-glow-primary">
-            {isLoading ? (
-              <>
-                <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                Generating...
-              </>
-            ) : (
-               <>
+          <Button asChild className="w-full neon-glow-primary">
+            <Link href="https://aistudio.google.com/models/gemini-2-5-flash-image?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer">
                 {selectedImage ? <Sparkles className="mr-2 h-4 w-4" /> : <ImageIcon className="mr-2 h-4 w-4" />}
                 {selectedImage ? 'Generate Variation' : 'Generate Image'}
-              </>
-            )}
+            </Link>
           </Button>
         </form>
       </Form>
       
-      {generatedImage && (
-        <Card className="mt-8 bg-background/50">
-          <CardHeader>
-            <CardTitle className="font-headline text-2xl flex items-center gap-2">
-              <ImageIcon className="text-primary"/>
-              Here is your generated image!
-            </CardTitle>
-          </CardHeader>
-          <CardContent>
-            <div className="relative aspect-video">
-                <Image
-                    src={generatedImage}
-                    alt="Generated image"
-                    fill
-                    className="rounded-md object-contain"
-                />
-            </div>
-          </CardContent>
-        </Card>
-      )}
-
       {generatedImages.length > 0 && (
          <Card className="mt-8">
             <CardHeader>
