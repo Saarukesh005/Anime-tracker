@@ -10,7 +10,7 @@ export type User = {
   avatarUrl: string;
 };
 
-// Mock user data
+// Mock user data (In-memory storage, resets on server restart)
 const MOCK_USERS: User[] = [
   {
     id: '1',
@@ -22,21 +22,27 @@ const MOCK_USERS: User[] = [
 
 const AUTH_COOKIE_NAME = 'mock_auth_session';
 
-// Get currently logged in user
+/**
+ * Get currently logged in user based on the auth cookie value.
+ */
 export async function getAuth(): Promise<User | null> {
   const cookieStore = cookies();
   const session = cookieStore.get(AUTH_COOKIE_NAME);
 
   if (!session?.value) return null;
 
+  // Find user by the username stored in the cookie
   return MOCK_USERS.find(u => u.username === session.value) || null;
 }
 
-// Login user by username
+/**
+ * Login user by username and set the auth cookie.
+ */
 export async function login(username: string): Promise<boolean> {
   const user = MOCK_USERS.find(u => u.username === username);
 
   if (user) {
+    // Synchronously sets the cookie
     cookies().set(AUTH_COOKIE_NAME, user.username, { path: '/' });
     return true;
   }
@@ -44,7 +50,9 @@ export async function login(username: string): Promise<boolean> {
   return false;
 }
 
-// Create a new user
+/**
+ * Create a new user and add them to the mock store.
+ */
 export async function createUser(data: { email: string; username: string }): Promise<User> {
   const existingUser = MOCK_USERS.find(
     u => u.username === data.username || u.email === data.email
@@ -64,6 +72,10 @@ export async function createUser(data: { email: string; username: string }): Pro
   return newUser;
 }
 
+/**
+ * Logout user by deleting the auth cookie.
+ */
 export async function logout() {
+  // Synchronously deletes the cookie
   cookies().delete(AUTH_COOKIE_NAME);
 }
