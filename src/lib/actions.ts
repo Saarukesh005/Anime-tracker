@@ -22,10 +22,16 @@ export async function generateImageAction(input: GenerateImageInput): Promise<Ge
     return await generateImage(input);
   } catch (error) {
     console.error('Error in generateImageAction:', error);
-    // Re-throw the original error to be caught by the client
+    
     if (error instanceof Error) {
+      // Check for the specific 429 rate limit error
+      if (error.message.includes('429')) {
+        throw new Error('You have exceeded the request limit. Please wait a moment and try again.');
+      }
+      // Re-throw the original error for other cases
       throw new Error(error.message);
     }
+    
     throw new Error('An unknown error occurred during image generation.');
   }
 }
