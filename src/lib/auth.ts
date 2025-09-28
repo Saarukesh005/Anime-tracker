@@ -34,16 +34,13 @@ export async function getAuth(): Promise<User | null> {
   return null;
 }
 
-export async function login(username: string, password?: string): Promise<{ success: boolean }> {
-  const user = MOCK_USERS.find(u => u.username === username);
-
+// Simplified login for the hardcoded form.
+export async function login() {
+  const user = MOCK_USERS[0]; // Always log in the first user
   if (user) {
     const cookieStore = cookies();
     cookieStore.set(AUTH_COOKIE_NAME, user.id, { path: '/', httpOnly: true });
-    return { success: true };
   }
-  
-  return { success: false };
 }
 
 export async function logout() {
@@ -51,10 +48,7 @@ export async function logout() {
   cookieStore.delete(AUTH_COOKIE_NAME);
 }
 
-
 export async function createUser(data: { email: string, username: string }): Promise<User> {
-  // In a real app, this would create a user in a database.
-  // Here, we just return a new mock user object.
   const newUser: User = {
     id: (MOCK_USERS.length + 1).toString(),
     email: data.email,
