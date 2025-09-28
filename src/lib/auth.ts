@@ -1,3 +1,4 @@
+
 // This is a mock authentication library.
 // In a real application, this would be replaced with a robust authentication system.
 'use server';
@@ -34,13 +35,16 @@ export async function getAuth(): Promise<User | null> {
   return null;
 }
 
-// Simplified login for the hardcoded form.
-export async function login() {
-  const user = MOCK_USERS[0]; // Always log in the first user
+export async function login(username: string): Promise<{ success: boolean }> {
+  const cookieStore = cookies();
+  const user = MOCK_USERS.find(u => u.username === username);
+
   if (user) {
-    const cookieStore = cookies();
     cookieStore.set(AUTH_COOKIE_NAME, user.id, { path: '/', httpOnly: true });
+    return { success: true };
   }
+
+  return { success: false };
 }
 
 export async function logout() {
