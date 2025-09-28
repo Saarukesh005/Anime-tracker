@@ -24,7 +24,8 @@ const MOCK_USER: User = {
 const AUTH_COOKIE_NAME = 'mock_auth_session';
 
 export async function getAuth(): Promise<User | null> {
-  // This is the crucial change: it prevents the server from caching the auth state.
+  // This prevents the server from caching the user's authentication state,
+  // ensuring it's checked on every request.
   noStore();
   
   const cookieStore = cookies();
@@ -49,14 +50,11 @@ export async function logout() {
 
 export async function createUser(data: { email: string, username: string }): Promise<User> {
   // This is a mock function, it doesn't actually save the user
-  // It just returns a user object based on the input for the session
   const newUser: User = {
-    id: '2', // A different ID for a new user
+    id: '2', 
     email: data.email,
     username: data.username,
     avatarUrl: `https://picsum.photos/seed/${data.username}/40/40`,
   };
-  // In this simplified version, we'll just log in as the main MOCK_USER
-  // A real implementation would store the newUser info
-  return MOCK_USER;
+  return newUser;
 }
