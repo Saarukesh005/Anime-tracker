@@ -1,6 +1,4 @@
 
-'use client';
-
 import { allAnime } from '@/lib/anime';
 import { placeholderImages } from '@/lib/placeholder-images.json';
 import Image from 'next/image';
@@ -11,92 +9,29 @@ import { Button } from '@/components/ui/button';
 import { Progress } from '@/components/ui/progress';
 import { Separator } from '@/components/ui/separator';
 import { Clapperboard, Star, Tv } from 'lucide-react';
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import CommentSection from '@/components/comment-section';
-import { useEffect, useMemo, useState } from 'react';
+import EpisodeList from '@/components/episode-list';
 import type { Anime } from '@/lib/types';
-import { Checkbox } from '@/components/ui/checkbox';
-import { Skeleton } from '@/components/ui/skeleton';
 
 type Props = {
   params: { id: string };
 };
 
 export default function AnimeDetailPage({ params }: Props) {
-  const [anime, setAnime] = useState<Anime | undefined>(undefined);
-
-  useEffect(() => {
-    // Find the anime on the client side after the component has mounted.
-    // This avoids the server-side rendering issue with accessing params directly.
-    const currentAnime = allAnime.find((a) => a.id.toString() === params.id);
-    setAnime(currentAnime);
-  }, [params.id]);
-
-  const watchedEpisodesCount = useMemo(() => {
-    if (!anime) return 0;
-    return anime.seasons.reduce((count, season) => {
-      return count + season.episodes.filter(ep => ep.watched).length;
-    }, 0);
-  }, [anime]);
-
-  const handleWatchToggle = (seasonNumber: number, episodeId: number) => {
-    setAnime(prevAnime => {
-      if (!prevAnime) return prevAnime;
-
-      const newSeasons = prevAnime.seasons.map(season => {
-        if (season.seasonNumber === seasonNumber) {
-          const newEpisodes = season.episodes.map(episode => {
-            if (episode.id === episodeId) {
-              return { ...episode, watched: !episode.watched };
-            }
-            return episode;
-          });
-          return { ...season, episodes: newEpisodes };
-        }
-        return season;
-      });
-
-      return { ...prevAnime, seasons: newSeasons };
-    });
-  };
-
-  if (anime === undefined) {
-    // Still loading the anime data
-    return (
-      <div className="max-w-6xl mx-auto">
-        <div className="grid md:grid-cols-3 gap-8">
-            <div className="md:col-span-1 space-y-6">
-                <Skeleton className="rounded-xl w-full h-[600px]" />
-                <Skeleton className="w-full h-[150px]" />
-                <Skeleton className="w-full h-[100px]" />
-            </div>
-            <div className="md:col-span-2 space-y-8">
-                <Skeleton className="w-3/4 h-12" />
-                <Skeleton className="w-1/2 h-6" />
-                <div className="flex flex-wrap gap-2">
-                    <Skeleton className="w-20 h-8" />
-                    <Skeleton className="w-24 h-8" />
-                    <Skeleton className="w-16 h-8" />
-                </div>
-                <div className="space-y-2">
-                    <Skeleton className="w-full h-5" />
-                    <Skeleton className="w-full h-5" />
-                    <Skeleton className="w-3/4 h-5" />
-                </div>
-                 <Skeleton className="w-full h-[400px]" />
-            </div>
-        </div>
-      </div>
-    );
-  }
+  const anime: Anime | undefined = allAnime.find((a) => a.id.toString() === params.id);
 
   if (!anime) {
-    // Anime not found after trying to load
     notFound();
   }
 
   const coverImage = placeholderImages.find(p => p.id === anime.coverImageId);
+  
+  // Note: Progress calculation will now be handled within the client component
+  const watchedEpisodesCount = anime.seasons.reduce((count, season) => {
+    return count + season.episodes.filter(ep => ep.watched).length;
+  }, 0);
   const progress = (watchedEpisodesCount / anime.totalEpisodes) * 100;
+
 
   return (
     <div className="max-w-6xl mx-auto">
@@ -149,32 +84,7 @@ export default function AnimeDetailPage({ params }: Props) {
           
           <Separator className="my-8" />
 
-          <div>
-            <h2 className="text-3xl font-bold font-headline mb-6">Seasons & Episodes</h2>
-             <Accordion type="single" collapsible className="w-full">
-                {anime.seasons.map((season) => (
-                    <AccordionItem value={`season-${season.seasonNumber}`} key={season.seasonNumber}>
-                    <AccordionTrigger>
-                        <h3 className="text-xl font-semibold">Season {season.seasonNumber}</h3>
-                    </AccordionTrigger>
-                    <AccordionContent>
-                       <ul className="space-y-2 pl-4 text-foreground">
-                          {season.episodes.map((episode) => (
-                              <li key={episode.id} className="flex items-center justify-between p-2 rounded-md hover:bg-muted/50">
-                                  <label htmlFor={`ep-${episode.id}`} className="flex-grow cursor-pointer">{episode.title}</label>
-                                  <Checkbox 
-                                    id={`ep-${episode.id}`} 
-                                    checked={episode.watched}
-                                    onCheckedChange={() => handleWatchToggle(season.seasonNumber, episode.id)}
-                                  />
-                              </li>
-                          ))}
-                        </ul>
-                    </AccordionContent>
-                    </AccordionItem>
-                ))}
-            </Accordion>
-          </div>
+          <EpisodeList initialAnime={anime} />
 
           <Separator className="my-8" />
 
