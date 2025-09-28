@@ -1,9 +1,10 @@
-
 // This is a mock authentication library.
 // In a real application, this would be replaced with a robust authentication system.
 'use server';
 
 import { cookies } from 'next/headers';
+import { unstable_noStore as noStore } from 'next/cache';
+
 
 export type User = {
   id: string;
@@ -12,53 +13,50 @@ export type User = {
   avatarUrl: string;
 };
 
-// Mock user database
-const MOCK_USERS: User[] = [
-  {
-    id: '1',
-    username: 'AnimeFan_22',
-    email: 'user@example.com',
-    avatarUrl: 'https://picsum.photos/seed/user1/40/40',
-  }
-];
+// Mock user data
+const MOCK_USER: User = {
+  id: '1',
+  username: 'AnimeFan_22',
+  email: 'user@example.com',
+  avatarUrl: 'https://picsum.photos/seed/user1/40/40',
+};
 
 const AUTH_COOKIE_NAME = 'mock_auth_session';
 
 export async function getAuth(): Promise<User | null> {
+  // This is the crucial change: it prevents the server from caching the auth state.
+  noStore();
+  
   const cookieStore = cookies();
-  const userId = cookieStore.get(AUTH_COOKIE_NAME)?.value;
+  const session = cookieStore.get(AUTH_COOKIE_NAME);
 
-  if (userId) {
-    return MOCK_USERS.find(user => user.id === userId) || null;
+  if (session?.value === 'true') {
+    return MOCK_USER;
   }
 
   return null;
 }
 
-export async function login(username: string): Promise<{ success: boolean }> {
+export async function login() {
   const cookieStore = cookies();
-  const user = MOCK_USERS.find(u => u.username === username);
-
-  if (user) {
-    cookieStore.set(AUTH_COOKIE_NAME, user.id, { path: '/', httpOnly: true });
-    return { success: true };
-  }
-
-  return { success: false };
+  cookieStore.set(AUTH_COOKIE_NAME, 'true', { path: '/' });
 }
 
 export async function logout() {
   const cookieStore = cookies();
-  cookieStore.delete(AUTH_COOKIE_NAME);
+  cookieStore.set(AUTH_COOKIE_NAME, 'false', { path: '/' });
 }
 
 export async function createUser(data: { email: string, username: string }): Promise<User> {
+  // This is a mock function, it doesn't actually save the user
+  // It just returns a user object based on the input for the session
   const newUser: User = {
-    id: (MOCK_USERS.length + 1).toString(),
+    id: '2', // A different ID for a new user
     email: data.email,
     username: data.username,
     avatarUrl: `https://picsum.photos/seed/${data.username}/40/40`,
   };
-  MOCK_USERS.push(newUser);
-  return newUser;
+  // In this simplified version, we'll just log in as the main MOCK_USER
+  // A real implementation would store the newUser info
+  return MOCK_USER;
 }
